@@ -1,0 +1,410 @@
+/* Tabla de clasificación local y enlace para compartir diseño (B8) */
+.cl-contenedor {
+  margin-top: 14px;
+  padding: 16px;
+  background: #0d1f2ecc;
+  border: 1px solid #2e4a5c;
+  border-radius: 14px;
+  color: #dceaf4;
+  font-family: Inter, system-ui, sans-serif;
+  box-sizing: border-box;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.cl-cabecera {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.cl-cabecera-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.cl-mision-badge {
+  display: inline-block;
+  align-self: flex-start;
+  font: 10px monospace;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #7bdce9;
+  background: #0a1924;
+  border: 1px solid #2e4a5c;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.cl-cabecera h3 {
+  margin: 4px 0 2px;
+  font-size: 18px;
+  color: #e2fff9;
+  letter-spacing: -.01em;
+}
+
+.cl-subtitulo {
+  margin: 0;
+  font-size: 12px;
+  color: #9eb7c9;
+}
+
+.cl-compartir-zona {
+  display: flex;
+  align-items: center;
+}
+
+.cl-btn-compartir {
+  min-height: 40px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid #5cc8ff;
+  background: #091a27;
+  color: #7bdce9;
+  font: 12px monospace;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .15s ease;
+  white-space: nowrap;
+}
+
+.cl-btn-compartir:hover {
+  background: #113149;
+  border-color: #8be0ff;
+  color: #b8f8df;
+}
+
+.cl-btn-compartir.copiado {
+  background: #123a2b;
+  border-color: #3fbf8a;
+  color: #86f2d9;
+}
+
+.cl-btn-compartir.error {
+  background: #3a1612;
+  border-color: #ff6b5c;
+  color: #ff9b8e;
+}
+
+/* Caja para guardar puntaje */
+.cl-guardar-box {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  margin-bottom: 14px;
+  background: #091724;
+  border: 1px solid #3c5b6e;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.cl-guardar-cab {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cl-guardar-puntaje {
+  font-size: 13px;
+  font-weight: 600;
+  color: #ffd166;
+  font-family: monospace;
+}
+
+.cl-guardar-campos {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.cl-input-nombre {
+  flex: 1 1 180px;
+  min-width: 0;
+  min-height: 40px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #3c5b6e;
+  background: #08151f;
+  color: #eaf6fb;
+  font: inherit;
+  font-size: 13px;
+  box-sizing: border-box;
+}
+
+.cl-input-nombre:focus-visible {
+  outline: 2px solid #7bdce9;
+  outline-offset: 1px;
+}
+
+.cl-btn-guardar {
+  min-height: 40px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid #3fbf8a;
+  background: #123a2b;
+  color: #86f2d9;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .15s ease;
+  white-space: nowrap;
+}
+
+.cl-btn-guardar:hover:not(:disabled) {
+  background: #194f3b;
+  border-color: #5ff0b4;
+}
+
+.cl-btn-guardar:disabled {
+  opacity: .7;
+  cursor: default;
+}
+
+.cl-btn-guardar.guardado {
+  background: #0e271e;
+  border-color: #2e7a5a;
+  color: #7fe3b0;
+}
+
+.cl-vacio {
+  margin: 12px 0 6px;
+  font-size: 13px;
+  color: #9eb7c9;
+  text-align: center;
+  padding: 16px 8px;
+}
+
+/* Tabla para pantallas medianas y grandes */
+.cl-tabla {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+.cl-tabla th {
+  padding: 8px 10px;
+  text-align: left;
+  font: 10px monospace;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #97e4d6;
+  border-bottom: 1px solid #6edcce40;
+}
+
+.cl-th-pos {
+  width: 52px;
+  text-align: center !important;
+}
+
+.cl-th-puntaje {
+  width: 75px;
+  text-align: right !important;
+}
+
+.cl-th-fecha {
+  width: 120px;
+  text-align: right !important;
+}
+
+.cl-tabla td {
+  padding: 9px 10px;
+  border-bottom: 1px solid #6edcce18;
+}
+
+.cl-td-pos {
+  text-align: center;
+}
+
+.cl-td-nombre {
+  word-break: break-word;
+}
+
+.cl-td-puntaje {
+  text-align: right;
+  font-family: monospace;
+  font-size: 14px;
+}
+
+.cl-td-fecha {
+  text-align: right;
+  font-size: 11px;
+  color: #9eb7c9;
+  font-family: monospace;
+}
+
+.cl-pos-badge {
+  font-family: monospace;
+  font-weight: 700;
+  color: #9eb7c9;
+}
+
+.cl-fila.top-1 td {
+  background: #ffd16612;
+}
+
+.cl-fila.top-1 .cl-puntaje-valor {
+  color: #ffd166;
+  font-weight: 700;
+}
+
+.cl-fila.top-2 td {
+  background: #dceaf40e;
+}
+
+.cl-fila.top-2 .cl-puntaje-valor {
+  color: #dceaf4;
+  font-weight: 700;
+}
+
+.cl-fila.top-3 td {
+  background: #e0a0400e;
+}
+
+.cl-fila.top-3 .cl-puntaje-valor {
+  color: #e0a040;
+  font-weight: 700;
+}
+
+.cl-fila.actual td {
+  box-shadow: inset 0 1px #ffcb7b, inset 0 -1px #ffcb7b;
+}
+
+.cl-etiqueta-actual {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 1px 6px;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 600;
+  border-radius: 99px;
+  background: #ffcb7b;
+  color: #2a1a04;
+}
+
+/* Tarjetas apiladas para móviles (≤ 700px) */
+.cl-tarjetas {
+  display: none;
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+  gap: 8px;
+}
+
+.cl-tarjeta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #091724;
+  border: 1px solid #253e4f;
+  box-sizing: border-box;
+}
+
+.cl-tarjeta.top-1 {
+  border-color: #ffd16666;
+  background: #172018aa;
+}
+
+.cl-tarjeta.top-2 {
+  border-color: #dceaf466;
+}
+
+.cl-tarjeta.top-3 {
+  border-color: #e0a04066;
+}
+
+.cl-tarjeta.actual {
+  outline: 1px solid #ffcb7b;
+}
+
+.cl-tarjeta-pos {
+  flex: 0 0 32px;
+  text-align: center;
+  font-size: 16px;
+}
+
+.cl-tarjeta-datos {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.cl-tarjeta-nom {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.cl-tarjeta-nom strong {
+  font-size: 13px;
+  color: #eaf6fb;
+  word-break: break-word;
+}
+
+.cl-tarjeta-fecha {
+  font-size: 10px;
+  color: #9eb7c9;
+  font-family: monospace;
+}
+
+.cl-tarjeta-puntaje {
+  flex: 0 0 auto;
+  text-align: right;
+  font-family: monospace;
+  font-size: 18px;
+  color: #86f2d9;
+}
+
+.cl-tarjeta.top-1 .cl-tarjeta-puntaje {
+  color: #ffd166;
+}
+
+/* Responsive: 700px y menos */
+@media (max-width: 700px) {
+  .cl-tabla {
+    display: none;
+  }
+  .cl-tarjetas {
+    display: grid;
+  }
+  .cl-cabecera {
+    flex-direction: column;
+  }
+  .cl-compartir-zona {
+    width: 100%;
+  }
+  .cl-btn-compartir {
+    width: 100%;
+    text-align: center;
+  }
+  .cl-guardar-campos {
+    flex-direction: column;
+  }
+  .cl-btn-guardar {
+    width: 100%;
+  }
+}
+
+/* A 390px aseguramos cero scroll horizontal */
+@media (max-width: 390px) {
+  .cl-contenedor {
+    padding: 12px 10px;
+  }
+  .cl-tarjeta {
+    padding: 8px 10px;
+    gap: 8px;
+  }
+  .cl-tarjeta-puntaje {
+    font-size: 16px;
+  }
+}

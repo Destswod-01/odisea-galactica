@@ -1,0 +1,36 @@
+/* Informe final organizado: héroe con puntaje desglosado + pestañas (menos texto a la vez). */
+.informe-v2 .inf-hero{display:grid;grid-template-columns:auto auto minmax(0,1fr) auto;gap:18px;align-items:center}
+.informe-v2 .inf-hero .medalla-grande{width:120px}
+.informe-v2 .inf-puntaje h1{margin:2px 0 8px}
+.informe-v2 .inf-partes{list-style:none;margin:0;padding:0;display:grid;gap:5px;max-width:440px}
+.informe-v2 .inf-partes li{display:grid;grid-template-columns:110px minmax(0,1fr) 48px;align-items:center;gap:8px;font-size:13px}
+.informe-v2 .inf-partes i{display:block;height:8px;border-radius:4px;background:#1d3444;overflow:hidden}
+.informe-v2 .inf-partes em{display:block;height:100%;border-radius:4px}
+.informe-v2 .inf-partes em.bien{background:#3dff9e}.informe-v2 .inf-partes em.medio{background:#ffd390}.informe-v2 .inf-partes em.bajo{background:#ff8a6a}
+.informe-v2 .inf-partes b{font:700 12px 'JetBrains Mono',monospace;text-align:right}
+.informe-v2 .inf-acciones{display:grid;gap:8px;margin:0}
+.informe-v2 .inf-pestanas{display:flex;gap:6px;padding:4px;border-radius:12px;background:#08111b;border:1px solid #2c4356}
+.informe-v2 .inf-pestanas button{flex:1;min-width:0;padding:10px 8px;border-radius:9px;border:0;background:transparent;color:#a9c4d4;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.informe-v2 .inf-pestanas button.activa{background:#16324a;color:#fff;box-shadow:inset 0 -2px 0 #5cc8ff}
+.informe-v2 .inf-chips{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:8px}
+.informe-v2 .inf-chips li{margin:0;display:flex;gap:8px;align-items:flex-start;padding:8px 10px;border-radius:10px;background:#0b1a28;border:1px solid #2c4356;font-size:14px}
+.informe-v2 .inf-chips li.bien{border-color:#2f7d5b}.informe-v2 .inf-chips li.aviso{border-color:#9a7a2f}.informe-v2 .inf-chips li.mal{border-color:#9a3f2f}
+.informe-v2 .inf-mas{margin-top:10px}
+.informe-v2 .inf-mas summary{cursor:pointer;font-weight:700;color:#9fd3e3}
+.informe-v2 .inf-tabla{overflow-x:auto}
+.informe-v2 .inf-bitacora{display:grid;gap:4px;padding-left:18px;margin:0}
+@media(max-width:700px){
+  .informe-v2 .inf-hero{grid-template-columns:auto minmax(0,1fr);gap:10px}
+  .informe-v2 .inf-hero .medalla-grande{width:72px}
+  .informe-v2 .inf-hero>.medalla{display:none}
+  .informe-v2 .inf-puntaje{grid-column:1 / -1}
+  .informe-v2 .inf-partes li{grid-template-columns:96px minmax(0,1fr) 44px;font-size:12px}
+  .informe-v2 .inf-acciones{grid-column:1 / -1;grid-template-columns:1fr 1fr}
+  .informe-v2 .inf-pestanas button{padding:9px 4px;font-size:12px}
+  .informe-v2 .inf-chips{grid-template-columns:1fr}
+}
+@media(max-width:430px){.informe-v2 .inf-pestanas{gap:3px}.informe-v2 .inf-pestanas button>span{display:none}}
+
+/* Contador de regreso al menú. */
+.informe-v2 .inf-contador{grid-column:1 / -1;margin:0;font-size:13px;color:#ffd390;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.informe-v2 .inf-quedarse{min-height:0;padding:4px 10px;font-size:12px;background:transparent;border:1px solid #ffd39088;color:#ffd390}

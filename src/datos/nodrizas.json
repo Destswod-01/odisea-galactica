@@ -1,0 +1,338 @@
+{
+  "programa": {
+    "codigo": "ASTRION-X",
+    "titulo": "ASTRION-X",
+    "subtitulo": "Dron de Exploración y Sondeo Espacial Avanzado",
+    "pilares": ["Explora", "Analiza", "Despliega", "Transmite"],
+    "lema": "Una plataforma autónoma para descubrir lo desconocido",
+    "pie_proyecto": "Proyecto ASTRION-X",
+    "pie_descripcion": "Hacia una exploración espacial más inteligente, autónoma y científica."
+  },
+  "modelos": [
+    {
+      "id": "astrion_x",
+      "codigo": "ASTRION-X",
+      "nombre": "ASTRION-X · Plataforma Insignia",
+      "rol": "Exploración y Sondeo Espacial Avanzado Multirol",
+      "resumen": "Configuración estándar del programa ASTRION con casco octagonal blindado, 4 alas solares articuladas en X, antena híbrida láser/radio de banda profunda, núcleo autónomo ASTRION-CORE y bahía frontal de despliegue modular.",
+      "acento": "#38bdf8",
+      "secundario": "#f59e0b",
+      "casco": "#e6edf5",
+      "especificaciones": {
+        "diametro": "18 m",
+        "diametro_m": 18,
+        "altura": "3.5 m",
+        "altura_m": 3.5,
+        "masa_total": "2,500 kg",
+        "masa_kg": 2500,
+        "carga_util": "400 kg",
+        "carga_util_kg": 400,
+        "autonomia": "10+ años",
+        "autonomia_anos": 10,
+        "propulsion": "Iónica + Química",
+        "energia": "Solar + RTG + Baterías",
+        "alcance": "Sistema Solar y más"
+      },
+      "metricas": {
+        "potencia_w": 6400,
+        "delta_v_ms": 8200,
+        "enlace_gbps": 2.4,
+        "blindaje_rad": 88,
+        "bahia_slots": 6
+      },
+      "configuracion_3d": {
+        "ladosCasco": 8,
+        "radioCasco": 2.35,
+        "alturaCasco": 1.15,
+        "numPaneles": 4,
+        "largoPanel": 3.85,
+        "anchoPanel": 1.55,
+        "anguloPaneles": [0.62, 2.52, -2.52, -0.62],
+        "radioPlato": 1.05,
+        "rtg": 2,
+        "toberasIonicas": 4
+      }
+    },
+    {
+      "id": "astrion_v",
+      "codigo": "ASTRION-V",
+      "nombre": "ASTRION-V · Vanguardia Profunda",
+      "rol": "Nodriza Pesada para Gigantes Gaseosos y Cinturón de Kuiper",
+      "resumen": "Variante acorazada de espacio exterior con bóveda de radiación de titanio-tantalio, 6 paneles concentradores de baja insolación, 4 generadores nucleares RTG de alta potencia y antena Cassegrain de doble banda.",
+      "acento": "#22d3ee",
+      "secundario": "#fb923c",
+      "casco": "#d5dfe9",
+      "especificaciones": {
+        "diametro": "22 m",
+        "diametro_m": 22,
+        "altura": "4.2 m",
+        "altura_m": 4.2,
+        "masa_total": "3,400 kg",
+        "masa_kg": 3400,
+        "carga_util": "600 kg",
+        "carga_util_kg": 600,
+        "autonomia": "15+ años",
+        "autonomia_anos": 15,
+        "propulsion": "Iónica NEXT-C + Bipropelente",
+        "energia": "4× RTG + Solar Concentrador + Baterías",
+        "alcance": "Sistema Solar Exterior y Cinturón de Kuiper"
+      },
+      "metricas": {
+        "potencia_w": 8900,
+        "delta_v_ms": 11500,
+        "enlace_gbps": 4.0,
+        "blindaje_rad": 98,
+        "bahia_slots": 9
+      },
+      "configuracion_3d": {
+        "ladosCasco": 8,
+        "radioCasco": 2.65,
+        "alturaCasco": 1.38,
+        "numPaneles": 6,
+        "largoPanel": 4.35,
+        "anchoPanel": 1.35,
+        "anguloPaneles": [0.52, 1.57, 2.62, -2.62, -1.57, -0.52],
+        "radioPlato": 1.32,
+        "rtg": 4,
+        "toberasIonicas": 6
+      }
+    },
+    {
+      "id": "astrion_s",
+      "codigo": "ASTRION-S",
+      "nombre": "ASTRION-S · Centinela Táctico",
+      "rol": "Reconocimiento Orbital Rápido y Despliegue de Precisión",
+      "resumen": "Chasis furtivo de baja masa con alas solares dobles en flecha de triple unión, domo óptico LIDAR de barrido 360°, riel magnético de inserción rápida y propulsión por efecto Hall de alto empuje específico.",
+      "acento": "#60a5fa",
+      "secundario": "#34d399",
+      "casco": "#f1f5f9",
+      "especificaciones": {
+        "diametro": "14 m",
+        "diametro_m": 14,
+        "altura": "2.8 m",
+        "altura_m": 2.8,
+        "masa_total": "1,850 kg",
+        "masa_kg": 1850,
+        "carga_util": "280 kg",
+        "carga_util_kg": 280,
+        "autonomia": "8+ años",
+        "autonomia_anos": 8,
+        "propulsion": "Efecto Hall + Química Vectorial",
+        "energia": "Solar Triple Unión + Baterías Sólidas",
+        "alcance": "Planetas Rocosos y Asteroides Cercanos"
+      },
+      "metricas": {
+        "potencia_w": 5200,
+        "delta_v_ms": 6800,
+        "enlace_gbps": 3.2,
+        "blindaje_rad": 76,
+        "bahia_slots": 4
+      },
+      "configuracion_3d": {
+        "ladosCasco": 6,
+        "radioCasco": 2.05,
+        "alturaCasco": 0.96,
+        "numPaneles": 4,
+        "largoPanel": 3.25,
+        "anchoPanel": 1.25,
+        "anguloPaneles": [0.42, 2.72, -2.72, -0.42],
+        "radioPlato": 0.86,
+        "rtg": 1,
+        "toberasIonicas": 3
+      }
+    }
+  ],
+  "tecnologias_clave": [
+    {
+      "id": "energia_hibrida",
+      "icono": "⚡",
+      "titulo": "Energía Híbrida",
+      "subtitulo": "(Solar + RTG + Baterías)",
+      "detalle": "Conmutación automática entre paneles fotovoltaicos multijuntura en el Sistema Solar interior y generadores termoeléctricos de radioisótopos en zonas de sombra o espacio profundo."
+    },
+    {
+      "id": "propulsion_eficiente",
+      "icono": "🚀",
+      "titulo": "Propulsión Eficiente",
+      "subtitulo": "(Iónica y Química)",
+      "detalle": "Propulsores iónicos de xenón para crucero interplanetario continuo de alto impulso específico y motores químicos hiperbólicos para maniobras críticas de captura orbital."
+    },
+    {
+      "id": "ia_autonoma",
+      "icono": "🧠",
+      "titulo": "IA Autónoma",
+      "subtitulo": "(Aprendizaje y Decisión)",
+      "detalle": "El núcleo ASTRION-CORE evalúa riesgos orbitales, selecciona objetivos científicos prioritarios y coordina maniobras sin esperar latencia de control desde la Tierra."
+    },
+    {
+      "id": "despliegue_inteligente",
+      "icono": "🛸",
+      "titulo": "Despliegue Inteligente",
+      "subtitulo": "(Microdrones Multirol)",
+      "detalle": "Bahía frontal presurizada y rieles de eyección electromagnética con telemetría láser para liberar sondas orbitales, de superficie y atmosféricas."
+    },
+    {
+      "id": "comunicacion_avanzada",
+      "icono": "📡",
+      "titulo": "Comunicación Avanzada",
+      "subtitulo": "(Radio + Láser)",
+      "detalle": "Enlace óptico láser de espacio profundo (DSOC) combinado con antena parabólica de banda X/Ka para transmitir terabytes de ciencia a la Red del Espacio Profundo (DSN)."
+    },
+    {
+      "id": "almacenamiento_masivo",
+      "icono": "💾",
+      "titulo": "Almacenamiento Masivo",
+      "subtitulo": "(20 TB Redundantes)",
+      "detalle": "Arreglo de memoria de estado sólido tolerante a radiación (RAD-SSD) con corrección de errores ECC y cifrado de telemetría."
+    }
+  ],
+  "sistemas_principales": [
+    {
+      "id": "exploracion_cientifica",
+      "foco": "sensores",
+      "icono": "🎯",
+      "titulo": "Exploración Científica",
+      "subtitulo": "(Sensores y Espectrómetros)",
+      "detalle": "Anillo perimetral de espectrómetros infrarrojos, cámaras multiespectrales HD, magnetómetros y radar de penetración subsuperficial."
+    },
+    {
+      "id": "gestion_recursos",
+      "foco": "paneles",
+      "icono": "🔋",
+      "titulo": "Gestión de Recursos",
+      "subtitulo": "(Energía y Térmica)",
+      "detalle": "Distribución inteligente de carga eléctrica, radiadores activos de bucle fluido y aislamiento multicapa (MLI) dorado."
+    },
+    {
+      "id": "navegacion_precisa",
+      "foco": "nucleo",
+      "icono": "🧭",
+      "titulo": "Navegación Precisa",
+      "subtitulo": "(Gravedad y Órbita)",
+      "detalle": "Rastreadores estelares triples, unidad de medición inercial láser y navegación óptica autónoma relativa al terreno."
+    },
+    {
+      "id": "despliegue_drones",
+      "foco": "bahia",
+      "icono": "⚓",
+      "titulo": "Despliegue de Drones",
+      "subtitulo": "(Mecanismo Modular)",
+      "detalle": "Bahía frontal con compuerta articulada, rieles guía iluminados, haz óptico de alineación y puerto estándar de acoplamiento para el subsistema de mini-drones."
+    },
+    {
+      "id": "almacenamiento_datos",
+      "foco": "antena",
+      "icono": "🗄️",
+      "titulo": "Almacenamiento de Datos",
+      "subtitulo": "(Compresión y Seguridad)",
+      "detalle": "Buffers redundantes de 20 TB y compresión neuronal en tiempo real enlazados al transceptor de banda profunda."
+    }
+  ],
+  "puntos_inspeccion": [
+    {
+      "id": "general",
+      "nombre": "Vista Póster",
+      "etiqueta": "Plataforma Completa",
+      "posicion3D": [0, 0.2, 0],
+      "camara": [5.4, 4.3, 13.4],
+      "objetivo": [0, -0.25, 0],
+      "descripcion": "Vista panorámica de la nave nodriza en el garage orbital con todos sus subsistemas desplegados."
+    },
+    {
+      "id": "antena",
+      "nombre": "Antena",
+      "etiqueta": "Antena de comunicación (láser y radio de banda profunda)",
+      "posicion3D": [-0.15, 1.55, -0.1],
+      "anclaEtiqueta": [-1.25, 2.35, 0],
+      "camara": [-2.8, 3.3, 6.2],
+      "objetivo": [0, 1.25, 0],
+      "descripcion": "Reflector parabólico de alta ganancia en banda X/Ka junto al cabezal óptico láser DSOC para enlaces interplanetarios de alta velocidad."
+    },
+    {
+      "id": "nucleo",
+      "nombre": "Núcleo IA",
+      "etiqueta": "Núcleo de IA y control (ASTRION-CORE)",
+      "posicion3D": [0.85, 0.95, -0.15],
+      "anclaEtiqueta": [1.45, 1.95, 0],
+      "camara": [3.6, 2.9, 5.8],
+      "objetivo": [0, 0.75, 0],
+      "descripcion": "Domo blindado central que aloja el procesador neuronal autónomo, los rastreadores estelares y la aviónica de mando."
+    },
+    {
+      "id": "bahia",
+      "nombre": "Bahía Drones",
+      "etiqueta": "Bahía de Despliegue de Mini Drones",
+      "posicion3D": [0, -0.18, 2.15],
+      "anclaEtiqueta": [-1.55, -0.52, 2.35],
+      "camara": [2.1, 0.85, 6.4],
+      "objetivo": [0, -0.15, 1.3],
+      "descripcion": "Hangar frontal modular con rampa articulada, rieles magnéticos iluminados y haz guía de lanzamiento (interfaz lista para el módulo externo de mini-drones)."
+    },
+    {
+      "id": "paneles",
+      "nombre": "Alas + RTG",
+      "etiqueta": "Sistema de Energía Híbrida",
+      "posicion3D": [4.2, 0.25, 1.8],
+      "camara": [7.8, 4.4, 8.2],
+      "objetivo": [1.5, 0.1, 0.4],
+      "descripcion": "Paneles fotovoltaicos articulados de alta eficiencia respaldados por generadores de radioisótopos y baterías de estado sólido."
+    },
+    {
+      "id": "propulsion",
+      "nombre": "Propulsión",
+      "etiqueta": "Propulsión Iónica + Química",
+      "posicion3D": [0, -0.95, -1.8],
+      "camara": [-4.8, -1.1, -7.2],
+      "objetivo": [0, -0.35, 0],
+      "descripcion": "Anillos emisores de plasma iónico de xenón de empuje continuo y toberas químicas vectoriales para inserción orbital."
+    }
+  ],
+  "ciclo_mision": [
+    {
+      "paso": 1,
+      "id": "lanzamiento",
+      "nombre": "1. Lanzamiento",
+      "icono": "🚀",
+      "descripcion": "La nodriza viaja plegada dentro de la cofia del lanzador pesado hasta alcanzar la órbita de escape.",
+      "estadoSimulado": { "desplegado": 0.08, "bahiaAbierta": false, "propulsionActiva": true, "escanerActivo": false, "laserActivo": false }
+    },
+    {
+      "paso": 2,
+      "id": "navegacion",
+      "nombre": "2. Navegación",
+      "icono": "🪐",
+      "descripcion": "Despliegue de paneles solares y encendido de los propulsores iónicos guiados por ASTRION-CORE.",
+      "estadoSimulado": { "desplegado": 1, "bahiaAbierta": false, "propulsionActiva": true, "escanerActivo": false, "laserActivo": false }
+    },
+    {
+      "paso": 3,
+      "id": "exploracion",
+      "nombre": "3. Exploración",
+      "icono": "🔍",
+      "descripcion": "Mapeo orbital mediante sensores y espectrómetros para seleccionar las zonas óptimas de estudio.",
+      "estadoSimulado": { "desplegado": 1, "bahiaAbierta": false, "propulsionActiva": false, "escanerActivo": true, "laserActivo": false }
+    },
+    {
+      "paso": 4,
+      "id": "despliegue",
+      "nombre": "4. Despliegue",
+      "icono": "🪂",
+      "descripcion": "Apertura de la Bahía de Despliegue frontal y activación del haz guía para liberar las sondas especializadas.",
+      "estadoSimulado": { "desplegado": 1, "bahiaAbierta": true, "propulsionActiva": false, "escanerActivo": true, "laserActivo": false }
+    },
+    {
+      "paso": 5,
+      "id": "transmision",
+      "nombre": "5. Transmisión",
+      "icono": "📡",
+      "descripcion": "Recolección de telemetría distribuida y transmisión láser/radio de banda profunda hacia la Tierra.",
+      "estadoSimulado": { "desplegado": 1, "bahiaAbierta": true, "propulsionActiva": true, "escanerActivo": false, "laserActivo": true }
+    }
+  ],
+  "ventajas_clave": [
+    "Exploración integral (órbita, superficie y atmósfera)",
+    "Autonomía y toma de decisiones",
+    "Uso eficiente de recursos",
+    "Red de sondeo distribuida"
+  ]
+}

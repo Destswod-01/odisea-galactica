@@ -1,0 +1,7 @@
+.aviso-espejo { position: fixed; top: 54px; left: 50%; transform: translateX(-50%); z-index: 60; padding: 8px 16px; border-radius: 999px; font-size: .9rem; font-weight: 600; max-width: 92vw; text-align: center; pointer-events: none; box-shadow: 0 4px 18px rgba(0, 0, 0, .5); }
+.aviso-espejo.piloto { background: #0e5a3a; color: #d6ffe9; border: 1px solid #38e08f; animation: aviso-espejo-sale 6s forwards; }
+.aviso-espejo.espectador { background: rgba(8, 20, 38, .92); color: #cfe9ff; border: 1px solid #5aa9e6; }
+@keyframes aviso-espejo-sale { 0%, 80% { opacity: 1; } 100% { opacity: 0; } }
+/* Espectador: la pantalla del minijuego se ve en vivo pero no responde (el teclado se bloquea en App). */
+body.espejo-espectador .pantalla-juego { pointer-events: none; user-select: none; }
+body.espejo-espectador .pantalla-juego button, body.espejo-espectador .pantalla-juego input { cursor: not-allowed; }

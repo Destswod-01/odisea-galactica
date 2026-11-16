@@ -1,0 +1,311 @@
+{
+  "id": "juno",
+  "nombre": "Juno",
+  "destino": {
+    "nombre": "Júpiter",
+    "distancia_ua": 5.2,
+    "dosis_base_orbita": 9
+  },
+  "presupuesto_musd": 1250,
+  "operaciones_musd": 260,
+  "dv_requerida_ms": 2000,
+  "dv_insercion_ms": 540,
+  "ventana_insercion_ms": 40,
+  "orbitas_meta": 12,
+  "orbitas_por_bloque": 3,
+  "isp_nave_s": 317,
+  "degradacion_paneles": 0.8,
+  "bateria_wh": 3600,
+  "plazo_meses": 72,
+  "objetivos": [
+    {
+      "id": "interior",
+      "nombre": "Interior y origen de Júpiter",
+      "peso": 0.5,
+      "requerido": 8,
+      "necesitas": "Necesitas «ver» bajo las nubes y medir la gravedad: radiómetro de microondas, ciencia de gravedad, magnetómetro.",
+      "corto": "Interior"
+    },
+    {
+      "id": "atmosfera",
+      "nombre": "Atmósfera profunda",
+      "peso": 0.25,
+      "requerido": 6,
+      "necesitas": "Cámaras e instrumentos que miden calor y composición: infrarroja, radiómetro, ultravioleta.",
+      "corto": "Atmósfera"
+    },
+    {
+      "id": "magnetosfera",
+      "nombre": "Magnetósfera y auroras",
+      "peso": 0.25,
+      "requerido": 8,
+      "necesitas": "Detectores de partículas y campos: magnetómetro, partículas, ondas de plasma.",
+      "corto": "Magnetósfera"
+    }
+  ],
+  "bus": {
+    "masa_kg": 750,
+    "costo_musd": 300,
+    "consumo_w": 150
+  },
+  "calefactores": {
+    "desde_ua": 2,
+    "w_por_ua": 25
+  },
+  "real": {
+    "piezas": [
+      "panel_gigante",
+      "antena_ka",
+      "boveda_titanio",
+      "tanque_grande",
+      "mwr",
+      "gravedad",
+      "mag",
+      "jiram",
+      "particulas",
+      "uvs_waves",
+      "junocam"
+    ],
+    "cohete": "atlas_v_551",
+    "resumen": {
+      "masa_kg": 3625,
+      "masa_seca_kg": 1593,
+      "energia_jupiter_w": 400,
+      "costo_musd": 1130
+    },
+    "por_que": {
+      "energia": "En Júpiter llega 25 veces menos luz. Juno compensó con 3 alas de unos 60 m² en total: 14 kW en la Tierra se vuelven unos 400 W allá.",
+      "antena": "La banda Ka no es para más datos: permite medir la gravedad con precisión, la clave para saber si Júpiter tiene núcleo.",
+      "blindaje": "La bóveda de titanio (~200 kg, ~1 cm por cara) protege la electrónica de la radiación más intensa del sistema solar.",
+      "propulsion": "Unos 2 000 kg de propelente: más de la mitad de la nave. El frenado de llegada duró 35 minutos.",
+      "cohete": "Atlas V 551, la versión más potente del Atlas V, con 5 propulsores sólidos.",
+      "orbita": "En 2016 unas válvulas de helio fallaron. La NASA decidió no arriesgar el encendido y quedarse en la órbita de 53 días.",
+      "final": "Al terminar, Juno se hundirá en Júpiter para no contaminar Europa, que podría albergar vida."
+    }
+  },
+  "briefing": [
+    "Bienvenido de nuevo al Control de Misión.",
+    "Pregunta de la misión: ¿cómo se formó Júpiter y tiene un núcleo sólido?",
+    "Vas a investigar sobre todo el INTERIOR del planeta: elige sensores que vean bajo las nubes y midan la gravedad.",
+    "Tienes 1 250 millones de dólares, un destino a 5,2 UA y la radiación más brutal del sistema solar esperándote."
+  ],
+  "eventos": [
+    {
+      "id": "despliegue",
+      "titulo": "Despliegue de alas solares",
+      "distancia_ua": 1.0,
+      "texto": "La nave se separó del cohete. Gira sin control y la batería se gasta. ¿Desplegamos las alas ya?",
+      "opciones": [
+        {
+          "texto": "Desplegar de inmediato",
+          "efectos": {
+            "bateria_wh": -200
+          },
+          "resultado": "Despliegue correcto. Las celdas empiezan a cargar."
+        },
+        {
+          "texto": "Estabilizar primero y luego desplegar",
+          "efectos": {
+            "bateria_wh": -900,
+            "salud": 0
+          },
+          "resultado": "Más seguro, pero la batería bajó mucho esperando."
+        }
+      ]
+    },
+    {
+      "id": "dsm",
+      "titulo": "Maniobra de espacio profundo",
+      "distancia_ua": 2.5,
+      "tipo": "deslizador",
+      "texto": "Hay que encender el motor para volver hacia la Tierra y usarla de honda. ¿Cuánto empuje aplicamos?",
+      "objetivo_ms": 340,
+      "tolerancia_ms": 40,
+      "resultado_ok": "Trayectoria perfecta hacia la Tierra.",
+      "resultado_mal": "Tendremos que corregir después: gastamos propelente extra."
+    },
+    {
+      "id": "flyby",
+      "titulo": "Asistencia gravitatoria con la Tierra",
+      "distancia_ua": 1.0,
+      "tipo": "cabina",
+      "minijuego": "reinicio",
+      "texto": "¡Pasamos a 560 km de la Tierra y ganamos velocidad gratis! Pero la nave entró en modo seguro (como le pasó a la Juno real). Reinicia los sistemas en orden.",
+      "exito": {
+        "efectos": {
+          "dv_ms": 0
+        },
+        "resultado": "Sistemas recuperados. La honda gravitatoria de la Tierra nos dio velocidad sin gastar combustible."
+      },
+      "fallo": {
+        "efectos": {
+          "salud": -8,
+          "modo_seguro": 1
+        },
+        "resultado": "La recuperación tardó días y la electrónica sufrió."
+      }
+    },
+    {
+      "id": "tormenta",
+      "titulo": "Tormenta solar",
+      "distancia_ua": 3.5,
+      "tipo": "cabina",
+      "minijuego": "tormenta",
+      "texto": "Una eyección de masa coronal viene hacia nosotros. Apaga los instrumentos sensibles antes de que llegue.",
+      "exito": {
+        "efectos": {
+          "salud": -2
+        },
+        "resultado": "Instrumentos protegidos."
+      },
+      "fallo": {
+        "efectos": {
+          "salud": -15
+        },
+        "resultado": "La radiación dañó algunos circuitos."
+      }
+    },
+    {
+      "id": "antena",
+      "titulo": "Señal perdida",
+      "distancia_ua": 4.5,
+      "tipo": "cabina",
+      "minijuego": "antena",
+      "texto": "Una maniobra de orientación desvió la antena: la Tierra ya no nos escucha. Desde la cabina, gira la antena hasta recuperar la señal.",
+      "exito": {
+        "efectos": {},
+        "resultado": "Señal recuperada. En la Tierra respiran aliviados: cada mensaje tarda unos 40 minutos en llegar, aun a la velocidad de la luz."
+      },
+      "fallo": {
+        "efectos": {
+          "bateria_wh": -800,
+          "modo_seguro": 1
+        },
+        "resultado": "Sin contacto, la nave entró sola en modo seguro hasta que el control la encontró."
+      }
+    },
+    {
+      "id": "poca_luz",
+      "titulo": "Llegando a 5 UA",
+      "distancia_ua": 5.2,
+      "tipo": "energia",
+      "texto": "La luz del Sol es 25 veces más débil. Revisa la consola: si el balance es negativo, apaga lo que no necesites hasta la llegada."
+    },
+    {
+      "id": "valvula",
+      "titulo": "Válvulas de helio lentas",
+      "distancia_ua": 5.2,
+      "tipo": "decision_final",
+      "texto": "Ya en órbita de 53 días, dos válvulas de helio tardan minutos en abrir en vez de segundos. El plan era encender el motor para bajar a una órbita de 14 días.",
+      "opciones": [
+        {
+          "texto": "Arriesgar el encendido (más órbitas, más ciencia)",
+          "efectos": {
+            "riesgo": 0.35,
+            "orbitas_extra": 3
+          },
+          "resultado_ok": "¡Funcionó! Órbitas más cortas y más pasadas científicas.",
+          "resultado_mal": "El motor falló a la mitad: entramos en modo seguro y dañamos sistemas."
+        },
+        {
+          "texto": "Quedarse en la órbita de 53 días",
+          "efectos": {},
+          "resultado": "Menos pasadas, pero la nave está a salvo. Es lo que decidió la NASA en 2017.",
+          "real": true
+        }
+      ]
+    }
+  ],
+  "numero": 2,
+  "nombre_real": "Juno",
+  "recompensa": {
+    "Bronce": 250,
+    "Plata": 400,
+    "Oro": 550,
+    "Nivel JPL": 700
+  },
+  "pregunta": "¿Cómo se formó Júpiter y tiene un núcleo sólido?",
+  "crucero_texto": "El viaje dura 5 años. Te despertaremos cuando algo requiera tu decisión.",
+  "llegada_texto": "Venimos a más de 200 000 km/h. La Juno real frenó durante 35 minutos.",
+  "pistas": {
+    "cohete": "Juno es pesada: el cohete debe levantar toda la masa hacia Júpiter… sin romper el presupuesto.",
+    "propulsion": "Necesitas 2 000 m/s de Δv. Mira la barra mientras pasas el cursor.",
+    "energia": "Júpiter está 5 veces más lejos del Sol que la Tierra: la luz llega 25 veces más débil.",
+    "antena": "La señal se debilita con la distancia. ¿Algún instrumento necesita una antena especial?",
+    "blindaje": "Júpiter tiene los cinturones de radiación más intensos del sistema solar.",
+    "instrumentos": "Cubre los 3 objetivos (el interior vale la mitad). Cuidado con generar más datos de los que puedes transmitir."
+  },
+  "final_boton": "Terminar: desorbitar hacia Júpiter",
+  "final_texto": "Desorbitaste la nave hacia Júpiter para proteger Europa: igual que el plan de la NASA.",
+  "lanzamiento": {
+    "viento": 12,
+    "tolerancia": 4
+  },
+  "pasadas": [
+    {
+      "tipo": "profundo",
+      "objetivo": "interior",
+      "icono": "🧲",
+      "nombre": "Sondeo del interior"
+    },
+    {
+      "tipo": "tormenta",
+      "objetivo": "atmosfera",
+      "icono": "🌀",
+      "nombre": "Tormenta atmosférica"
+    },
+    {
+      "tipo": "aurora",
+      "objetivo": "magnetosfera",
+      "icono": "🌌",
+      "nombre": "Aurora polar"
+    }
+  ],
+  "orbitas": [
+    {
+      "id": "polar_53d",
+      "real": true,
+      "nombre": "Polar de 53 días",
+      "altitud": "Perijove a ~4 000 km · vuelta de 53 días",
+      "descripcion": "Una órbita polar muy alargada: Juno pasa cerca de Júpiter una vez cada 53 días.",
+      "por_que": "Es la órbita real de Juno desde 2016, después de un problema en las válvulas de helio. Hay menos pasadas cercanas, pero la radiación se reparte y la sonda dura más.",
+      "efectos": {
+        "ciencia": 1,
+        "enlace": 1,
+        "dv_extra_ms": 0,
+        "vida_anos": 5,
+        "radiacion": 1
+      }
+    },
+    {
+      "id": "polar_14d",
+      "real": false,
+      "nombre": "Polar de 14 días",
+      "altitud": "Perijove a ~4 000 km · vuelta de 14 días",
+      "descripcion": "La órbita polar que se planeó al principio: una pasada cercana cada 14 días.",
+      "por_que": "Hace unas 4 veces más pasadas cercanas y por eso más ciencia, pero cada año recibe mucha más radiación y necesita una maniobra extra que gasta Δv.",
+      "efectos": {
+        "ciencia": 1.3,
+        "enlace": 1,
+        "dv_extra_ms": 250,
+        "vida_anos": 4,
+        "radiacion": 1.3
+      }
+    },
+    {
+      "id": "ecuatorial",
+      "real": false,
+      "nombre": "Ecuatorial",
+      "altitud": "Alrededor del ecuador de Júpiter",
+      "descripcion": "Una órbita sobre el ecuador del planeta, sin pasar por los polos.",
+      "por_que": "Evita lo peor de los cinturones de radiación, así que la sonda dura más, pero casi no ve las auroras ni los polos, que son lo más interesante de Juno.",
+      "efectos": {
+        "ciencia": 0.6,
+        "enlace": 1.05,
+        "dv_extra_ms": -50,
+        "vida_anos": 6,
+        "radiacion": 0.6
+      }
+    }
+  ]
+}

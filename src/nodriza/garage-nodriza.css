@@ -1,0 +1,772 @@
+/* ==========================================================================
+   GARAGE NAVE NODRIZA · PROYECTO ASTRION-X
+   Estética espacial sci-fi fiel a la lámina oficial ASTRION-X.
+   ========================================================================== */
+
+.nx-garage {
+  --nx-bg: #040b18;
+  --nx-panel-bg: linear-gradient(155deg, rgba(8, 22, 44, 0.84), rgba(4, 12, 26, 0.9));
+  --nx-borde: rgba(56, 189, 248, 0.34);
+  --nx-borde-brillo: rgba(125, 211, 252, 0.72);
+  --nx-cian: #38bdf8;
+  --nx-cian-claro: #a5f3fc;
+  --nx-oro: #f59e0b;
+  --nx-verde: #34d399;
+  --nx-texto: #f1f5f9;
+  --nx-tenue: #94a3b8;
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: radial-gradient(ellipse at 50% 42%, #0c2246 0%, #050d1e 62%, #020611 100%);
+  color: var(--nx-texto);
+  font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 12px;
+  padding: 14px 18px;
+  box-sizing: border-box;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Lienzo 3D de fondo a pantalla completa */
+.nx-lienzo-3d {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+/* ───────────── CABECERA SUPERIOR ───────────── */
+.nx-cabecera {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 18px;
+  padding: 8px 14px;
+  background: linear-gradient(90deg, rgba(4, 14, 30, 0.88), rgba(8, 25, 50, 0.65), rgba(4, 14, 30, 0.88));
+  border: 1px solid var(--nx-borde);
+  border-radius: 14px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.52);
+}
+
+.nx-identidad {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.nx-insignia-svg {
+  width: 68px;
+  height: 56px;
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 12px rgba(56, 189, 248, 0.35));
+}
+
+.nx-titulo-Principal {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nx-titulos h1 {
+  margin: 0;
+  font-family: 'Saira Condensed', 'Arial Narrow', sans-serif;
+  font-size: clamp(28px, 3vw, 42px);
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  line-height: 0.95;
+  background: linear-gradient(180deg, #ffffff 0%, #bae6fd 55%, #38bdf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 10px rgba(56, 189, 248, 0.35));
+}
+
+.nx-badge-worktree {
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: rgba(56, 189, 248, 0.16);
+  border: 1px solid rgba(56, 189, 248, 0.55);
+  color: #bae6fd;
+}
+
+.nx-subtitulo {
+  margin: 3px 0 1px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #e2e8f0;
+  letter-spacing: 0.02em;
+}
+
+.nx-pilares {
+  margin: 0;
+  font-size: 11px;
+  color: #7dd3fc;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+/* Pestañas de los 3 Modelos de Nodrizas */
+.nx-selector-modelos {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: nowrap;
+}
+
+.nx-boton-modelo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 11px;
+  background: rgba(10, 26, 48, 0.78);
+  border: 1px solid rgba(125, 211, 252, 0.25);
+  border-radius: 10px;
+  color: var(--nx-texto);
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.18s ease;
+  white-space: nowrap;
+}
+
+.nx-boton-modelo:hover {
+  border-color: var(--nx-color-modelo, var(--nx-cian));
+  transform: translateY(-1px);
+}
+
+.nx-boton-modelo.activo {
+  background: linear-gradient(145deg, rgba(14, 48, 86, 0.92), rgba(7, 24, 48, 0.95));
+  border-color: var(--nx-color-modelo, var(--nx-cian));
+  box-shadow:
+    0 0 0 1px var(--nx-color-modelo, var(--nx-cian)),
+    0 0 22px rgba(56, 189, 248, 0.32);
+}
+
+.nx-modelo-indice {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--nx-color-modelo, var(--nx-cian));
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  border-radius: 6px;
+  padding: 4px 6px;
+}
+
+.nx-boton-modelo strong {
+  display: block;
+  font-size: 13.5px;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+}
+
+.nx-boton-modelo small {
+  display: block;
+  font-size: 10.5px;
+  color: #93c5fd;
+  font-weight: 500;
+}
+
+.nx-cabecera-derecha {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nx-lema-caja {
+  padding: 8px 16px;
+  background: rgba(7, 22, 44, 0.85);
+  border: 1px solid rgba(125, 211, 252, 0.45);
+  clip-path: polygon(12px 0, 100% 0, calc(100% - 12px) 100%, 0 100%);
+  font-size: 11.5px;
+  font-style: italic;
+  color: #dbeafe;
+  max-width: 280px;
+  text-align: center;
+}
+
+.nx-btn-volver {
+  padding: 8px 13px;
+  font-size: 12px;
+  background: rgba(15, 36, 64, 0.9);
+  border: 1px solid var(--nx-borde-brillo);
+  border-radius: 8px;
+  color: #e0f2fe;
+  cursor: pointer;
+}
+
+/* ───────────── PANELES HUD LATERALES E INFERIORES ───────────── */
+.nx-cuerpo-hud {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 300px 1fr 300px;
+  gap: 14px;
+  align-items: stretch;
+  pointer-events: none;
+  min-height: 0;
+}
+
+.nx-columna {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  pointer-events: auto;
+}
+
+.nx-panel {
+  position: relative;
+  background: var(--nx-panel-bg);
+  border: 1px solid var(--nx-borde);
+  border-radius: 12px;
+  padding: 13px 15px;
+  backdrop-filter: blur(12px);
+  box-shadow:
+    0 12px 32px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  clip-path: polygon(
+    0 10px,
+    10px 0,
+    calc(100% - 10px) 0,
+    100% 10px,
+    100% calc(100% - 10px),
+    calc(100% - 10px) 100%,
+    10px 100%,
+    0 calc(100% - 10px)
+  );
+}
+
+.nx-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 14px;
+  right: 14px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--nx-cian), transparent);
+  opacity: 0.75;
+}
+
+.nx-panel-titulo {
+  margin: 0 0 10px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(56, 189, 248, 0.28);
+  font-family: 'Saira Condensed', 'Arial Narrow', sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  color: #f8fafc;
+  text-transform: uppercase;
+}
+
+/* Lista de Especificaciones Principales */
+.nx-lista-espec {
+  margin: 0;
+  display: grid;
+  gap: 5px;
+}
+
+.nx-lista-espec > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 12px;
+  padding: 2px 0;
+  border-bottom: 1px dashed rgba(148, 163, 184, 0.14);
+}
+
+.nx-lista-espec dt {
+  color: #cbd5e1;
+  font-weight: 500;
+}
+
+.nx-lista-espec dd {
+  margin: 0;
+  font-weight: 700;
+  color: #ffffff;
+  text-align: right;
+}
+
+.nx-barras-rendimiento {
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(56, 189, 248, 0.2);
+  display: grid;
+  gap: 7px;
+}
+
+.nx-barra-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 3px 8px;
+  font-size: 11px;
+}
+
+.nx-barra-item span {
+  color: #93c5fd;
+}
+
+.nx-barra-item strong {
+  font-family: 'JetBrains Mono', monospace;
+  color: #e0f2fe;
+}
+
+.nx-barra-riel {
+  grid-column: 1 / -1;
+  height: 6px;
+  background: rgba(2, 8, 20, 0.75);
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1px solid rgba(56, 189, 248, 0.28);
+}
+
+.nx-barra-relleno {
+  height: 100%;
+  background: linear-gradient(90deg, #0284c7, #38bdf8, #a5f3fc);
+  border-radius: 999px;
+  transition: width 0.35s ease;
+}
+
+/* Lista de Tecnologías Clave y Sistemas Principales */
+.nx-lista-iconos {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 7px;
+}
+
+.nx-lista-iconos li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nx-icono-circulo {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, rgba(56, 189, 248, 0.35), rgba(8, 28, 56, 0.92));
+  border: 1px solid rgba(125, 211, 252, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  flex-shrink: 0;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.25);
+}
+
+.nx-lista-iconos strong {
+  display: block;
+  font-size: 12px;
+  color: #f8fafc;
+  line-height: 1.2;
+}
+
+.nx-lista-iconos small {
+  display: block;
+  font-size: 10.5px;
+  color: #93c5fd;
+  line-height: 1.25;
+}
+
+.nx-sistema-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 7px;
+  background: rgba(15, 34, 60, 0.45);
+  border: 1px solid transparent;
+  border-radius: 9px;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.nx-sistema-btn:hover,
+.nx-sistema-btn.activo {
+  background: rgba(14, 52, 92, 0.78);
+  border-color: rgba(56, 189, 248, 0.65);
+}
+
+/* Tarjeta Perfil de Nodriza Derecha */
+.nx-rol-modelo {
+  margin: 0 0 6px;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #7dd3fc;
+}
+
+.nx-resumen-modelo {
+  margin: 0 0 10px;
+  font-size: 11.2px;
+  line-height: 1.48;
+  color: #cbd5e1;
+}
+
+.nx-puerto-bahia {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  background: rgba(2, 14, 30, 0.72);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  border-radius: 8px;
+}
+
+.nx-puerto-bahia strong {
+  display: block;
+  font-size: 11.5px;
+  color: #e0f2fe;
+}
+
+.nx-estado-puerto {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  padding: 4px 7px;
+  border-radius: 6px;
+  background: rgba(52, 211, 153, 0.16);
+  border: 1px solid rgba(52, 211, 153, 0.55);
+  color: #6ee7b7;
+  white-space: nowrap;
+}
+
+.nx-btn-confirmar {
+  width: 100%;
+  margin-top: 10px;
+  font-size: 13px !important;
+  padding: 9px 14px !important;
+}
+
+/* ───────────── ZONA CENTRAL (CÁMARAS Y CONTROLES DEL GARAGE) ───────────── */
+.nx-zona-central {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px 4px;
+  pointer-events: none;
+}
+
+.nx-barra-camaras,
+.nx-dock-inferior {
+  pointer-events: auto;
+}
+
+.nx-barra-camaras {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+  padding: 4px 7px;
+  background: rgba(5, 16, 34, 0.78);
+  border: 1px solid var(--nx-borde);
+  border-radius: 999px;
+  backdrop-filter: blur(10px);
+}
+
+.nx-barra-camaras button {
+  padding: 4px 10px;
+  font-size: 10.5px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: #cbd5e1;
+  cursor: pointer;
+}
+
+.nx-barra-camaras button.activo {
+  background: rgba(56, 189, 248, 0.22);
+  border-color: var(--nx-cian);
+  color: #ffffff;
+}
+
+.nx-dock-inferior {
+  margin-top: auto;
+  width: min(640px, 98%);
+  display: grid;
+  gap: 6px;
+}
+
+.nx-ficha-compacta {
+  padding: 6px 12px;
+  background: rgba(5, 16, 34, 0.76);
+  border: 1px solid rgba(56, 189, 248, 0.28);
+  border-radius: 10px;
+  backdrop-filter: blur(8px);
+  text-align: center;
+}
+
+.nx-eyebrow {
+  display: block;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #7dd3fc;
+  text-transform: uppercase;
+}
+
+.nx-ficha-compacta p {
+  margin: 2px 0 0;
+  font-size: 10.8px;
+  color: #cbd5e1;
+  line-height: 1.32;
+}
+
+.nx-acabados {
+  margin-bottom: 8px;
+}
+
+.nx-acabados-lista {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.nx-acabados-lista button {
+  font-size: 9.5px;
+  padding: 4px 6px;
+  border-radius: 6px;
+  background: rgba(15, 34, 60, 0.8);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  color: #cbd5e1;
+  cursor: pointer;
+}
+
+.nx-acabados-lista button.activo {
+  border-color: var(--nx-cian);
+  color: #ffffff;
+  background: rgba(56, 189, 248, 0.22);
+}
+
+.nx-controles-mecanicos {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 5px;
+  padding: 5px 8px;
+  background: rgba(4, 14, 30, 0.86);
+  border: 1px solid var(--nx-borde);
+  border-radius: 10px;
+  backdrop-filter: blur(12px);
+}
+
+.nx-controles-mecanicos button {
+  padding: 4px 8px;
+  font-size: 10px;
+  white-space: nowrap;
+  border-radius: 7px;
+  background: rgba(15, 35, 62, 0.75);
+  border: 1px solid rgba(125, 211, 252, 0.22);
+  color: #dbeafe;
+  cursor: pointer;
+}
+
+.nx-controles-mecanicos button.activo {
+  background: linear-gradient(180deg, rgba(14, 68, 118, 0.92), rgba(8, 38, 72, 0.92));
+  border-color: var(--nx-cian);
+  color: #ffffff;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.28);
+}
+
+/* Etiquetas Callout 3D (Líneas guía del póster) */
+.nx-callout-3d {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 9px;
+  background: rgba(4, 14, 30, 0.88);
+  border: 1px solid rgba(186, 230, 253, 0.65);
+  border-radius: 6px;
+  color: #f8fafc;
+  font-size: 10.5px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.65);
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.nx-callout-3d:hover,
+.nx-callout-3d.activo {
+  border-color: #38bdf8;
+  background: rgba(8, 34, 68, 0.95);
+  transform: scale(1.04);
+}
+
+.nx-callout-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #38bdf8;
+  box-shadow: 0 0 8px #38bdf8;
+}
+
+/* ───────────── PIE INFERIOR: CICLO DE MISIÓN · VENTAJAS · SELLO ───────────── */
+.nx-pie-hud {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 0.85fr;
+  gap: 12px;
+  align-items: stretch;
+}
+
+.nx-pasos-ciclo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+}
+
+.nx-paso-contenedor {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+}
+
+.nx-paso-btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 6px;
+  background: rgba(10, 26, 48, 0.65);
+  border: 1px solid rgba(125, 211, 252, 0.2);
+  border-radius: 9px;
+  color: #dbeafe;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.nx-paso-btn.activo {
+  background: rgba(14, 58, 104, 0.9);
+  border-color: var(--nx-cian);
+  color: #ffffff;
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.3);
+}
+
+.nx-ciclo-svg {
+  width: 24px;
+  height: 24px;
+  color: #7dd3fc;
+}
+
+.nx-flecha-ciclo {
+  color: #7dd3fc;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 0 2px;
+}
+
+.nx-lista-ventajas {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 5px;
+  font-size: 11.5px;
+  color: #e2e8f0;
+}
+
+.nx-lista-ventajas li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nx-check {
+  color: #4ade80;
+  font-weight: 900;
+  text-shadow: 0 0 8px rgba(74, 222, 128, 0.45);
+}
+
+.nx-panel-sello {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nx-insignia-sello {
+  width: 58px;
+  height: 48px;
+}
+
+.nx-panel-sello strong {
+  display: block;
+  font-family: 'Saira Condensed', 'Arial Narrow', sans-serif;
+  font-size: 17px;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+}
+
+.nx-panel-sello p {
+  margin: 4px 0 0;
+  font-size: 11px;
+  line-height: 1.4;
+  color: #cbd5e1;
+}
+
+/* Respaldo 2D */
+.nx-respaldo-2d {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nx-respaldo-2d svg {
+  width: min(640px, 90%);
+  height: auto;
+}
+
+/* Responsivo para pantallas medianas y móviles */
+@media (max-width: 1180px) {
+  .nx-cabecera {
+    grid-template-columns: auto 1fr;
+  }
+  .nx-cabecera-derecha {
+    grid-column: 1 / -1;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .nx-cuerpo-hud {
+    grid-template-columns: 245px 1fr 245px;
+  }
+  .nx-pie-hud {
+    grid-template-columns: 1.35fr 1fr 0.85fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .nx-garage {
+    overflow-y: auto;
+  }
+  .nx-lienzo-3d {
+    position: relative;
+    height: 440px;
+    border-radius: 14px;
+    overflow: hidden;
+    order: -1;
+  }
+  .nx-cuerpo-hud {
+    grid-template-columns: 1fr;
+  }
+  .nx-pie-hud {
+    grid-template-columns: 1fr;
+  }
+}

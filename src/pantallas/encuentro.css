@@ -1,0 +1,129 @@
+/* Etapa 05 · Aproximación y encuentro: pantalla completa con el 3D al fondo, HUD encima y controles táctiles. */
+.app-encuentro>.pantalla-juego{padding:0!important;overflow:hidden;display:flex;animation:none}
+.encuentro{flex:1;min-width:0;min-height:0;display:flex;flex-direction:column;background:#050b14;color:#e1f1f8;position:relative}
+.enc-header{flex-shrink:0;padding:10px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px;border-bottom:1px solid #4c788d55;background:linear-gradient(90deg,#0d2536,#08141f)}
+.enc-header span{font:9px monospace;letter-spacing:.2em;color:#96d2d3}.enc-header h1{font-size:22px;letter-spacing:-.03em;margin:5px 0 0}.enc-header h1 em{color:#9de7d5;font-style:normal}
+.enc-header button{width:40px;height:40px;min-height:40px;padding:0}
+.enc-escena{flex:1;min-height:0;position:relative;overflow:hidden;background:radial-gradient(ellipse at 50% 40%,#123552,#061323 70%,#020a16);user-select:none;-webkit-user-select:none;overscroll-behavior:contain}
+.enc-escena .enc-canvas{position:absolute!important;inset:0!important;width:100%!important;height:100%!important}
+.enc-escena canvas{display:block;outline:none}
+.enc-cargando{position:absolute;inset:0;display:grid;place-items:center;font:11px monospace;letter-spacing:.14em;color:#96d2d3}
+.enc-arrastre{position:absolute;inset:0;z-index:2;touch-action:none;cursor:grab}.enc-arrastre:active{cursor:grabbing}
+
+/* HUD */
+.enc-hud{position:absolute;top:8px;left:8px;right:8px;display:flex;justify-content:space-between;align-items:flex-start;gap:8px;z-index:3;pointer-events:none}
+.enc-panel{width:clamp(150px,34vw,196px);display:grid;gap:7px;padding:8px 10px;background:#061323cc;border:1px solid #7fb4c866;border-radius:10px;backdrop-filter:blur(4px)}
+.enc-modo{font:700 9px monospace;letter-spacing:.07em;color:#ffd390}
+.enc-bateria{display:grid;grid-template-columns:1fr auto;gap:3px 6px;align-items:center}.enc-bateria>span{grid-column:1/3;font:8px monospace;letter-spacing:.08em;color:#a1c6d1}.enc-bateria b{font:11px monospace;color:#b8f8df}.enc-bateria.baja b{color:#ff8f8f}
+.enc-barra{height:7px;background:#0a1d2c;border:1px solid #7fb4c855;border-radius:4px;overflow:hidden}.enc-barra i{display:block;height:100%;background:linear-gradient(90deg,#4fe0a8,#a2f0d8);border-radius:3px}.enc-bateria.baja .enc-barra i{background:linear-gradient(90deg,#ff6b6b,#ff9a8a);animation:enc-parpadeo 1s infinite}
+@keyframes enc-parpadeo{50%{opacity:.45}}
+.enc-datos-vuelo{display:flex;justify-content:space-between;gap:6px;font:8px monospace;letter-spacing:.05em;color:#a1c6d1}.enc-datos-vuelo b{display:block;font-size:13px;color:#b8f8df;margin-top:2px}
+.enc-intentos{display:flex;align-items:center;gap:5px;font:8px monospace;letter-spacing:.08em;color:#a1c6d1}.enc-intentos b{font-size:13px;color:#ffd390}.enc-intentos span{margin-right:auto}
+.enc-mini{width:clamp(96px,26vw,140px);height:auto;aspect-ratio:1;flex-shrink:0;border-radius:8px;box-shadow:0 4px 18px #000a}
+.enc-pista{position:absolute;z-index:3;left:12px;right:12px;bottom:134px;margin:0;text-align:center;font-size:11px;line-height:1.45;color:#cfe6ee;text-shadow:0 1px 4px #000;pointer-events:none}
+/* Leyenda de teclado: centrada abajo, entre el joystick (izquierda) y los botones de cámara (derecha). */
+.enc-teclas{position:absolute;z-index:3;left:50%;transform:translateX(-50%);bottom:14px;display:flex;flex-wrap:wrap;justify-content:center;gap:6px 16px;width:max-content;max-width:calc(100% - 460px);padding:8px 14px;border-radius:12px;background:#061323d0;border:1px solid #7fb4c855;font-size:12px;line-height:1.6;color:#d6eef6;pointer-events:none;box-shadow:0 4px 16px #0008}
+.enc-teclas span{white-space:nowrap}
+.enc-teclas kbd{display:inline-block;min-width:22px;padding:1px 6px;margin-right:3px;border-radius:5px;border:1px solid #9fd3e3aa;border-bottom-width:3px;background:#0d2a3d;font:700 11px monospace;color:#fff;text-align:center}
+
+/* Modo foto */
+/* Visor cuadrado centrado: su alto es el campo de visión vertical que usa el motor para calificar,
+   así lo que el jugador encuadra es lo que se califica. Fuera del cuadro se oscurece. */
+.enc-visor{position:absolute;top:0;left:50%;transform:translateX(-50%);height:100%;aspect-ratio:1/1;max-width:100%;z-index:1;pointer-events:none;box-shadow:0 0 0 100vmax #000000a8,inset 0 0 60px #000a,inset 0 0 0 2px #ffffff55}
+.enc-tercio{position:absolute;background:#ffffff40}.enc-tercio.v1,.enc-tercio.v2{top:0;bottom:0;width:1px}.enc-tercio.h1,.enc-tercio.h2{left:0;right:0;height:1px}
+.enc-tercio.v1{left:33.333%}.enc-tercio.v2{left:66.666%}.enc-tercio.h1{top:33.333%}.enc-tercio.h2{top:66.666%}
+.enc-centro{position:absolute;left:50%;top:50%;width:20px;height:20px;margin:-10px 0 0 -10px;border:1.5px solid #ffffffcc;border-radius:50%}.enc-centro::after{content:"";position:absolute;left:50%;top:50%;width:3px;height:3px;margin:-1.5px;border-radius:50%;background:#ff6b6b}
+.enc-esq{position:absolute;width:24px;height:24px;border:0 solid #fffffff0}.enc-esq.a{left:10px;top:10px;border-width:2px 0 0 2px}.enc-esq.b{right:10px;top:10px;border-width:2px 2px 0 0}.enc-esq.c{left:10px;bottom:10px;border-width:0 0 2px 2px}.enc-esq.d{right:10px;bottom:10px;border-width:0 2px 2px 0}
+.enc-expo{position:absolute;z-index:3;left:50%;transform:translateX(-50%);bottom:176px;display:grid;gap:2px;justify-items:center;padding:5px 12px;border-radius:999px;background:#061323d9;border:1px solid #ffd39088;pointer-events:none;white-space:nowrap}
+.enc-expo span{font:700 10px monospace;letter-spacing:.08em;color:#ffd390}.enc-expo small{font:9px monospace;color:#f0b48a}.enc-expo.quieto small{color:#8ff5c6}
+/* Controles en pantalla: se ven SIEMPRE (también en laptop: funcionan con mouse o touchpad). */
+.enc-tactil{display:block;position:absolute;inset:0;z-index:4;pointer-events:none}
+.enc-tactil>*{pointer-events:auto}
+.enc-joy{position:absolute;left:12px;bottom:12px;width:112px;height:112px;border-radius:50%;background:radial-gradient(#7fe8ff22,#0a1d2cb0);border:2px solid #7fe8ff77;touch-action:none;display:grid;place-items:center}
+.enc-joy i{display:block;width:46px;height:46px;border-radius:50%;background:#a2f0d8d0;border:2px solid #fff9;pointer-events:none;box-shadow:0 2px 10px #0008}
+.enc-alt{position:absolute;left:136px;bottom:12px;display:grid;gap:8px}
+.enc-boton{display:grid;place-items:center;align-content:center;min-width:52px;min-height:52px;padding:0;border-radius:14px;font-size:22px;line-height:1;background:#0b2233e0;border:2px solid #7fb4c8aa;color:#d8f4ff;touch-action:none;user-select:none;-webkit-user-select:none}
+.enc-boton small{font-size:9px;font-weight:700;letter-spacing:.04em;margin-top:2px}.enc-boton:active{background:#14405c;border-color:#c7f3ff}
+.enc-cam{position:absolute;right:12px;bottom:12px;display:flex;gap:10px;align-items:flex-end}
+.enc-disparo{width:84px;height:84px;border-radius:50%;font-size:30px;background:#ffd390;border-color:#fff;color:#2a1a05}.enc-disparo:active{background:#fff2d6}.enc-cambiar{width:60px;height:60px;border-radius:50%;font-size:22px}
+.enc-zoom{position:absolute;left:12px;right:12px;bottom:134px;display:flex;align-items:center;gap:10px;padding:4px 12px;border-radius:999px;background:#061323d9;border:1px solid #7fb4c866}
+.enc-zoom span{font:700 9px monospace;letter-spacing:.08em;color:#ffd390;white-space:nowrap}.enc-zoom input{flex:1;min-width:0;height:28px;accent-color:#ffd390;touch-action:pan-x}
+.enc-boton:hover{border-color:#c7f3ff}.enc-joy{cursor:grab}.enc-joy:active{cursor:grabbing}
+/* En pantallas táctiles o estrechas no hay teclado: se oculta la leyenda. */
+@media(pointer:coarse),(max-width:900px){.enc-teclas{display:none}}
+
+/* Ventanas (ficha, pausa, revisión) */
+.enc-modal{position:absolute;inset:0;z-index:6;display:flex;padding:12px;background:#02060dd0;overflow:auto;overscroll-behavior:contain;touch-action:pan-y}
+.enc-modal>*{margin:auto;width:100%;max-width:700px}
+.enc-modal .dialogo-io{margin:auto}.enc-modal .io-contenido>button{position:sticky;bottom:0;z-index:2;box-shadow:0 -12px 14px #0b1a28}
+.enc-objetivo{font-family:inherit;font-size:19px;line-height:1.2;letter-spacing:-.01em;text-transform:none;margin:4px 0 8px;color:#ffe6b8}
+.enc-variante{font-style:italic;color:#ffd497}
+.enc-criterios{margin:6px 0 10px;padding-left:18px;line-height:1.55}.enc-criterios b{color:#b8f8df}
+.enc-aviso{padding:8px 10px;border:1px solid #efbd7566;border-radius:8px;background:#3b30403d;color:#ffd7a0}
+.enc-controles{font-size:11.5px;color:#9dbecb}
+.enc-flash{position:absolute;inset:0;z-index:7;background:#fff;pointer-events:none;animation:enc-flash .5s ease-out forwards}
+@keyframes enc-flash{from{opacity:.95}to{opacity:0}}
+@media(prefers-reduced-motion:reduce){.enc-flash{animation-duration:.01s}.enc-bateria.baja .enc-barra i{animation:none}}
+
+/* Tarjeta de revisión */
+.enc-modal-revision>.enc-tarjeta{max-width:920px}
+.enc-tarjeta{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:16px;padding:14px;background:linear-gradient(145deg,#112e42,#0a1b2c);border:1px solid #6edcce66;border-left:4px solid #86f2d9;border-radius:16px;box-shadow:0 14px 40px #000a;color:#e1f1f8}
+.enc-tarjeta.mal{border-left-color:#ff9a8a;border-color:#ff9a8a55}
+.enc-foto{position:relative;align-self:start;border-radius:10px;overflow:hidden;background:#000;border:1px solid #ffffff30}
+.enc-foto img{display:block;width:100%;height:auto;max-height:62dvh;object-fit:contain;background:#000}
+.enc-sinfoto{display:grid;place-items:center;min-height:150px;font-size:56px;background:radial-gradient(#2a1a1a,#080508)}
+.enc-sello{position:absolute;left:8px;top:8px;padding:3px 8px;border-radius:4px;font:700 10px monospace;letter-spacing:.12em;background:#ff9a8acc;color:#2a0a0a}.enc-tarjeta.ok .enc-sello{background:#86f2d9cc;color:#06302a}
+.enc-datos{min-width:0;display:flex;flex-direction:column;gap:8px}
+.enc-kicker{font:9px monospace;letter-spacing:.16em;color:#97e4d6}.enc-datos h2{font-size:20px;line-height:1.15;letter-spacing:-.02em;margin:0;text-transform:none;color:#e2fff9}
+.enc-total{display:flex;align-items:baseline;gap:6px;flex-wrap:wrap}.enc-total strong{font:700 40px monospace;color:#ffd390;line-height:1}.enc-total span{font:14px monospace;color:#9dbecb}.enc-total em{font:10px monospace;letter-spacing:.06em;font-style:normal;color:#9dbecb;margin-left:4px;text-transform:uppercase}
+.enc-tarjeta.ok .enc-total strong{color:#9dffd6}.enc-tarjeta.mal .enc-total strong{color:#ff9a8a}
+.enc-criterios-barras{display:grid;gap:5px}.enc-crit{display:grid;grid-template-columns:62px minmax(0,1fr) 28px;gap:8px;align-items:center;font-size:12px;color:#c1d9e5}.enc-crit b{font:11px monospace;text-align:right;color:#b8f8df}
+.enc-io{margin:0;padding:8px 10px;font-size:12.5px;line-height:1.5;background:#0d2a3a;border-left:3px solid #86f2d9;border-radius:6px;color:#d6ecf2}.enc-io b{color:#97e4d6}
+.enc-dato{margin:0;font-size:11.5px;line-height:1.5;color:#9dbecb}
+.enc-datos .primario{min-height:46px;width:100%;margin-top:4px;background:#a2f0d8;border-color:#c9ffec;color:#0b3035;font-size:14px;font-weight:700}
+.enc-costo{margin:0;font-size:11px;line-height:1.45;color:#ffd497}
+
+@media(max-width:700px){
+  .enc-header{padding:6px 12px}.enc-header h1{font-size:18px;margin-top:3px}
+  .enc-tarjeta{grid-template-columns:1fr;gap:10px;padding:12px}.enc-foto img{max-height:30dvh}.enc-sinfoto{min-height:90px;font-size:40px}
+  .enc-total strong{font-size:32px}.enc-datos h2{font-size:17px}
+}
+@media(max-height:520px){
+  .app-encuentro>.recursos{display:none}
+  .enc-header{padding:3px 12px}.enc-header h1{display:none}.enc-header button{width:32px;height:32px;min-height:32px}
+  .enc-panel{padding:5px 8px;gap:4px;width:150px}.enc-mini{width:104px}
+  .enc-zoom{left:50%;right:auto;transform:translateX(-50%);bottom:12px;width:min(300px,34vw)}
+  .enc-pista{left:auto;right:auto;bottom:12px;left:50%;transform:translateX(-50%);width:min(340px,38vw);font-size:10px}
+  .enc-expo{bottom:62px}
+  .enc-joy{width:92px;height:92px}.enc-joy i{width:38px;height:38px}.enc-alt{left:116px}.enc-alt .enc-boton{min-height:42px}.enc-disparo{width:70px;height:70px;font-size:26px}.enc-cambiar{width:52px;height:52px}
+  .enc-modal{padding:6px}
+  .enc-tarjeta{grid-template-columns:minmax(0,.8fr) minmax(0,1fr);padding:10px;gap:12px}.enc-foto img{max-height:calc(100dvh - 120px)}.enc-sinfoto{min-height:100px}
+  .enc-datos{gap:5px}.enc-datos h2{font-size:15px}.enc-total strong{font-size:28px}.enc-io{font-size:11px;padding:5px 8px}.enc-dato{display:none}.enc-datos .primario{min-height:38px}.enc-crit{font-size:11px}
+}
+@media(max-height:520px) and (max-width:700px){.enc-tarjeta{grid-template-columns:minmax(0,.8fr) minmax(0,1fr)}}
+
+/* Objetivo siempre visible en la cabecera + señal frío/caliente (sin dirección: buscarlo es parte del reto). */
+.enc-mision{flex:1;min-width:0;display:grid;justify-items:center;gap:1px;text-align:center}
+.enc-header .enc-mision span{font:700 9px monospace;letter-spacing:.16em;color:#ffd390;text-transform:uppercase}
+.enc-mision b{font-size:15px;color:#fff;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.enc-mision small{display:flex;align-items:center;gap:6px;font:11px monospace;color:#bfe3ee}
+.enc-senal{display:inline-flex;align-items:flex-end;gap:2px;height:12px}
+.enc-senal em{width:4px;border-radius:1px;background:#3a5566}
+.enc-senal em:nth-child(1){height:4px}.enc-senal em:nth-child(2){height:6px}.enc-senal em:nth-child(3){height:9px}.enc-senal em:nth-child(4){height:12px}
+.enc-senal.s1 em:nth-child(-n+1),.enc-senal.s2 em:nth-child(-n+2){background:#ffd390}
+.enc-senal.s3 em:nth-child(-n+3){background:#8ff5c6}.enc-senal.s4 em{background:#3dff9e}
+/* Medidor de la foto (modo cámara): la misma calificación que tendría si disparas ahora. */
+.enc-medidor{position:absolute;z-index:3;left:50%;transform:translateX(-50%);bottom:176px;width:min(420px,calc(100% - 24px));display:grid;gap:6px;padding:8px 12px;border-radius:12px;background:#061323e6;border:1px solid #7fb4c888;pointer-events:none}
+.enc-medidor>b{font-size:13px;text-align:center;color:#ffd390}
+.enc-medidor.lista{border-color:#3dff9e}.enc-medidor.lista>b{color:#3dff9e}
+.enc-medidor.mal{border-color:#ff8a6a}.enc-medidor.mal>b{color:#ffb38a}
+.enc-medidas{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}
+.enc-medidas span{display:grid;gap:3px}
+.enc-medidas small{font:9px monospace;color:#bfe3ee;text-transform:uppercase;letter-spacing:.04em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.enc-medidas span.peor small{color:#ffd390;font-weight:700}
+.enc-medidas i{display:block;height:6px;border-radius:3px;background:#1d3444;overflow:hidden}
+.enc-medidas em{display:block;height:100%;transition:width .2s}
+.enc-medidas em.bien{background:#3dff9e}.enc-medidas em.medio{background:#ffd390}.enc-medidas em.bajo{background:#ff8a6a}
+.enc-medidor>small{font:9px monospace;color:#f0b48a;text-align:center}.enc-medidor>small.quieto{color:#8ff5c6}
+@media(max-width:700px){.enc-header:has(.enc-mision)>div:first-child{display:none}.enc-mision b{font-size:13px;line-height:1.2;white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}.enc-medidor{bottom:182px}}
+@media(max-height:520px){.enc-medidor{bottom:60px;padding:5px 10px;gap:4px}.enc-mision span{display:none}}

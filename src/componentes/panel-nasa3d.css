@@ -1,0 +1,15 @@
+/* Modelos 3D reales de NASA en el informe (C2). */
+.nasa3d { display: grid; gap: 10px; }
+.nasa3d h3 { margin: 0; font-size: 18px; }
+.nasa3d p { margin: 0; color: #aac4d2; font-size: 14px; line-height: 1.5; }
+.nasa3d-rejilla { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+.nasa3d figure { margin: 0; display: grid; gap: 10px; padding: 10px; border: 1px solid #2e4a5c; border-radius: 12px; background: radial-gradient(circle at 50% 40%, #13324a, #07111b 70%); }
+.nasa3d-lienzo { width: 100%; border-radius: 8px; overflow: hidden; touch-action: pan-y; }
+.nasa3d-cargando { height: 240px; display: grid; place-items: center; color: #7f9cab; font-size: 13px; }
+.nasa3d figcaption { display: grid; gap: 2px; font-size: 13px; }
+.nasa3d figcaption span { color: #a9c2d0; }
+.nasa3d-credito { font-size: 11px !important; color: #7f9cab !important; }
+.nasa3d-pies { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.nasa3d-pies span { display: grid; gap: 2px; color: #a9c2d0; }
+.nasa3d-pies strong { color: #eaf6fb; }
+@media (max-width: 560px) { .nasa3d-pies { grid-template-columns: 1fr; } }

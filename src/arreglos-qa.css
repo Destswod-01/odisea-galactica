@@ -1,0 +1,65 @@
+/* Arreglos de los reportes de QA del 15 nov (QA-EN2 y QA-RED), sobre todo a 390 px.
+   Van en un archivo aparte para no chocar con el trabajo de otras ramas. */
+
+/* Hangar: la simulación rápida va arriba a la izquierda y ya no tapa la barra inferior del taller. */
+.app-juego .boton-simulacion { top: 166px; bottom: auto; left: auto; right: 14px; }
+.app-juego .sr-barra { top: 220px; }
+
+/* Elección de órbita y sistemas: el fondo cubre la pantalla y el panel nunca rebasa el ancho. */
+.app-juego .eo-fondo { position: fixed; padding: 10px; }
+.app-juego .eo-panel { max-width: 100%; max-height: calc(100dvh - 20px); }
+.app-juego .eo-panel * { min-width: 0; overflow-wrap: anywhere; }
+
+/* Sala de espera del multijugador: nada desborda en inglés. */
+.app-juego .sr, .app-juego .sr * { min-width: 0; overflow-wrap: anywhere; }
+.app-juego .sr-dif { flex-wrap: wrap; }
+
+/* Votación: el botón final siempre queda visible al fondo del panel. */
+.app-juego .eq-votacion footer { position: sticky; bottom: -18px; padding: 10px 0 4px; background: #0f2233; }
+
+/* Informe: la tabla «pieza por pieza» se desplaza por dentro en vez de ensanchar la página. */
+.app-juego.app-informe table { display: block; max-width: 100%; overflow-x: auto; }
+
+/* Ventanas iniciales de las etapas 05–08: el botón fijo deja ver la última línea del texto. */
+.app-juego .enc-modal .io-contenido > button, .app-juego .ins-modal .io-contenido > button.primario,
+.app-juego .op-modal .io-contenido > button.primario, .app-juego .ext-modal .io-contenido > button.primario { margin-top: 14px; }
+
+@media (max-width: 560px) {
+  .app-juego .boton-simulacion { top: 236px; bottom: auto; left: auto; right: 8px; min-height: 40px; padding: 6px 12px; font-size: 12px; }
+  .app-juego .eq-turno { top: auto; bottom: 164px; }
+  /* Etapa 02: «POINTS» debajo del contador, sin encimarse. */
+  .app-juego .aros-puntos { display: grid; justify-items: end; gap: 2px; line-height: 1.1; }
+}
+
+/* C2 · Foto real de NASA de fondo en las tarjetas de objetivos del briefing (legible con un velo oscuro). */
+.app-juego .br-tarjeta.con-foto .br-frente { background-image: linear-gradient(180deg, #08131b55 0%, #08131bb8 45%, #08131bf0 100%), var(--foto); background-size: cover; background-position: center; }
+
+/* Panel de recursos: su posición y tamaño viven en panel-recursos.css (AG-14, un solo cuadro). */
+
+/* Lista de jugadores en red: minimizable y responsive. */
+.app-juego .sr-lista header { align-items: center; }
+.app-juego .sr-min { margin-left: auto; width: 28px; height: 28px; min-height: 28px; padding: 0; pointer-events: auto; }
+.app-juego .sr-lista { pointer-events: auto; width: min(280px, calc(100% - 24px)); }
+.app-juego .sr-lista.cerrada { width: auto; max-width: min(280px, calc(100% - 24px)); }
+.app-juego .sr-lista.cerrada .sr-pendientes { margin: 6px 0 0; }
+
+@media (max-width: 700px) {
+  .app-juego .sr-lista { top: 112px; bottom: auto; left: auto; right: 10px; max-height: 40vh; }
+}
+
+/* Hangar: nada se encima. Si el panel de Balance está abierto, se esconden los flotantes que le estorban. */
+.app-juego:has(.t-balance-panel) .boton-simulacion,
+.app-juego:has(.t-balance-panel) .sr-lista,
+.app-juego:has(.t-balance-panel) .pr-flotante { display: none; }
+@media (max-width: 700px) {
+  /* Simulación rápida: a la derecha, en la misma fila que el zoom (no tapa el subtítulo del hangar). */
+  .app-juego .boton-simulacion { top: 135px; right: 10px; left: auto; bottom: auto; }
+  /* Lista de jugadores: abajo, a lo ancho, encima de las estaciones; cerrada solo muestra el resumen. */
+  .app-juego .sr-lista { top: auto; bottom: 176px; left: 8px; right: 8px; width: auto; max-width: none; max-height: 34vh; }
+  .app-juego .sr-lista.cerrada { padding: 6px 10px; }
+  .app-juego .sr-lista.cerrada header span { display: none; }
+  .app-juego .sr-lista .sr-pendientes { font-size: 12px; padding: 4px 8px; }
+}
+
+/* Equipo (main): en celular la simulación rápida vive como 🧪 junto a IO dentro del taller. */
+@media (max-width: 700px) { .app-juego:has(.taller) .boton-simulacion { display: none !important; } }

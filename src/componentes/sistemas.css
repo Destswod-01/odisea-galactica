@@ -1,0 +1,38 @@
+/* Sistemas de la nave (B3). Reutiliza el marco de la elección de órbita (eo-*); sin desbordar a 390 px. */
+.si-grupos{display:grid;gap:16px}
+.si-grupo{min-width:0;padding:12px;border:1px solid #41607755;border-radius:12px;background:#0b152188}
+.si-grupo h3{margin:0;font-size:15px;letter-spacing:-.02em}
+.si-efecto{margin:4px 0 10px;font-size:12px;line-height:1.5;color:#b1c6d5}
+.si-opciones{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.si-tarjeta{display:flex;flex-direction:column;gap:6px;min-width:0;box-sizing:border-box;padding:12px;border:1px solid #41607788;border-radius:12px;background:#192c3c88;cursor:pointer;text-align:left;transition:border-color .2s,background .2s}
+.si-tarjeta:hover{border-color:#779aad}
+.si-tarjeta:focus-visible{outline:2px solid #9be9ee;outline-offset:2px}
+.si-tarjeta.elegida{border-color:#98e3e6;background:#244652b0;box-shadow:inset 3px 0 #98e3e6}
+.si-tarjeta.auto{border-style:dashed;border-color:#98e3e688}
+.si-tarjeta.bloqueada{opacity:.75;cursor:default}
+.si-tarjeta h4{margin:0;font-size:13px;line-height:1.35;overflow-wrap:anywhere}
+.si-nivel,.si-auto{font-size:10px;font-weight:600;letter-spacing:.04em;padding:3px 8px;border-radius:20px;border:1px solid #779aad;color:#c4d6e2}
+.si-nivel.avanzada{border-color:#efbe76;color:#efbe76;background:#efbe7618}
+.si-auto{border-color:#98e3e6;color:#98e3e6;background:#98e3e61a}
+.si-fichas{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:5px}
+.si-fichas li{font-size:10px;font-family:'JetBrains Mono',monospace;padding:2px 7px;border-radius:6px;background:#0b1521aa;color:#c4d6e2}
+.si-fichas li.clave{color:#9be9ee;font-weight:600}
+.si-dato{margin:0;font-size:11px;line-height:1.5;color:#9eb7c9}
+.si-comprar,.si-quitar{align-self:flex-start;min-height:34px;font-size:11px;padding:6px 10px;border:1px solid #496173;border-radius:8px;background:#15293c;color:#edf5fa;cursor:pointer}
+.si-comprar:disabled{opacity:.55;cursor:not-allowed}
+.si-quitar{margin-top:8px;background:none;border-style:dashed;color:#aac0cf}
+.si-pendiente{margin:8px 0 0;font-size:11px;color:#efbe76}
+.si-nota{margin:8px 0 0;font-size:11px;color:#9eb7c9}
+/* Chip «Sistemas» en la barra de estaciones del taller: una columna más (dos si también hay órbita). */
+.taller .t-estaciones.t-con-sistemas{grid-template-columns:repeat(8,minmax(0,1fr))}
+.taller .t-estaciones.t-con-sistemas.t-con-orbita{grid-template-columns:repeat(9,minmax(0,1fr))}
+.taller .t-estaciones button.t-sistemas-chip{--estacion:#efbe76}
+@media(max-width:1100px){.taller .t-estaciones.t-con-sistemas button{padding-left:5px;padding-right:5px}}
+@media(max-width:700px){
+  .taller .t-estaciones.t-con-sistemas{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .taller .t-estaciones.t-con-sistemas.t-con-orbita{grid-template-columns:repeat(5,minmax(0,1fr))}
+  .taller .t-estaciones.t-con-sistemas button{padding-left:4px;padding-right:4px;gap:3px}
+  .taller .t-estaciones.t-con-sistemas button span:nth-child(2){min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .taller .t-estaciones.t-con-sistemas .t-estacion-flecha{display:none}
+  .si-opciones{grid-template-columns:minmax(0,1fr)}
+}

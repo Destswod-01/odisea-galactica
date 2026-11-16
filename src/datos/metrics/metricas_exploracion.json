@@ -1,0 +1,634 @@
+{
+  "meta": {
+    "id": "metricas_exploracion_astrion",
+    "version": "1.0",
+    "fecha": "2026-11-14",
+    "proposito": "Métricas mínimas y techos tecnológicos reales para explorar la Luna, Marte y Júpiter con las naves ASTRION y sus drones.",
+    "destinos_cubiertos": ["luna", "marte", "jupiter"],
+    "leyenda_base": {
+      "real": "Dato publicado de una misión o hardware que ya voló o se probó en tierra.",
+      "derivado": "Cálculo propio a partir de datos reales (ley del inverso del cuadrado, ecuación del cohete, etc.).",
+      "estimado": "Suposición de diseño sin respaldo directo; ajustar con el equipo."
+    },
+    "constantes": {
+      "irradiancia_ref_w_m2_1ua": 233,
+      "irradiancia_ref_base": "derivado: Juno ≈ 14 000 W en la Tierra con unos 60 m² de paneles (archivo de misión Juno)",
+      "ley_solar": "P(d) = P_1ua / d² (d en UA)",
+      "degradacion_paneles": 0.8,
+      "g0_ms2": 9.80665,
+      "isp_quimico_bipropelente_s": 317,
+      "isp_ionico_s": 4000,
+      "limite_comunicacion": "La tasa láser cae con el cuadrado de la distancia"
+    }
+  },
+  "limites_tecnologia_actual": {
+    "energia_rtg": {
+      "mmrtg": {
+        "w_electricos_inicio": 110,
+        "masa_kg": 45,
+        "w_por_kg": 2.4,
+        "vida_diseno_anos": 14,
+        "calor_residual_wt": 2000,
+        "base": "real",
+        "fuente": "NASA/DOE: MMRTG de Curiosity, Perseverance y Dragonfly"
+      },
+      "rtg_nueva_generacion": {
+        "w_electricos": 230,
+        "masa_kg": 56,
+        "estado": "en desarrollo (la revisión crítica de diseño de L3Harris se reportó aprobada en abril de 2026)",
+        "base": "real",
+        "uso_en_modelo": "No se cuenta como disponible hoy; solo como mejora futura"
+      },
+      "gphs_rtg_heredado": {
+        "w_electricos": 300,
+        "masa_kg": 56,
+        "uso_historico": "Galileo, Cassini, New Horizons",
+        "base": "real"
+      },
+      "lwrhu_calefactor": {
+        "masa_g": 42,
+        "calor_wt": 1.1,
+        "base": "real"
+      },
+      "nota": "Un RTG entrega decenas o cientos de vatios, no kilovatios: 4 MMRTG suman unos 440 W."
+    },
+    "energia_solar": {
+      "porcentaje_luz_vs_tierra": {
+        "luna": 1.0,
+        "marte": 0.43,
+        "jupiter": 0.037
+      },
+      "base": "derivado (1/d²)",
+      "referencia_juno": {
+        "area_m2": 60,
+        "w_tierra": 14000,
+        "w_jupiter": 400,
+        "base": "real"
+      }
+    },
+    "propulsion_ionica": {
+      "modelo_referencia": "NEXT-C (voló en DART)",
+      "potencia_entrada_kw": [0.6, 7.4],
+      "empuje_mn": [25, 235],
+      "isp_s": [1400, 4200],
+      "empuje_por_kw_mn": 32,
+      "masa_propulsor_kg": 14,
+      "masa_ppu_kg": 36,
+      "rendimiento": 0.69,
+      "xenon_calificado_por_propulsor_kg": 600,
+      "base": "real",
+      "limite_clave": "Un solo propulsor a plena potencia necesita unos 7 kW. Más allá de ~3 UA no hay energía para alimentarlo con tecnología actual."
+    },
+    "propulsion_quimica": {
+      "isp_bipropelente_s": 317,
+      "uso": "Inserción orbital y maniobras críticas",
+      "base": "real (valor usado en la misión Juno del juego)"
+    },
+    "comunicaciones": {
+      "laser_dsoc": {
+        "max_mbps_a_31_millones_km": 267,
+        "mbps_a_225_millones_km": 25,
+        "pico_mbps_a_386_millones_km": 8.3,
+        "sostenido_mbps_a_386_millones_km": 6.25,
+        "base": "real",
+        "condiciones": "Cielo despejado en el telescopio receptor; en cielo diurno la tasa baja."
+      },
+      "radio_referencia": {
+        "mro_max_mbps": 6,
+        "base": "real"
+      },
+      "regla": "La tasa baja con el cuadrado de la distancia.",
+      "tiempo_luz": {
+        "luna_s": 1.3,
+        "marte_min": [5, 20],
+        "jupiter_min": [35, 52],
+        "base": "luna y jupiter derivado; marte real"
+      }
+    },
+    "radiacion": {
+      "boveda_juno": {
+        "masa_kg": 200,
+        "espesor_cm": 1,
+        "reduccion_aproximada": 800,
+        "base": "real"
+      },
+      "estrategia_orbita": "Órbita polar para pasar poco tiempo en los cinturones ecuatoriales.",
+      "indice_blindaje_requerido": {
+        "luna": 20,
+        "marte": 30,
+        "jupiter": 90,
+        "base": "estimado, sobre la escala 0-100 del archivo ASTRION"
+      }
+    },
+    "termica_luna": {
+      "dia_noche_dias_terrestres": 14,
+      "temp_noche_c": -173,
+      "temp_dia_c": 127,
+      "base": "real",
+      "solucion_real": "Calefactores alimentados por RTG o RHU, o modo de hibernación (Chang'e 3 usó RTG para calentarse)."
+    },
+    "vuelo_marte": {
+      "densidad_atmosfera_vs_tierra": [0.006, 0.01],
+      "temp_noche_c": -100,
+      "ingenuity": {
+        "masa_kg": 1.8,
+        "potencia_en_vuelo_w": 350,
+        "vuelo_diseno_s": 90,
+        "vuelo_record_s": 161.3,
+        "alcance_diseno_m": 300,
+        "altitud_max_m": 24,
+        "vuelos_totales": 72,
+        "tiempo_total_vuelo_min": 128.9,
+        "enlace": "Estación base en el rover (Zigbee)",
+        "base": "real"
+      },
+      "concepto_siguiente_generacion": {
+        "masa_total_kg": 6,
+        "carga_cientifica_kg": 1,
+        "vuelo_s": 150,
+        "alcance_km": 1,
+        "potencia_disponible_w": 30,
+        "energia_diaria_wh": 25,
+        "base": "real (estudio conceptual, no voló)"
+      }
+    },
+    "entrada_jupiter": {
+      "sonda_galileo": {
+        "masa_kg": 339,
+        "diametro_m": 1.3,
+        "escudo_termico_kg": 152,
+        "velocidad_entrada_km_s": 47.8,
+        "desaceleracion_max_g": 230,
+        "datos_min": 57.6,
+        "profundidad_km": 150,
+        "presion_final_bar": 22,
+        "temperatura_final_c": 153,
+        "datos_totales_mbit": 3.5,
+        "enlace": "Relé hacia la nave nodriza",
+        "base": "real"
+      },
+      "nota": "El escudo térmico pesó casi la mitad de la sonda y se recibieron solo unos 3,5 Mbit de datos."
+    }
+  },
+  "destinos": [
+    {
+      "id": "luna",
+      "nombre": "La Luna",
+      "distancia_ua": 1.0,
+      "referencia_mision": "LRO",
+      "dosis_base_orbita": 1.5,
+      "entorno": {
+        "temp_noche_c": -173,
+        "temp_dia_c": 127,
+        "noche_dias": 14,
+        "atmosfera": "ninguna",
+        "retraso_comunicacion_s": 1.3
+      },
+      "requisitos_minimos_nave": {
+        "potencia_w": 600,
+        "bateria_wh": 2000,
+        "dv_insercion_ms": 700,
+        "dv_total_ms": 1300,
+        "fraccion_propelente_quimico_max": 0.20,
+        "blindaje_indice_min": 20,
+        "enlace_min_mbps": 10,
+        "base": "estimado a partir del archivo de misión LRO"
+      },
+      "techo_tecnologico": {
+        "enlace_mbps": 267,
+        "base_enlace": "estimado: la distancia es mucho menor que la de las pruebas DSOC",
+        "potencia_nocturna_solo_rtg": true
+      },
+      "criterios_exito": [
+        { "objetivo": "superficie", "puntaje_requerido": 5 },
+        { "objetivo": "agua", "puntaje_requerido": 5 },
+        { "objetivo": "radiacion", "puntaje_requerido": 3 }
+      ],
+      "drones_aplicables": ["dron_orbital_micro", "dron_superficie_lunar"]
+    },
+    {
+      "id": "marte",
+      "nombre": "Marte",
+      "distancia_ua": 1.52,
+      "referencia_mision": "MRO",
+      "dosis_base_orbita": 2.5,
+      "entorno": {
+        "luz_solar_vs_tierra": 0.43,
+        "atmosfera_vs_tierra": [0.006, 0.01],
+        "temp_noche_c": -100,
+        "retraso_comunicacion_min": [5, 20]
+      },
+      "requisitos_minimos_nave": {
+        "potencia_w": 600,
+        "bateria_wh": 3200,
+        "dv_insercion_ms": 1000,
+        "dv_total_ms": 1500,
+        "fraccion_propelente_quimico_max": 0.275,
+        "blindaje_indice_min": 30,
+        "enlace_min_mbps": 6,
+        "base": "MRO real (potencia, baterías, frenado, enlace); resto estimado"
+      },
+      "techo_tecnologico": {
+        "enlace_mbps": [8, 42],
+        "base_enlace": "derivado: DSOC escalado por distancia mínima y máxima a Marte",
+        "aerofrenado": {
+          "ahorro_propelente": 0.5,
+          "duracion_meses": 5,
+          "base": "real (MRO: unas 445 órbitas)"
+        }
+      },
+      "criterios_exito": [
+        { "objetivo": "agua_pasada", "puntaje_requerido": 6 },
+        { "objetivo": "subsuelo", "puntaje_requerido": 5 },
+        { "objetivo": "clima", "puntaje_requerido": 5 }
+      ],
+      "drones_aplicables": ["dron_orbital_micro", "dron_aereo_marte"]
+    },
+    {
+      "id": "jupiter",
+      "nombre": "Júpiter",
+      "distancia_ua": 5.2,
+      "referencia_mision": "Juno",
+      "dosis_base_orbita": 9,
+      "entorno": {
+        "luz_solar_vs_tierra": 0.037,
+        "radiacion": "la más intensa que ha enfrentado una nave de la NASA, salvo el Sol",
+        "retraso_comunicacion_min": [35, 52]
+      },
+      "requisitos_minimos_nave": {
+        "potencia_w": 400,
+        "bateria_wh": 3600,
+        "dv_insercion_ms": 540,
+        "dv_total_ms": 2000,
+        "fraccion_propelente_quimico_max": 0.16,
+        "blindaje_indice_min": 90,
+        "boveda_masa_kg_min": 150,
+        "enlace_min_mbps": 0.5,
+        "base": "Juno real (potencia, baterías, inserción, bóveda); resto estimado"
+      },
+      "techo_tecnologico": {
+        "enlace_mbps": [1.5, 3.2],
+        "base_enlace": "derivado: DSOC escalado por distancia mínima y máxima a Júpiter",
+        "ionico_util": false,
+        "motivo_ionico": "Sin energía solar ni RTG suficientes más allá de ~3 UA; la inserción debe ser química."
+      },
+      "criterios_exito": [
+        { "objetivo": "interior", "puntaje_requerido": 8 },
+        { "objetivo": "atmosfera", "puntaje_requerido": 6 },
+        { "objetivo": "magnetosfera", "puntaje_requerido": 8 }
+      ],
+      "drones_aplicables": ["sonda_atmosferica_jupiter"]
+    }
+  ],
+  "drones": [
+    {
+      "id": "dron_orbital_micro",
+      "nombre": "Microsatélite orbital",
+      "rol": "Cartografía complementaria y relevo de datos",
+      "slots": 1,
+      "masa_kg": 40,
+      "potencia_w": 60,
+      "autonomia_anos": 2,
+      "destinos": ["luna", "marte"],
+      "no_apto_en": ["jupiter"],
+      "motivo_no_apto": "Sin bóveda de radiación no sobrevive; con ella ya no cabe en un slot.",
+      "base": "estimado"
+    },
+    {
+      "id": "dron_superficie_lunar",
+      "nombre": "Saltador / rover ligero lunar",
+      "rol": "Exploración de superficie y cráteres",
+      "slots": 1,
+      "masa_kg": 60,
+      "potencia_w": 40,
+      "supervivencia_noche": {
+        "metodo": "RHU + hibernación",
+        "rhu_estimadas": [10, 20],
+        "calor_requerido_wt": [10, 20],
+        "base": "estimado"
+      },
+      "temperatura_operativa_c": [-173, 127],
+      "autonomia": "decisiones locales; el retraso es de solo 1,3 s",
+      "referencia_real": "Rover de Chang'e 3: unos 120 kg, demasiado grande para un slot",
+      "destinos": ["luna"],
+      "base": "estimado"
+    },
+    {
+      "id": "dron_aereo_marte",
+      "nombre": "Helicóptero de exploración marciana",
+      "rol": "Reconocimiento aéreo de terreno y rutas",
+      "slots": 1,
+      "masa_kg": 6,
+      "masa_con_edl_kg_estimada": [40, 60],
+      "carga_cientifica_kg": 1,
+      "potencia_vuelo_w": 350,
+      "energia_diaria_wh": 25,
+      "vuelo_s": 150,
+      "alcance_m": 1000,
+      "frecuencia": "un vuelo cada dos soles",
+      "temperatura_noche_c": -100,
+      "enlace": "Necesita estación base en superficie o relé: no puede hablar con la nodriza directamente.",
+      "edl": "Requiere cápsula de entrada, descenso y aterrizaje; ASTRION no puede soltarlo desde la órbita sin ella.",
+      "destinos": ["marte"],
+      "referencia_real": "Ingenuity: 1,8 kg, 72 vuelos",
+      "base": "real (Ingenuity y concepto de nueva generación); EDL estimado"
+    },
+    {
+      "id": "sonda_atmosferica_jupiter",
+      "nombre": "Sonda de entrada atmosférica",
+      "rol": "Medir composición, temperatura y presión bajo las nubes",
+      "slots": 5,
+      "masa_kg": 339,
+      "escudo_termico_kg": 152,
+      "velocidad_entrada_km_s": 47.8,
+      "desaceleracion_max_g": 230,
+      "duracion_datos_min": 57.6,
+      "profundidad_km": 150,
+      "datos_totales_mbit": 3.5,
+      "enlace": "Relé hacia la nodriza, que debe estar bien ubicada y escuchando durante la entrada.",
+      "destinos": ["jupiter"],
+      "solo_en_naves": ["astrion_v"],
+      "base": "real (Galileo)"
+    }
+  ],
+  "naves": [
+    {
+      "id": "astrion_x",
+      "nombre": "ASTRION-X",
+      "masa_kg": 2500,
+      "carga_util_kg": 400,
+      "slots": 6,
+      "kg_por_slot": 66.7,
+      "declarado": {
+        "potencia_w": 6400,
+        "delta_v_ms": 8200,
+        "enlace_gbps": 2.4,
+        "blindaje_rad": 88
+      },
+      "energia_realista": {
+        "area_paneles_m2": 23.87,
+        "rtg_actuales": 2,
+        "rtg_w_total": 220,
+        "potencia_w": {
+          "luna_dia": 4670,
+          "luna_noche": 220,
+          "marte": 2146,
+          "jupiter": 385
+        },
+        "relacion_declarado_vs_jupiter": 16.6,
+        "propulsores_ionicos_a_plena_potencia": {
+          "luna": 0.63,
+          "marte": 0.29,
+          "jupiter": 0.05
+        },
+        "base": "derivado"
+      },
+      "propulsion_realista": {
+        "xenon_para_dv_declarado_kg": 472,
+        "propulsores_necesarios_por_xenon": 1,
+        "empuje_continuo_estimado_anos": [2.5, 4.0],
+        "propelente_quimico_cota_kg": {
+          "luna": 504,
+          "marte": 688,
+          "jupiter": 399
+        },
+        "base": "derivado"
+      },
+      "comunicaciones_realistas_mbps": {
+        "luna": 267,
+        "marte": [8, 42],
+        "jupiter": [1.5, 3.2],
+        "dias_para_bajar_20_tb": {
+          "luna": 7,
+          "marte": [44, 231],
+          "jupiter": [580, 1260]
+        },
+        "base": "derivado"
+      },
+      "cohete_minimo": {
+        "luna": "atlas_v_401",
+        "marte": "atlas_v_401",
+        "jupiter": "atlas_v_541"
+      },
+      "casco_diametro_m": 4.7,
+      "viabilidad": {
+        "luna": {
+          "veredicto": "viable",
+          "motivos": ["Potencia 4 670 W frente a 600 W requeridos.", "Blindaje 88 frente a 20."]
+        },
+        "marte": {
+          "veredicto": "viable",
+          "motivos": ["Potencia 2 146 W frente a 600 W.", "Atlas V 401 con margen de masa de solo ~8 %."],
+          "cambios": ["Usar aerofrenado para reducir el propelente químico."]
+        },
+        "jupiter": {
+          "veredicto": "viable_con_cambios",
+          "motivos": ["Potencia ~385 W, justo por debajo de los 400 W requeridos.", "Blindaje 88 frente a 90."],
+          "cambios": [
+            "Añadir bóveda de ~200 kg.",
+            "Subir a 3-4 RTG o ampliar paneles.",
+            "Inserción únicamente química."
+          ]
+        }
+      }
+    },
+    {
+      "id": "astrion_v",
+      "nombre": "ASTRION-V",
+      "masa_kg": 3400,
+      "carga_util_kg": 600,
+      "slots": 9,
+      "kg_por_slot": 66.7,
+      "declarado": {
+        "potencia_w": 8900,
+        "delta_v_ms": 11500,
+        "enlace_gbps": 4.0,
+        "blindaje_rad": 98
+      },
+      "energia_realista": {
+        "area_paneles_m2": 35.24,
+        "rtg_actuales": 4,
+        "rtg_w_total": 440,
+        "potencia_w": {
+          "luna_dia": 7008,
+          "luna_noche": 440,
+          "marte": 3283,
+          "jupiter": 683
+        },
+        "relacion_declarado_vs_jupiter": 13.0,
+        "propulsores_ionicos_a_plena_potencia": {
+          "luna": 0.95,
+          "marte": 0.44,
+          "jupiter": 0.09
+        },
+        "base": "derivado"
+      },
+      "propulsion_realista": {
+        "xenon_para_dv_declarado_kg": 864,
+        "propulsores_necesarios_por_xenon": 2,
+        "empuje_continuo_estimado_anos": [4.7, 4.9],
+        "propelente_quimico_cota_kg": {
+          "luna": 686,
+          "marte": 935,
+          "jupiter": 542
+        },
+        "base": "derivado"
+      },
+      "comunicaciones_realistas_mbps": {
+        "luna": 267,
+        "marte": [8, 42],
+        "jupiter": [1.5, 3.2],
+        "dias_para_bajar_20_tb": {
+          "luna": 7,
+          "marte": [44, 231],
+          "jupiter": [580, 1260]
+        },
+        "base": "derivado"
+      },
+      "cohete_minimo": {
+        "luna": "atlas_v_541",
+        "marte": "atlas_v_541",
+        "jupiter": "atlas_v_551"
+      },
+      "casco_diametro_m": 5.3,
+      "viabilidad": {
+        "luna": {
+          "veredicto": "viable",
+          "motivos": ["Sobredimensionada para la Luna; requiere un Atlas V 541."]
+        },
+        "marte": {
+          "veredicto": "viable",
+          "motivos": ["Potencia 3 283 W frente a 600 W.", "Requiere Atlas V 541."]
+        },
+        "jupiter": {
+          "veredicto": "viable",
+          "motivos": [
+            "Potencia ~683 W frente a 400 W.",
+            "Blindaje 98 frente a 90.",
+            "Con la sonda tipo Galileo (339 kg, 5 slots) quedan 261 kg para instrumentos y otros drones."
+          ],
+          "cambios": [
+            "Reducir el enlace declarado a 1,5-3,2 Mbps.",
+            "Inserción únicamente química.",
+            "Evitar propulsión iónica más allá de ~3 UA."
+          ]
+        }
+      }
+    },
+    {
+      "id": "astrion_s",
+      "nombre": "ASTRION-S",
+      "masa_kg": 1850,
+      "carga_util_kg": 280,
+      "slots": 4,
+      "kg_por_slot": 70,
+      "declarado": {
+        "potencia_w": 5200,
+        "delta_v_ms": 6800,
+        "enlace_gbps": 3.2,
+        "blindaje_rad": 76
+      },
+      "energia_realista": {
+        "area_paneles_m2": 16.25,
+        "rtg_actuales": 1,
+        "rtg_w_total": 110,
+        "potencia_w": {
+          "luna_dia": 3139,
+          "luna_noche": 110,
+          "marte": 1421,
+          "jupiter": 222
+        },
+        "relacion_declarado_vs_jupiter": 23.4,
+        "propulsores_ionicos_a_plena_potencia": null,
+        "nota_propulsion": "Usa efecto Hall, no NEXT-C; su Isp y empuje no se verificaron.",
+        "base": "derivado"
+      },
+      "propulsion_realista": {
+        "xenon_para_dv_declarado_kg": null,
+        "propelente_quimico_cota_kg": {
+          "luna": 373,
+          "marte": 509,
+          "jupiter": 295
+        },
+        "base": "derivado"
+      },
+      "comunicaciones_realistas_mbps": {
+        "luna": 267,
+        "marte": [8, 42],
+        "jupiter": [1.5, 3.2],
+        "base": "derivado"
+      },
+      "cohete_minimo": {
+        "luna": "atlas_v_401",
+        "marte": "atlas_v_401",
+        "jupiter": "atlas_v_541"
+      },
+      "casco_diametro_m": 4.1,
+      "viabilidad": {
+        "luna": {
+          "veredicto": "viable",
+          "motivos": ["Potencia 3 139 W frente a 600 W."]
+        },
+        "marte": {
+          "veredicto": "viable",
+          "motivos": ["Potencia 1 421 W frente a 600 W."]
+        },
+        "jupiter": {
+          "veredicto": "no_viable",
+          "motivos": [
+            "Potencia ~222 W frente a 400 W.",
+            "Blindaje 76 frente a 90.",
+            "Un solo RTG y 16 m² de paneles."
+          ]
+        }
+      }
+    }
+  ],
+  "brechas_astrion": [
+    {
+      "id": "potencia_a_1ua",
+      "texto": "Las potencias declaradas (5 200 a 8 900 W) coinciden con lo que dan los paneles cerca de la Tierra; en Júpiter son 13 a 23 veces menores.",
+      "severidad": "alta"
+    },
+    {
+      "id": "rtg_pequenos",
+      "texto": "El MMRTG entrega ~110 W; 4 RTG suman ~440 W, no miles. La nueva generación (230 W) aún no está lista.",
+      "severidad": "alta"
+    },
+    {
+      "id": "enlace_gbps",
+      "texto": "Enlaces de 2,4 a 4 Gbps no existen a distancias planetarias: el récord láser es 267 Mbps a 31 millones de km y en Júpiter se esperan 1,5 a 3,2 Mbps.",
+      "severidad": "alta"
+    },
+    {
+      "id": "almacenamiento_20tb",
+      "texto": "Bajar 20 TB tomaría 580 a 1 260 días de enlace continuo en Júpiter; el almacenamiento supera con mucho la capacidad de transmisión.",
+      "severidad": "media"
+    },
+    {
+      "id": "toberas_ionicas",
+      "texto": "Los 3 a 6 propulsores iónicos solo sirven como redundancia: la energía disponible no alcanza a encender ni uno a plena potencia (~7,4 kW).",
+      "severidad": "media"
+    },
+    {
+      "id": "astrion_s_rtg",
+      "texto": "ASTRION-S declara 1 RTG en la configuración 3D pero su campo de energía no lo menciona.",
+      "severidad": "baja"
+    },
+    {
+      "id": "cofia",
+      "texto": "Los cascos de 4,1 a 5,3 m de diámetro pueden no caber en la cofia de 4 m del Atlas V 401; verificar contra el lanzador elegido.",
+      "severidad": "media"
+    },
+    {
+      "id": "edl_drones",
+      "texto": "Los drones de superficie no se liberan directamente desde la órbita: necesitan cápsula de entrada y aterrizaje.",
+      "severidad": "media"
+    }
+  ],
+  "resumen_viabilidad": {
+    "astrion_x": { "luna": "viable", "marte": "viable", "jupiter": "viable_con_cambios" },
+    "astrion_v": { "luna": "viable", "marte": "viable", "jupiter": "viable" },
+    "astrion_s": { "luna": "viable", "marte": "viable", "jupiter": "no_viable" }
+  }
+}

@@ -1,0 +1,22 @@
+/* Elección de dificultad en el briefing (B2). Las tarjetas son radios nativos: se mueven con las flechas. */
+.dificultad { border: 0; margin: 6px 0 0; padding: 0; min-width: 0; }
+.dificultad legend { font-family: var(--f-titulo); font-size: 1.15rem; padding: 0; margin-bottom: 8px; }
+.dificultad-tarjetas { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.dificultad-op { position: relative; display: block; cursor: pointer; }
+.dificultad-op input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+.dificultad-cuerpo {
+  display: grid; gap: 4px; height: 100%; box-sizing: border-box; padding: 12px 14px;
+  background: var(--panel-2); border: 1px solid var(--borde); border-radius: var(--radio);
+  transition: border-color .15s, box-shadow .15s;
+}
+.dificultad-cuerpo strong { font-family: var(--f-titulo); font-size: 1.1rem; }
+.dificultad-etapa { color: var(--azul); font-family: var(--f-mono); font-size: .75rem; text-transform: uppercase; letter-spacing: .04em; }
+.dificultad-desc { color: var(--tenue); font-size: .88rem; line-height: 1.35; }
+.dificultad-op input:checked + .dificultad-cuerpo { border-color: var(--acento); box-shadow: 0 0 0 1px var(--acento), 0 0 18px rgba(240, 164, 107, .25); }
+.dificultad-op input:checked + .dificultad-cuerpo strong::before { content: '✓ '; color: var(--ok); }
+.dificultad-op input:focus-visible + .dificultad-cuerpo { outline: 2px solid var(--azul); outline-offset: 2px; }
+.dificultad-cambia { margin: 8px 0 0; font-size: .85rem; color: var(--tenue); }
+.dificultad-nota { margin: 2px 0 0; font-size: .75rem; color: var(--tenue); opacity: .75; }
+@media (max-width: 560px) {
+  .dificultad-tarjetas { grid-template-columns: 1fr; }
+}

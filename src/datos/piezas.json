@@ -1,0 +1,478 @@
+[
+  {
+    "id": "panel_chico",
+    "categoria": "energia",
+    "nombre": "Paneles solares chicos",
+    "masa_kg": 150,
+    "costo_musd": 30,
+    "genera_w_1ua": 6000,
+    "visual": "chico",
+    "dato": "A 5,2 UA llega solo el 3,7 % de la luz que recibimos en la Tierra."
+  },
+  {
+    "id": "panel_mediano",
+    "categoria": "energia",
+    "nombre": "Paneles solares medianos",
+    "masa_kg": 250,
+    "costo_musd": 55,
+    "genera_w_1ua": 10000,
+    "visual": "mediano",
+    "dato": "Suficientes para Marte, escasos para Júpiter."
+  },
+  {
+    "id": "panel_gigante",
+    "categoria": "energia",
+    "nombre": "Alas solares gigantes",
+    "masa_kg": 340,
+    "costo_musd": 80,
+    "genera_w_1ua": 14000,
+    "visual": "gigante",
+    "real": true,
+    "dato": "Juno fue la primera nave en llegar a Júpiter con energía solar, con 3 alas enormes.",
+    "precio": 150
+  },
+  {
+    "id": "rtg",
+    "categoria": "energia",
+    "nombre": "Generadores de radioisótopos (RTG)",
+    "masa_kg": 135,
+    "costo_musd": 210,
+    "genera_w_fijo": 330,
+    "sin_calefactores": true,
+    "visual": "rtg",
+    "dato": "No dependen del Sol y su calor residual calienta la nave, pero el plutonio-238 es caro y escaso.",
+    "precio": 300
+  },
+  {
+    "id": "antena_media",
+    "categoria": "antena",
+    "nombre": "Antena de ganancia media (0,8 m)",
+    "masa_kg": 15,
+    "costo_musd": 10,
+    "potencia_w": 20,
+    "enlace_mbit_dia_1ua": 1100,
+    "visual": "media",
+    "dato": "La señal se debilita con el cuadrado de la distancia."
+  },
+  {
+    "id": "antena_alta",
+    "categoria": "antena",
+    "nombre": "Antena de alta ganancia (2,5 m)",
+    "masa_kg": 50,
+    "costo_musd": 30,
+    "potencia_w": 30,
+    "enlace_mbit_dia_1ua": 10800,
+    "visual": "alta",
+    "dato": "Más diámetro = haz más concentrado = más datos."
+  },
+  {
+    "id": "antena_ka",
+    "categoria": "antena",
+    "nombre": "Antena de alta ganancia + banda Ka",
+    "masa_kg": 65,
+    "costo_musd": 45,
+    "potencia_w": 40,
+    "enlace_mbit_dia_1ua": 16200,
+    "habilita": "ka",
+    "visual": "ka",
+    "real": true,
+    "dato": "La banda Ka permite medir la gravedad de Júpiter con el efecto Doppler.",
+    "precio": 120
+  },
+  {
+    "id": "blindaje_ninguno",
+    "categoria": "blindaje",
+    "nombre": "Sin blindaje",
+    "masa_kg": 0,
+    "costo_musd": 0,
+    "blindaje": 0,
+    "visual": "ninguno",
+    "dato": "Júpiter tiene los cinturones de radiación más intensos del sistema solar."
+  },
+  {
+    "id": "blindaje_aluminio",
+    "categoria": "blindaje",
+    "nombre": "Blindaje de aluminio",
+    "masa_kg": 80,
+    "costo_musd": 15,
+    "blindaje": 0.5,
+    "visual": "aluminio",
+    "dato": "Ligero y barato, pero solo detiene la mitad de la radiación."
+  },
+  {
+    "id": "boveda_titanio",
+    "categoria": "blindaje",
+    "nombre": "Bóveda de titanio",
+    "masa_kg": 200,
+    "costo_musd": 40,
+    "blindaje": 0.8,
+    "visual": "titanio",
+    "real": true,
+    "dato": "Juno protege su electrónica dentro de una bóveda de titanio.",
+    "precio": 120
+  },
+  {
+    "id": "tanque_chico",
+    "categoria": "propulsion",
+    "nombre": "Tanque chico (1 200 kg de propelente)",
+    "masa_kg": 60,
+    "costo_musd": 15,
+    "propelente_kg": 1200,
+    "visual": "chico",
+    "dato": "Cada kilo de propelente también hay que lanzarlo."
+  },
+  {
+    "id": "tanque_mediano",
+    "categoria": "propulsion",
+    "nombre": "Tanque mediano (1 600 kg de propelente)",
+    "masa_kg": 80,
+    "costo_musd": 20,
+    "propelente_kg": 1600,
+    "visual": "mediano",
+    "dato": "Margen justo para llegar y frenar."
+  },
+  {
+    "id": "tanque_grande",
+    "categoria": "propulsion",
+    "nombre": "Tanque grande (2 000 kg de propelente)",
+    "masa_kg": 110,
+    "costo_musd": 25,
+    "propelente_kg": 2000,
+    "visual": "grande",
+    "real": true,
+    "dato": "Más de la mitad de la masa de Juno al despegar era propelente.",
+    "precio": 80
+  },
+  {
+    "id": "mwr",
+    "categoria": "instrumento",
+    "nombre": "Radiómetro de microondas (MWR)",
+    "masa_kg": 40,
+    "costo_musd": 45,
+    "potencia_w": 30,
+    "datos_mbit_dia": 60,
+    "ciencia": {
+      "interior": 3,
+      "atmosfera": 2
+    },
+    "real": true,
+    "dato": "Mira cientos de kilómetros bajo las nubes para medir el agua y el amoníaco.",
+    "mision": "juno"
+  },
+  {
+    "id": "gravedad",
+    "categoria": "instrumento",
+    "nombre": "Ciencia de gravedad",
+    "masa_kg": 10,
+    "costo_musd": 15,
+    "potencia_w": 25,
+    "datos_mbit_dia": 10,
+    "ciencia": {
+      "interior": 3
+    },
+    "requiere": "ka",
+    "real": true,
+    "dato": "Midiendo cómo tira Júpiter de la nave se deduce si tiene núcleo sólido.",
+    "precio": 60,
+    "mision": "juno"
+  },
+  {
+    "id": "mag",
+    "categoria": "instrumento",
+    "nombre": "Magnetómetro (MAG)",
+    "masa_kg": 15,
+    "costo_musd": 20,
+    "potencia_w": 12,
+    "datos_mbit_dia": 40,
+    "ciencia": {
+      "interior": 2,
+      "magnetosfera": 2
+    },
+    "real": true,
+    "dato": "El campo magnético revela el «dínamo» dentro del planeta.",
+    "mision": "juno"
+  },
+  {
+    "id": "jiram",
+    "categoria": "instrumento",
+    "nombre": "Cámara infrarroja (JIRAM)",
+    "masa_kg": 25,
+    "costo_musd": 30,
+    "potencia_w": 20,
+    "datos_mbit_dia": 80,
+    "ciencia": {
+      "atmosfera": 2,
+      "magnetosfera": 1
+    },
+    "real": true,
+    "dato": "Ve el calor que escapa de las capas profundas y las auroras.",
+    "precio": 50,
+    "mision": "juno"
+  },
+  {
+    "id": "particulas",
+    "categoria": "instrumento",
+    "nombre": "Detectores de partículas (JADE + JEDI)",
+    "masa_kg": 35,
+    "costo_musd": 45,
+    "potencia_w": 25,
+    "datos_mbit_dia": 60,
+    "ciencia": {
+      "magnetosfera": 3
+    },
+    "real": true,
+    "dato": "Miden las partículas que producen las auroras más potentes del sistema solar.",
+    "precio": 60,
+    "mision": "juno"
+  },
+  {
+    "id": "uvs_waves",
+    "categoria": "instrumento",
+    "nombre": "Espectrógrafo UV + ondas de plasma",
+    "masa_kg": 25,
+    "costo_musd": 30,
+    "potencia_w": 15,
+    "datos_mbit_dia": 40,
+    "ciencia": {
+      "atmosfera": 1,
+      "magnetosfera": 2
+    },
+    "real": true,
+    "dato": "Escucha las ondas de radio y fotografía las auroras en ultravioleta.",
+    "precio": 50,
+    "mision": "juno"
+  },
+  {
+    "id": "junocam",
+    "categoria": "instrumento",
+    "nombre": "Cámara pública (JunoCam)",
+    "masa_kg": 5,
+    "costo_musd": 5,
+    "potencia_w": 6,
+    "datos_mbit_dia": 120,
+    "ciencia": {
+      "atmosfera": 1
+    },
+    "divulgacion": true,
+    "real": true,
+    "dato": "Sus fotos las procesa el público: ciencia ciudadana.",
+    "precio": 20,
+    "mision": "juno"
+  },
+  {
+    "id": "camara_hd",
+    "categoria": "instrumento",
+    "nombre": "Cámara de alta resolución",
+    "masa_kg": 60,
+    "costo_musd": 40,
+    "potencia_w": 45,
+    "datos_mbit_dia": 400,
+    "ciencia": {
+      "atmosfera": 2
+    },
+    "dato": "Fotos espectaculares… si alcanzas a transmitirlas.",
+    "precio": 40,
+    "mision": "juno"
+  },
+  {
+    "id": "sonda_atmosferica",
+    "categoria": "instrumento",
+    "nombre": "Sonda atmosférica descendente",
+    "masa_kg": 340,
+    "costo_musd": 120,
+    "potencia_w": 0,
+    "datos_mbit_dia": 20,
+    "ciencia": {
+      "interior": 1,
+      "atmosfera": 4
+    },
+    "dato": "La misión Galileo soltó una sonda en 1995; sobrevivió menos de una hora.",
+    "precio": 100,
+    "mision": "juno"
+  },
+  {
+    "id": "lroc",
+    "nombre": "Cámara LROC",
+    "masa_kg": 20,
+    "costo_musd": 30,
+    "potencia_w": 22,
+    "datos_mbit_dia": 2500,
+    "ciencia": {
+      "superficie": 3
+    },
+    "real": true,
+    "dato": "Sus fotos son tan detalladas que se ven las huellas y módulos de las misiones Apolo.",
+    "categoria": "instrumento",
+    "mision": "lro"
+  },
+  {
+    "id": "lend",
+    "nombre": "Detector de neutrones LEND",
+    "masa_kg": 26,
+    "costo_musd": 20,
+    "potencia_w": 13,
+    "datos_mbit_dia": 10,
+    "ciencia": {
+      "agua": 3
+    },
+    "real": true,
+    "dato": "Los neutrones que rebotan en el suelo delatan el hidrógeno: una pista de hielo de agua.",
+    "categoria": "instrumento",
+    "mision": "lro"
+  },
+  {
+    "id": "lola",
+    "nombre": "Altímetro láser LOLA",
+    "masa_kg": 14,
+    "costo_musd": 25,
+    "potencia_w": 34,
+    "datos_mbit_dia": 30,
+    "precio": 40,
+    "ciencia": {
+      "superficie": 2,
+      "agua": 1
+    },
+    "real": true,
+    "dato": "Dispara pulsos láser y mide cuánto tardan en volver: así hace un mapa de alturas.",
+    "categoria": "instrumento",
+    "mision": "lro"
+  },
+  {
+    "id": "diviner",
+    "nombre": "Radiómetro térmico Diviner",
+    "masa_kg": 11,
+    "costo_musd": 20,
+    "potencia_w": 30,
+    "datos_mbit_dia": 40,
+    "precio": 40,
+    "ciencia": {
+      "agua": 1,
+      "superficie": 1
+    },
+    "real": true,
+    "dato": "Mide la temperatura del suelo: en cráteres polares en sombra hace un frío extremo donde el hielo puede durar miles de millones de años.",
+    "categoria": "instrumento",
+    "mision": "lro"
+  },
+  {
+    "id": "lamp",
+    "nombre": "Espectrógrafo UV LAMP",
+    "masa_kg": 6,
+    "costo_musd": 15,
+    "potencia_w": 5,
+    "datos_mbit_dia": 20,
+    "precio": 40,
+    "ciencia": {
+      "agua": 2
+    },
+    "real": true,
+    "dato": "Ve en la oscuridad usando la tenue luz ultravioleta de las estrellas.",
+    "categoria": "instrumento",
+    "mision": "lro"
+  },
+  {
+    "id": "crater",
+    "nombre": "Detector de radiación CRaTER",
+    "masa_kg": 6,
+    "costo_musd": 10,
+    "potencia_w": 9,
+    "datos_mbit_dia": 15,
+    "precio": 30,
+    "ciencia": {
+      "radiacion": 3
+    },
+    "real": true,
+    "dato": "Mide cuánta radiación recibiría un astronauta: clave para volver a la Luna.",
+    "categoria": "instrumento",
+    "mision": "lro"
+  },
+  {
+    "id": "minirf",
+    "nombre": "Radar Mini-RF",
+    "masa_kg": 14,
+    "costo_musd": 25,
+    "potencia_w": 60,
+    "datos_mbit_dia": 80,
+    "precio": 50,
+    "ciencia": {
+      "agua": 1,
+      "superficie": 1
+    },
+    "real": true,
+    "dato": "Un radar atraviesa la sombra y el polvo para buscar hielo en los cráteres.",
+    "categoria": "instrumento",
+    "mision": "lro"
+  },
+  {
+    "id": "bateria_basica",
+    "categoria": "bateria",
+    "nombre": "Baterías Li-ion (2 000 Wh)",
+    "masa_kg": 25,
+    "costo_musd": 6,
+    "potencia_w": 0,
+    "bateria_wh": 2000,
+    "meses": 10,
+    "dato": "Las baterías guardan la energía de los paneles para pasar los eclipses, cuando el Sol queda tapado y no se genera nada."
+  },
+  {
+    "id": "bateria_avanzada",
+    "categoria": "bateria",
+    "nombre": "Baterías Li-ion de alta densidad (3 200 Wh)",
+    "masa_kg": 38,
+    "costo_musd": 14,
+    "potencia_w": 0,
+    "bateria_wh": 3200,
+    "avanzada": true,
+    "meses": 15,
+    "dato": "Más celdas en el mismo espacio aguantan eclipses más largos, pero se prueban y certifican durante más tiempo.",
+    "precio": 60
+  },
+  {
+    "id": "computadora_estandar",
+    "categoria": "computadora",
+    "nombre": "Computadora de vuelo estándar (32 Gbit)",
+    "masa_kg": 6,
+    "costo_musd": 8,
+    "potencia_w": 8,
+    "almacenamiento_gbit": 32,
+    "meses": 12,
+    "dato": "Es el cerebro de la nave: ejecuta los comandos y guarda los datos hasta que la antena pueda enviarlos."
+  },
+  {
+    "id": "computadora_rad_hard",
+    "categoria": "computadora",
+    "nombre": "Computadora resistente a radiación (128 Gbit)",
+    "masa_kg": 9,
+    "costo_musd": 20,
+    "potencia_w": 15,
+    "almacenamiento_gbit": 128,
+    "avanzada": true,
+    "meses": 20,
+    "dato": "Los chips «rad-hard» sobreviven a la radiación y su memoria grande guarda datos cuando el enlace no alcanza. Cuestan más y tardan más en certificarse.",
+    "precio": 120
+  },
+  {
+    "id": "orientacion_basica",
+    "categoria": "orientacion",
+    "nombre": "Ruedas de reacción + sensores solares (60 segundos de arco)",
+    "masa_kg": 18,
+    "costo_musd": 12,
+    "potencia_w": 15,
+    "precision_arcsec": 60,
+    "meses": 12,
+    "dato": "Las ruedas de reacción giran para orientar la nave sin gastar combustible; los sensores solares le dicen hacia dónde mira."
+  },
+  {
+    "id": "orientacion_precision",
+    "categoria": "orientacion",
+    "nombre": "Ruedas de reacción + rastreador de estrellas (6 segundos de arco)",
+    "masa_kg": 30,
+    "costo_musd": 35,
+    "potencia_w": 30,
+    "precision_arcsec": 6,
+    "avanzada": true,
+    "meses": 24,
+    "dato": "Un rastreador de estrellas reconoce el cielo como un mapa y apunta con una precisión enorme, lo que mejora las fotos y el enlace.",
+    "precio": 120
+  }
+]

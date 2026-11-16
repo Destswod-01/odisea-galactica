@@ -1,0 +1,18 @@
+{
+  "atlas_v_401": {
+    "nombre": "Atlas V 401",
+    "dato": "No solid rocket boosters: inexpensive, but cannot lift much toward Jupiter."
+  },
+  "atlas_v_541": {
+    "nombre": "Atlas V 541",
+    "dato": "Four solid rocket boosters strapped to the sides."
+  },
+  "atlas_v_551": {
+    "nombre": "Atlas V 551",
+    "dato": "The most powerful version of the Atlas V; launched Juno in 2011."
+  },
+  "pesado": {
+    "nombre": "Generic heavy rocket",
+    "dato": "Lifts almost anything, but eats through the budget."
+  }
+}

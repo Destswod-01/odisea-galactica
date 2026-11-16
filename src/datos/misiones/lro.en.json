@@ -1,0 +1,302 @@
+{
+  "id": "lro",
+  "numero": 1,
+  "nombre": "LRO",
+  "nombre_real": "LRO",
+  "tutorial": true,
+  "nombre_largo": "Lunar Reconnaissance Orbiter",
+  "destino": {
+    "id": "luna",
+    "nombre": "the Moon",
+    "distancia_ua": 1,
+    "dosis_base_orbita": 1.5
+  },
+  "presupuesto_musd": 650,
+  "operaciones_musd": 60,
+  "dv_requerida_ms": 1300,
+  "dv_insercion_ms": 700,
+  "ventana_insercion_ms": 70,
+  "orbitas_meta": 9,
+  "orbitas_por_bloque": 3,
+  "isp_nave_s": 300,
+  "degradacion_paneles": 0.8,
+  "bateria_wh": 2000,
+  "capacidad_mult": 1.7,
+  "recompensa": {
+    "Bronce": 260,
+    "Plata": 300,
+    "Oro": 340,
+    "Nivel JPL": 360
+  },
+  "pregunta": "Where can we land and live on the Moon, and is there water for astronauts?",
+  "objetivos": [
+    {
+      "id": "superficie",
+      "nombre": "Detailed surface map",
+      "peso": 0.4,
+      "requerido": 5,
+      "necesitas": "A high-resolution camera and an instrument that measures elevation (laser).",
+      "corto": "Surface"
+    },
+    {
+      "id": "agua",
+      "nombre": "Search for water ice at the poles",
+      "peso": 0.4,
+      "requerido": 5,
+      "necesitas": "Sensors that detect hydrogen, extreme cold, or ice: neutron, temperature, ultraviolet, radar.",
+      "corto": "Water ice"
+    },
+    {
+      "id": "radiacion",
+      "nombre": "Measure radiation for future astronauts",
+      "peso": 0.2,
+      "requerido": 3,
+      "necesitas": "A radiation detector.",
+      "corto": "Radiation"
+    }
+  ],
+  "bus": {
+    "masa_kg": 550,
+    "costo_musd": 180,
+    "consumo_w": 300
+  },
+  "calefactores": {
+    "desde_ua": 2,
+    "w_por_ua": 25
+  },
+  "crucero_texto": "The trip to the Moon takes about 4 days. We'll alert you when something requires your decision.",
+  "llegada_texto": "We've arrived at the Moon. We must brake so its gravity captures us into orbit.",
+  "pistas": {
+    "cohete": "The Moon is close: a medium rocket is enough. Pick the cheapest one that can lift your spacecraft.",
+    "propulsion": "You need 1,300 m/s of delta-v to reach the Moon and brake. Check the bar: do you really need the biggest tank?",
+    "energia": "Near Earth there is plenty of sunlight: small solar panels are enough and cost less.",
+    "antena": "The LROC camera generates tons of data. Can your antenna keep up with downlinking it?",
+    "blindaje": "Radiation near the Moon is low. Is it worth paying for shielding?",
+    "instrumentos": "Check the tags on each instrument: they show which objective they support."
+  },
+  "conceptos": {
+    "cohete": {
+      "titulo": "What does the rocket do?",
+      "texto": "It launches your spacecraft off Earth. Each rocket has a maximum payload capacity: if your spacecraft is too heavy, it won't launch. More powerful rockets cost more money."
+    },
+    "propulsion": {
+      "titulo": "Δv: Maneuver \"fuel\"",
+      "texto": "Δv (delta-v) is how much the spacecraft can change its velocity using its own engine, in meters per second. Reaching the Moon and braking into orbit requires a specific amount. More propellant gives more delta-v... but also adds mass."
+    },
+    "energia": {
+      "titulo": "Solar power",
+      "texto": "Solar panels convert sunlight into electricity for the flight computer, heaters, and payload instruments. Near Earth there is plenty of sunlight; far from the Sun, like at Jupiter, very little light arrives."
+    },
+    "antena": {
+      "titulo": "Communications",
+      "texto": "All science data must be downlinked to Earth via radio to ground stations. A larger antenna transmits more data per day. If your instruments generate more data than you can downlink, that science is lost."
+    },
+    "blindaje": {
+      "titulo": "Radiation",
+      "texto": "High-energy particles travel through space and damage electronics. Near the Moon there is little; near Jupiter, a huge amount. Shielding protects the payload, but adds mass."
+    },
+    "instrumentos": {
+      "titulo": "Scientific instruments",
+      "texto": "They are the eyes of the mission. Each instrument supports one or more objectives (check their tags). They add mass, cost money, and consume power: choose the ones that answer the mission question."
+    },
+    "crucero": {
+      "titulo": "The cruise",
+      "texto": "Events will happen during the flight: take your time and decide carefully. The power console shows whether you have surplus electricity or a deficit; if the battery runs out, the spacecraft enters safe mode."
+    },
+    "llegada": {
+      "titulo": "Orbit insertion",
+      "texto": "To enter lunar orbit, you must perform a braking burn with your engine right as you arrive. If you brake too little, you fly past; if you brake too much, you end up in an orbit that is too low."
+    },
+    "operacion": {
+      "titulo": "Science operations",
+      "texto": "Each orbit around the Moon gathers data. You decide when to end the mission and how to do it."
+    }
+  },
+  "real": {
+    "piezas": [
+      "panel_chico",
+      "antena_alta",
+      "blindaje_ninguno",
+      "tanque_chico",
+      "lroc",
+      "lend",
+      "lola",
+      "diviner",
+      "lamp",
+      "crater",
+      "minirf"
+    ],
+    "cohete": "atlas_v_401",
+    "resumen": {
+      "masa_kg": 1846,
+      "energia_jupiter_w": 1850,
+      "costo_musd": 504
+    },
+    "por_que": {
+      "energia": "Near Earth there is abundant sunlight: LRO used a single solar panel, much smaller than Juno's massive wings.",
+      "antena": "LRO generates so much data (especially photos) that it needs a high-speed, high-gain antenna for downlink.",
+      "blindaje": "Radiation near the Moon is low: there is no need for a heavy radiation vault like Juno's.",
+      "propulsion": "The Moon is close: it needed much less propellant than a mission to Jupiter.",
+      "cohete": "An Atlas V 401 with no solid boosters: enough for the Moon. It shared the ride with another mission (LCROSS).",
+      "orbita": "LRO mapped the Moon from a circular polar orbit at 50 km altitude and later moved to an elliptical orbit to save propellant.",
+      "final": "LRO is still operating more than 15 years later and is crucial for choosing landing sites for Artemis astronauts."
+    }
+  },
+  "briefing": [
+    "Welcome to Mission Control! This is your training mission.",
+    "Mission question: where can we land and live on the Moon, and is there water for astronauts?",
+    "You will investigate the SURFACE and WATER ICE at the poles: pay close attention to cameras and ice sensors.",
+    "You have $650 million. I'll explain each concept the first time it appears."
+  ],
+  "eventos": [
+    {
+      "id": "despliegue",
+      "titulo": "Solar panel deployment",
+      "distancia_ua": 1.0,
+      "texto": "The spacecraft separated from the rocket and is tumbling out of control: the battery is draining. Deploy the panel now?",
+      "opciones": [
+        {
+          "texto": "Deploy immediately",
+          "efectos": {
+            "bateria_wh": -100
+          },
+          "resultado": "Successful deployment. The panel begins charging the battery."
+        },
+        {
+          "texto": "Stabilize first, then deploy",
+          "efectos": {
+            "bateria_wh": -600
+          },
+          "resultado": "Safer, but the battery drained significantly while waiting."
+        }
+      ]
+    },
+    {
+      "id": "correccion",
+      "titulo": "Trajectory correction",
+      "distancia_ua": 1.0,
+      "tipo": "deslizador",
+      "texto": "We're slightly off course. A short engine burn will put us back on track to the Moon. How much thrust do we apply?",
+      "objetivo_ms": 120,
+      "tolerancia_ms": 50,
+      "resultado_ok": "Course corrected: heading straight for the Moon.",
+      "resultado_mal": "We'll have to correct again: burned extra propellant."
+    },
+    {
+      "id": "sensor",
+      "titulo": "Attitude sensor failure",
+      "distancia_ua": 1.0,
+      "tipo": "cabina",
+      "minijuego": "reinicio",
+      "texto": "An attitude sensor that tracks where the spacecraft is pointing failed, and the spacecraft entered safe mode. Reboot systems from the cockpit.",
+      "exito": {
+        "efectos": {},
+        "resultado": "Systems recovered. The spacecraft knows its orientation again."
+      },
+      "fallo": {
+        "efectos": {
+          "salud": -5,
+          "modo_seguro": 1
+        },
+        "resultado": "Recovery took hours and we lost mission time."
+      }
+    },
+    {
+      "id": "orbita",
+      "titulo": "Mapping orbit",
+      "distancia_ua": 1.0,
+      "tipo": "decision_final",
+      "texto": "Now in lunar orbit. Flying lower reveals sharper details, but maintaining a low orbit burns propellant.",
+      "opciones": [
+        {
+          "texto": "Stay in low orbit indefinitely (more photos, risk of running out of propellant)",
+          "efectos": {
+            "riesgo": 0.3,
+            "orbitas_extra": 3
+          },
+          "resultado_ok": "It worked! More low-altitude passes and extra science collected.",
+          "resultado_mal": "Propellant ran out sooner than expected: safe mode and vehicle damage."
+        },
+        {
+          "texto": "Map in low orbit, then transition to an elliptical orbit to save propellant",
+          "efectos": {},
+          "real": true,
+          "resultado": "More total passes using less propellant. That's what the real LRO did."
+        }
+      ]
+    }
+  ],
+  "final_boton": "End primary mission",
+  "final_texto": "You finished the primary mission. The real LRO is still in orbit more than 15 years later and helps choose where astronauts will land.",
+  "lanzamiento": {
+    "viento": 6,
+    "tolerancia": 7
+  },
+  "pasadas": [
+    {
+      "tipo": "crater",
+      "objetivo": "superficie",
+      "icono": "🌑",
+      "nombre": "Crater or landing site"
+    },
+    {
+      "tipo": "hielo",
+      "objetivo": "agua",
+      "icono": "❄️",
+      "nombre": "Shadowed polar crater"
+    },
+    {
+      "tipo": "radiacion",
+      "objetivo": "radiacion",
+      "icono": "☢️",
+      "nombre": "Radiation shower"
+    }
+  ],
+  "orbitas": [
+    {
+      "id": "polar_50",
+      "real": false,
+      "nombre": "Circular polar orbit at 50 km",
+      "altitud": "50 km",
+      "descripcion": "A nearly circular orbit over both poles, very close to the surface.",
+      "por_que": "This was LRO's science orbit from 2009 to 2011: it gives the sharpest images, but mascons (patches of uneven gravity) pull it off course, so it needs frequent corrections, burns more fuel and lasts less.",
+      "efectos": {
+        "ciencia": 1.2,
+        "enlace": 1.1,
+        "dv_extra_ms": 150,
+        "vida_anos": 4,
+        "radiacion": 1
+      }
+    },
+    {
+      "id": "eliptica_30x180",
+      "real": true,
+      "nombre": "Elliptical polar orbit, 30 × 180 km",
+      "altitud": "30 × 180 km",
+      "descripcion": "A stretched orbit over the poles: it dips to 30 km above the south pole and climbs to 180 km above the north pole.",
+      "por_que": "LRO has flown this orbit since December 2011 to save fuel. It lasts many years, although the coverage is a bit less even.",
+      "efectos": {
+        "ciencia": 1,
+        "enlace": 1,
+        "dv_extra_ms": 0,
+        "vida_anos": 6,
+        "radiacion": 1
+      }
+    },
+    {
+      "id": "polar_200",
+      "real": false,
+      "nombre": "High polar orbit at 200 km",
+      "altitud": "200 km",
+      "descripcion": "A high circular orbit over the poles, far from the mascons.",
+      "por_que": "It is stable and needs almost no corrections, so it saves fuel and lasts longer. In exchange, you see less detail from that far away and the science goes down.",
+      "efectos": {
+        "ciencia": 0.7,
+        "enlace": 0.95,
+        "dv_extra_ms": -100,
+        "vida_anos": 7,
+        "radiacion": 1
+      }
+    }
+  ]
+}

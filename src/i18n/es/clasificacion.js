@@ -1,0 +1,20 @@
+// Tabla de clasificación local y compartir diseño (B8). Español: texto original.
+export default {
+  'clasificacion.titulo': 'Tabla de clasificación',
+  'clasificacion.subtitulo': 'Los 10 mejores puntajes de la misión',
+  'clasificacion.col.posicion': 'Pos.',
+  'clasificacion.col.nombre': 'Piloto',
+  'clasificacion.col.puntaje': 'Puntaje',
+  'clasificacion.col.fecha': 'Fecha',
+  'clasificacion.tuPuntaje': 'Tu puntaje: {n}',
+  'clasificacion.nombrePlaceholder': 'Tu nombre (máx. 18)',
+  'clasificacion.guardar': 'Guardar mi puntaje',
+  'clasificacion.guardado': 'Puntaje guardado ✓',
+  'clasificacion.sinRegistros': 'Todavía no hay puntajes guardados para esta misión.',
+  'clasificacion.copiarEnlace': 'Copiar enlace de mi diseño',
+  'clasificacion.enlaceCopiado': '¡Enlace copiado! ✓',
+  'clasificacion.errorCopiar': 'No se pudo copiar el enlace',
+  'clasificacion.actual': 'Actual',
+  'clasificacion.anonimo': 'Comandante',
+  'clasificacion.borrar': 'Borrar clasificación',
+};

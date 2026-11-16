@@ -1,0 +1,25 @@
+.rd-fondo{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:16px;background:#050b12cc;backdrop-filter:blur(6px)}
+.rd-panel{width:min(640px,100%);max-height:100%;display:flex;flex-direction:column;gap:12px;padding:18px;overflow:hidden;color:#eafcff;font-family:Inter,system-ui,sans-serif;background:linear-gradient(125deg,#153a50f2,#102236f2);border:1px solid #6edcce80;border-radius:18px;box-shadow:0 12px 35px #0006}
+.rd-panel header h2{margin:0 0 4px;font-size:22px;letter-spacing:-.02em;color:#e2fff9}
+.rd-panel header p{margin:0;font-size:12px;color:#c1d9e5}
+.rd-pasos{list-style:none;margin:0;padding:0;display:flex;gap:4px;flex-wrap:wrap}
+.rd-pasos li{flex:1 1 80px;text-align:center;padding:6px 4px;font:10px monospace;letter-spacing:.06em;text-transform:uppercase;color:#97e4d6;border:1px solid #6edcce40;border-radius:8px;background:#0b1521aa}
+.rd-pasos li.activo{background:#86f2d9;color:#06202a;font-weight:700;border-color:#d4faff;box-shadow:0 0 14px #86f2d966}
+.rd-lista{min-height:0;overflow-y:auto;overflow-x:hidden;padding-right:4px}
+.rd-lista h3{margin:0 0 8px;font:10px monospace;letter-spacing:.14em;text-transform:uppercase;color:#97e4d6}
+.rd-lista ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.rd-lista li{display:flex;gap:10px;align-items:flex-start;padding:8px 10px;border-radius:10px;background:#0b1521aa;border-left:3px solid #86f2d9}
+.rd-lista li.falla{border-left-color:#ffcb7b}
+.rd-lista li div{min-width:0;overflow-wrap:anywhere}
+.rd-lista strong{display:block;font-size:13px;line-height:1.35;font-weight:600}
+.rd-lista small{display:block;margin-top:2px;font-size:11px;line-height:1.4;color:#9eb7c9}
+.rd-marca{flex:0 0 22px;height:22px;display:flex;align-items:center;justify-content:center;border-radius:50%;font-weight:700;font-size:13px}
+.rd-lista li.ok .rd-marca{background:#86f2d9;color:#06202a}
+.rd-lista li.falla .rd-marca{background:#ffcb7b;color:#2a1a04}
+.rd-resumen{margin:0;font-size:15px;font-weight:700}
+.rd-resumen.ok{color:#86f2d9}.rd-resumen.falla{color:#ffcb7b}
+.rd-aviso{margin:6px 0 0;font-size:12px;line-height:1.5;color:#ffd497}
+.rd-botones{display:flex;gap:10px;margin-top:12px}
+.rd-botones button{flex:1;min-height:44px;padding:8px 12px;font-size:14px;cursor:pointer}
+.rd-botones button:focus-visible{outline:2px solid #d4faff;outline-offset:2px}
+@media(max-width:650px){.rd-fondo{padding:8px}.rd-panel{padding:14px;border-radius:12px}.rd-panel header h2{font-size:18px}.rd-pasos li{flex-basis:30%;font-size:9px}.rd-botones{flex-direction:column-reverse}}

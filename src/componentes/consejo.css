@@ -1,0 +1,6 @@
+/* Consejo de piezas en Principiante (tarea B2b). Nunca bloquea: lo gris sigue siendo clicable. */
+.consejo-no-sirve { opacity: .45; }
+.consejo-no-sirve:hover, .consejo-no-sirve:focus-within { opacity: .8; }
+.consejo-recomendada { box-shadow: inset 3px 0 0 #f4c542; }
+.consejo-insignia { display: inline-block; margin-left: .5em; padding: 0 .45em; border-radius: 999px; background: #f4c542; color: #1a1400; font-size: .72em; font-weight: 700; letter-spacing: .02em; vertical-align: middle; }
+.consejo-motivo { display: block; margin-top: .15em; font-size: .78em; line-height: 1.3; opacity: .85; font-weight: 400; }

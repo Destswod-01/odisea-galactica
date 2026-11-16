@@ -1,0 +1,53 @@
+/* Modo equipo (B4): mismo lenguaje visual que los paneles HUD del juego. */
+.eq-config, .eq-resultado { background: #0d1f2ecc; border: 1px solid #2e4a5c; border-radius: 12px; padding: 16px; margin-top: 14px; color: #dceaf4; }
+.eq-config h3, .eq-resultado h3 { margin: 0 0 6px; font-size: 16px; }
+.eq-intro { font-size: 13px; line-height: 1.5; color: #aac4d2; margin: 0 0 10px; }
+.eq-nombres { display: grid; gap: 8px; }
+.eq-nombre { display: flex; gap: 6px; }
+.eq-nombre input { flex: 1; min-width: 0; min-height: 40px; padding: 8px 10px; border-radius: 8px; border: 1px solid #3c5b6e; background: #08151f; color: #eaf6fb; font: inherit; }
+.eq-nombre button { width: 40px; min-height: 40px; padding: 0; }
+.eq-agregar { justify-self: start; min-height: 40px; }
+.eq-config h4 { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: #a5eff7; margin: 14px 0 6px; }
+.eq-reparto, .eq-resultado ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.eq-reparto li, .eq-resultado li { display: grid; gap: 2px; padding: 8px 10px; background: #0a1924; border-radius: 8px; font-size: 13px; }
+.eq-reparto span, .eq-resultado li span { color: #aac4d2; font-size: 12px; }
+.eq-resultado li { grid-template-columns: 1fr auto; }
+.eq-resultado li span { grid-column: 1; }
+.eq-resultado li em { grid-column: 2; grid-row: 1 / span 2; align-self: center; font-style: normal; font-weight: 700; color: #a5eff7; }
+.eq-bono { font-weight: 700; color: #ffd166; margin: 10px 0 4px; }
+.eq-listo { margin-top: 12px; min-height: 44px; }
+
+.eq-turno { position: fixed; left: 50%; top: 58px; transform: translateX(-50%); z-index: 40; display: flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 999px; background: #0d1f2ee6; border: 1px solid #5cc8ff; color: #eaf6fb; box-shadow: 0 6px 24px #0008; pointer-events: none; max-width: calc(100% - 24px); }
+.eq-turno-icono { font-size: 20px; }
+.eq-turno strong { display: block; font-size: 13px; }
+.eq-turno small { display: block; font-size: 11px; color: #9fc3d4; }
+
+.eq-fondo { position: fixed; inset: 0; z-index: 60; display: grid; place-items: center; padding: 8px; background: #020b13c4; backdrop-filter: blur(4px); }
+.eq-votacion { width: min(720px, 100%); max-height: calc(100dvh - 16px); overflow: auto; background: #0f2233; border: 1px solid #4a7187; border-radius: 14px; padding: 18px; color: #dceaf4; }
+.eq-votacion header h2 { margin: 0 0 4px; font-size: 19px; }
+.eq-votacion header p { margin: 0 0 12px; font-size: 13px; color: #aac4d2; }
+.eq-roles { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.eq-roles li { padding: 10px 12px; border-radius: 10px; background: #0a1924; border: 1px solid #2e4a5c; }
+.eq-roles li.ok { border-color: #2f7a5a; }
+.eq-roles li.falla { border-color: #9a6a2a; }
+.eq-rol-cab { display: flex; align-items: baseline; gap: 6px; }
+.eq-rol-cab small { margin-left: auto; color: #9fc3d4; }
+.eq-roles p { font-size: 13px; line-height: 1.45; margin: 6px 0 8px; }
+.eq-voto { display: flex; gap: 6px; }
+.eq-voto button { flex: 1; min-height: 40px; font-size: 12px; opacity: .65; }
+.eq-voto button.activo { opacity: 1; }
+.eq-voto button.activo.aprueba { border-color: #3fbf8a; background: #123a2b; }
+.eq-voto button.activo.cambio { border-color: #e0a040; background: #3a2a12; }
+.eq-conflictos { margin-top: 12px; padding: 10px 12px; border-radius: 10px; background: #1b2a1a; border: 1px dashed #8fbf5a; }
+.eq-conflictos h3 { margin: 0 0 6px; font-size: 14px; }
+.eq-conflictos ul { margin: 0; padding-left: 18px; font-size: 13px; line-height: 1.5; }
+.eq-votacion footer { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 14px; }
+.eq-votacion footer button { min-height: 44px; }
+.eq-res { margin: 0; flex: 1 1 100%; font-weight: 600; }
+.eq-res.ok { color: #7fe3b0; }
+.eq-res.falla { color: #ffc46b; }
+@media (max-width: 560px) {
+  .eq-votacion { padding: 14px; }
+  .eq-roles { grid-template-columns: 1fr; }
+  .eq-turno { top: 50px; }
+}

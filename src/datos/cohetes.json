@@ -1,0 +1,37 @@
+[
+  {
+    "id": "atlas_v_401",
+    "nombre": "Atlas V 401",
+    "capacidad_kg": 1800,
+    "costo_musd": 110,
+    "solidos": 0,
+    "dato": "Sin propulsores sólidos: barato, pero no levanta mucho hacia Júpiter."
+  },
+  {
+    "id": "atlas_v_541",
+    "nombre": "Atlas V 541",
+    "capacidad_kg": 3000,
+    "costo_musd": 150,
+    "solidos": 4,
+    "dato": "Cuatro propulsores sólidos adheridos al costado."
+  },
+  {
+    "id": "atlas_v_551",
+    "nombre": "Atlas V 551",
+    "capacidad_kg": 3700,
+    "costo_musd": 190,
+    "solidos": 5,
+    "real": true,
+    "dato": "La versión más potente del Atlas V; lanzó a Juno en 2011.",
+    "precio": 140
+  },
+  {
+    "id": "pesado",
+    "nombre": "Cohete pesado genérico",
+    "capacidad_kg": 5500,
+    "costo_musd": 350,
+    "solidos": 2,
+    "dato": "Levanta casi todo, pero se come el presupuesto.",
+    "precio": 250
+  }
+]

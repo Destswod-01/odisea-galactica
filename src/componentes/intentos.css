@@ -1,0 +1,45 @@
+.in-fondo{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:16px;background:#050b12cc;backdrop-filter:blur(6px)}
+.in-panel{width:min(520px,100%);max-height:100%;display:flex;flex-direction:column;gap:12px;padding:18px;overflow:hidden;color:#eafcff;font-family:Inter,system-ui,sans-serif;background:linear-gradient(125deg,#153a50f2,#102236f2);border:1px solid #6edcce80;border-radius:18px;box-shadow:0 12px 35px #0006}
+.in-panel header h2{margin:0 0 4px;font-size:21px;letter-spacing:-.02em;color:#e2fff9}
+.in-panel header p{margin:0;font-size:12px;color:#c1d9e5}
+.in-cuerpo{min-height:0;overflow-y:auto;overflow-x:hidden;display:grid;gap:10px;padding-right:4px}
+.in-cuerpo h3{margin:6px 0 0;font:10px monospace;letter-spacing:.14em;text-transform:uppercase;color:#97e4d6}
+.in-puntaje{display:flex;align-items:baseline;justify-content:space-between;padding:8px 12px;border-radius:10px;background:#0b1521aa;border-left:3px solid #86f2d9}
+.in-puntaje span{font-size:12px;color:#c1d9e5}
+.in-puntaje strong{font-size:30px;color:#86f2d9}
+.in-puntaje small{font-size:13px;color:#9eb7c9;margin-left:2px}
+.in-barra-top{display:flex;justify-content:space-between;font-size:12px;margin-bottom:3px}
+.in-pista{height:8px;border-radius:99px;background:#0b1521;overflow:hidden}
+.in-pista i{display:block;height:100%;border-radius:99px;background:#86f2d9}
+.in-pista i.aviso{background:#ffcb7b}
+.in-pista i.mal{background:#ff8a7a}
+.in-motivos{margin:0;padding-left:18px;display:grid;gap:4px;font-size:13px;line-height:1.4}
+.in-nota{margin:0;font-size:11px;color:#9eb7c9}
+.in-botones{display:flex;gap:10px}
+.in-botones button{flex:1;min-height:44px;padding:8px 12px;font-size:14px;cursor:pointer}
+.in-botones button:focus-visible,.in-borrar:focus-visible{outline:2px solid #d4faff;outline-offset:2px}
+@media(max-width:650px){.in-fondo{padding:8px}.in-panel{padding:14px;border-radius:12px}.in-botones{flex-direction:column}}
+
+.in-comparacion{margin-top:14px;color:#eafcff}
+.in-comparacion h3{margin:0 0 8px;font:11px monospace;letter-spacing:.14em;text-transform:uppercase;color:#97e4d6}
+.in-tabla{width:100%;border-collapse:collapse;font-size:13px}
+.in-tabla th{padding:6px 8px;text-align:left;font:10px monospace;letter-spacing:.08em;text-transform:uppercase;color:#97e4d6;border-bottom:1px solid #6edcce40}
+.in-tabla td{padding:7px 8px;border-bottom:1px solid #6edcce20}
+.in-tabla tr.mejor td{background:#86f2d914}
+.in-tabla tr.actual td{box-shadow:inset 0 1px #ffcb7b,inset 0 -1px #ffcb7b}
+.in-marca{margin-left:4px;padding:1px 6px;font-style:normal;font-size:10px;border-radius:99px;background:#86f2d9;color:#06202a}
+.in-marca.act{background:#ffcb7b;color:#2a1a04}
+.in-tarjetas{display:none;list-style:none;margin:0;padding:0;gap:8px}
+.in-tarjetas li{padding:10px;border-radius:10px;background:#0b1521aa;border-left:3px solid #6edcce60}
+.in-tarjetas li.mejor{border-left-color:#86f2d9}
+.in-tarjetas li.actual{outline:1px solid #ffcb7b}
+.in-t-top{display:flex;justify-content:space-between;gap:8px;font-size:12px;margin-bottom:6px}
+.in-t-top strong{font-size:16px;white-space:nowrap}
+.in-tarjetas dl{margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 10px;font-size:12px}
+.in-tarjetas dl div{display:flex;justify-content:space-between;gap:6px;min-width:0}
+.in-tarjetas dt{color:#9eb7c9}
+.in-tarjetas dd{margin:0;font-weight:600}
+.in-borrar{margin-top:8px;min-height:36px;padding:4px 10px;font-size:12px;cursor:pointer}
+@media(max-width:650px){.in-tabla{display:none}.in-tarjetas{display:grid}}
+/* Botón flotante de la simulación rápida en el hangar (abajo a la izquierda, lejos de «Ir al lanzamiento»). */
+.boton-simulacion{position:fixed;left:12px;bottom:12px;z-index:45;min-height:44px;padding:8px 14px;border-radius:999px;background:#0d1f2ee6;border:1px solid #5cc8ff;color:#eaf6fb;box-shadow:0 6px 24px #0008}

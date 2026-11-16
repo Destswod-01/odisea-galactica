@@ -1,0 +1,6 @@
+.premio-pieza { width:min(420px,calc(100vw - 32px)); max-height:calc(100dvh - 32px); overflow:auto; padding:26px; border:1px solid #66d5d6; border-radius:22px; background:#102536; color:#eefbff; text-align:center; box-shadow:0 20px 80px #0009; }
+.premio-pieza::backdrop { background:#020a14cc; }
+.premio-pieza h2 { margin:0; font-size:30px; color:#a4eff0; }
+.premio-pieza img { display:block; width:100%; height:auto; max-height:220px; object-fit:contain; margin:12px auto; }
+.premio-pieza p { margin:8px 0 22px; font-size:21px; line-height:1.4; }
+.premio-pieza button { min-height:48px; width:100%; font-size:18px; }

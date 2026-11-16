@@ -1,0 +1,243 @@
+{
+  "fases_secuencia": [
+    {
+      "id": "despegue",
+      "numero": 1,
+      "titulo": "1. Despegue Terrestre",
+      "subtitulo": "Ignición · Mar de Nubes · Arco Orbital LEO",
+      "descripcion": "Lanzamiento desde la Tierra con columna de fuego hiperbrillante, nubes de vapor volumétrico, ascenso a través del mar de nubes al amanecer e inserción en el arco orbital terrestre."
+    },
+    {
+      "id": "crucero",
+      "numero": 2,
+      "titulo": "2. Crucero Interplanetario",
+      "subtitulo": "Nebulosas · Cinturón de Asteroides · Tormentas",
+      "descripcion": "La nave nodriza ASTRION navega con propulsión iónica a través del espacio profundo, cruzando campos de asteroides, anillos planetarios a contraluz y tormentas electromagnéticas."
+    },
+    {
+      "id": "orbita",
+      "numero": 3,
+      "titulo": "3. Estacionamiento en Órbita",
+      "subtitulo": "Captura Orbital · Reconocimiento Planetario",
+      "descripcion": "La nodriza se estaciona en órbita estable sobre el cuerpo celeste objetivo, desplegando sus sensores y escaneando la superficie desde el espacio."
+    },
+    {
+      "id": "despliegue",
+      "numero": 4,
+      "titulo": "4. Bahía de Despliegue",
+      "subtitulo": "Apertura Modular · Haz Guía de Inserción",
+      "descripcion": "Apertura de la compuerta frontal de la nodriza y proyección del corredor óptico hacia el planeta (interfaz lista para el módulo de mini-drones)."
+    },
+    {
+      "id": "superficie",
+      "numero": 5,
+      "titulo": "5. Tierra Firme · Terreno 3D",
+      "subtitulo": "Aterrizaje · Biomas Planetarios · Impacto",
+      "descripcion": "Exploración a nivel de superficie sobre campos de terreno 3D con relieve topográfico real: Luna, Marte, Europa helada, volcanes activos, vórtices de Júpiter e impacto en asteroide."
+    }
+  ],
+  "planetas_orbitales": [
+    {
+      "id": "tierra",
+      "nombre": "Tierra (Blue & Black Marble)",
+      "subtitulo": "Órbita Terrestre Baja (LEO) · 1.00 UA",
+      "fuente_nasa": "NASA Visible Earth / Suomi NPP",
+      "gravedad": "9.81 m/s²",
+      "temperatura": "15 °C media",
+      "atmosfera": "N₂ 78% · O₂ 21% · Nubes dinámicas",
+      "terreno_asociado": "terreno_luna",
+      "color_atmosfera": "#38bdf8",
+      "descripcion": "Vista orbital terrestre con océanos especulares, formaciones nubosas en tiempo real, resplandor atmosférico Rayleigh y luces nocturnas de ciudades en el terminador."
+    },
+    {
+      "id": "luna",
+      "nombre": "Luna (LRO / LOLA DEM)",
+      "subtitulo": "Órbita Polar Lunar · 384,400 km",
+      "fuente_nasa": "NASA SVS CGI Moon Kit (LROC + LOLA)",
+      "gravedad": "1.62 m/s²",
+      "temperatura": "-173 °C a 127 °C",
+      "atmosfera": "Exosfera ultravacía",
+      "terreno_asociado": "terreno_luna",
+      "color_atmosfera": "#94a3b8",
+      "descripcion": "Mares basálticos y tierras altas craterizadas con relieve topográfico láser de la sonda Lunar Reconnaissance Orbiter."
+    },
+    {
+      "id": "marte",
+      "nombre": "Marte (MRO / MOLA)",
+      "subtitulo": "Órbita Areocéntrica · 1.52 UA",
+      "fuente_nasa": "NASA / USGS Mars Global Surveyor",
+      "gravedad": "3.72 m/s²",
+      "temperatura": "-63 °C media",
+      "atmosfera": "CO₂ 95% · Bruma de óxido de hierro",
+      "terreno_asociado": "terreno_marte",
+      "color_atmosfera": "#fb923c",
+      "descripcion": "El Planeta Rojo con el sistema de cañones Valles Marineris, volcanes de Tharsis y una atmósfera tenue de polvo rojizo iluminada al amanecer."
+    },
+    {
+      "id": "jupiter",
+      "nombre": "Júpiter (Misión Juno)",
+      "subtitulo": "Órbita Perijoviana · 5.20 UA",
+      "fuente_nasa": "NASA / JPL-Caltech / SwRI / JunoCam",
+      "gravedad": "24.79 m/s²",
+      "temperatura": "-145 °C (cima de nubes)",
+      "atmosfera": "H₂ 90% · He 10% · Ciclones de amoníaco",
+      "terreno_asociado": "terreno_nubes_jupiter",
+      "color_atmosfera": "#f59e0b",
+      "descripcion": "Bandas zonales turbulentas, cinturones convectivos y el anticiclón gigante de la Gran Mancha Roja junto a intensas auroras polares."
+    },
+    {
+      "id": "europa",
+      "nombre": "Europa (Luna Helada)",
+      "subtitulo": "Sistema Joviano · 5.20 UA",
+      "fuente_nasa": "NASA / JPL / Galileo & Europa Clipper",
+      "gravedad": "1.31 m/s²",
+      "temperatura": "-160 °C media",
+      "atmosfera": "Trazas de O₂ por radiólisis",
+      "terreno_asociado": "terreno_europa",
+      "color_atmosfera": "#67e8f9",
+      "descripcion": "Corteza de hielo de agua cruzada por fracturas tectónicas rojizas (lineae) que cubren un océano global subsuperficial."
+    },
+    {
+      "id": "saturno_asteroides",
+      "nombre": "Saturno y Asteroides",
+      "subtitulo": "Sistema Anillado y Cinturón · 2.7 – 9.5 UA",
+      "fuente_nasa": "NASA /JPL / Cassini & OSIRIS-REx",
+      "gravedad": "10.44 m/s² (Saturno) · 0.0001 m/s² (Bennu)",
+      "temperatura": "-178 °C",
+      "atmosfera": "Anillos de hielo A/B/C y regolito primitivo",
+      "terreno_asociado": "terreno_asteroide_impacto",
+      "color_atmosfera": "#fde68a",
+      "descripcion": "Gigante gaseoso rodeado por su sistema de anillos cristalinos acompañado de asteroides carbonáceos ricos en minerales."
+    }
+  ],
+  "campos_terreno": [
+    {
+      "id": "terreno_luna",
+      "nombre": "Superficie Lunar · Valle y Cráteres",
+      "subtitulo": "Tierra Firme · Regolito Basáltico con la Tierra en el Cielo",
+      "planeta_madre": "tierra",
+      "gravedad": "1.62 m/s²",
+      "visibilidad": "Vacío absoluto · Sombras de alto contraste",
+      "color_suelo": "#7c8590",
+      "color_secundario": "#3f4650",
+      "color_cielo": "#030712",
+      "color_horizonte": "#1e3a5f",
+      "descripcion": "Campo de aterrizaje lunar sobre cráteres de impacto y crestas montañosas escarpadas, con rocas eyectadas y el globo terrestre azul brillando sobre el horizonte."
+    },
+    {
+      "id": "terreno_marte",
+      "nombre": "Tierra Firme de Marte · Cañones y Dunas",
+      "subtitulo": "Tierra Firme · Mesetas de Óxido de Hierro y Polvo en Suspensión",
+      "planeta_madre": "sol_tenue",
+      "gravedad": "3.72 m/s²",
+      "visibilidad": "Bruma cálida salmón · Dunas eólicas",
+      "color_suelo": "#b4532a",
+      "color_secundario": "#6b2b14",
+      "color_cielo": "#451a0c",
+      "color_horizonte": "#f59e0b",
+      "descripcion": "Paisaje desértico marciano con formaciones rocosas estratificadas, cañones profundos, cantos rodados y atmósfera polvorienta iluminada por el sol rasante."
+    },
+    {
+      "id": "terreno_europa",
+      "nombre": "Llanura Helada de Europa · Agujas de Hielo",
+      "subtitulo": "Tierra Firme Helada · Grietas Criovolcánicas y Gigante Anillado",
+      "planeta_madre": "saturno_cielo",
+      "gravedad": "1.31 m/s²",
+      "visibilidad": "Bruma criogénica cian · Reflejo especular",
+      "color_suelo": "#bae6fd",
+      "color_secundario": "#164e63",
+      "color_cielo": "#041326",
+      "color_horizonte": "#38bdf8",
+      "descripcion": "Superficie congelada atravesada por fisuras bioluminiscentes cian, agujas de hielo cristalino (penitentes) y un coloso planetario visible en el firmamento."
+    },
+    {
+      "id": "terreno_volcanico",
+      "nombre": "Mundo Volcánico Activo · Ríos de Lava (Ío)",
+      "subtitulo": "Tierra Firme Extrema · Basalto Fracturado y Magma Incandescente",
+      "planeta_madre": "jupiter_cielo",
+      "gravedad": "1.79 m/s²",
+      "visibilidad": "Ceniza volcánica y resplandor térmico",
+      "color_suelo": "#1c1917",
+      "color_secundario": "#44403c",
+      "color_cielo": "#1f0906",
+      "color_horizonte": "#f97316",
+      "descripcion": "Terreno geológicamente hiperactivo con canales de lava fundida, corteza oscura agrietada, brasas ascendentes y nubes densas teñidas de rojo por la radiación térmica."
+    },
+    {
+      "id": "terreno_nubes_jupiter",
+      "nombre": "Ciclones y Vórtices de Júpiter",
+      "subtitulo": "Exploración Atmosférica · Gran Mancha Roja y Tormentas Polares",
+      "planeta_madre": "ninguno",
+      "gravedad": "24.79 m/s²",
+      "visibilidad": "Vórtices convectivos densos · Descargas eléctricas",
+      "color_suelo": "#d97706",
+      "color_secundario": "#78350f",
+      "color_cielo": "#0c192c",
+      "color_horizonte": "#fde68a",
+      "descripcion": "Inmersión sobre el techo de nubes joviano con espirales ciclónicas tridimensionales en rotación, paredes de amoníaco y relámpagos internos."
+    },
+    {
+      "id": "terreno_asteroide_impacto",
+      "nombre": "Superficie de Asteroide e Impacto Cinético",
+      "subtitulo": "Defensa Planetaria (DART) · Cráter, Explosión y Escombros",
+      "planeta_madre": "estrellas",
+      "gravedad": "0.0001 m/s²",
+      "visibilidad": "Columna de eyección y onda expansiva",
+      "color_suelo": "#57534e",
+      "color_secundario": "#292524",
+      "color_cielo": "#020617",
+      "color_horizonte": "#fb923c",
+      "descripcion": "Superficie rocosa de asteroide con simulación de impacto cinético: bola de fuego incandescente, onda de choque y cientos de fragmentos rocosos eyectados al espacio."
+    }
+  ],
+  "escenarios_crucero": [
+    {
+      "id": "via_lactea_nebulosa",
+      "nombre": "Vía Láctea y Nebulosa Magenta",
+      "subtitulo": "Espacio Profundo · Gas Ionizado y Cúmulos Estelares",
+      "color_primario": "#c084fc",
+      "color_secundario": "#38bdf8",
+      "descripcion": "Tránsito por una región densa de formación estelar con nubes volumétricas violeta-magenta y la banda galáctica de fondo."
+    },
+    {
+      "id": "nebulosa_bicolor",
+      "nombre": "Nebulosa Cósmica Cian y Ámbar",
+      "subtitulo": "Pilares de Materia Interestelar",
+      "color_primario": "#38bdf8",
+      "color_secundario": "#f59e0b",
+      "descripcion": "Frente de choque entre gas de hidrógeno calentado en tonos ámbar y oxígeno doblemente ionizado en azul brillante."
+    },
+    {
+      "id": "cinturon_asteroides",
+      "nombre": "Cinturón Principal de Asteroides",
+      "subtitulo": "Campo Denso de Rocas Espaciales a Contraluz",
+      "color_primario": "#94a3b8",
+      "color_secundario": "#fde047",
+      "descripcion": "Navegación autónoma de ASTRION-CORE esquivando cientos de cuerpos rocosos irregulares en rotación con polvo cósmico iluminado por el Sol."
+    },
+    {
+      "id": "anillos_contraluz",
+      "nombre": "Anillos Planetarios al Amanecer Solar",
+      "subtitulo": "Disco de Hielo y Roca con Destello Estelar",
+      "color_primario": "#fbbf24",
+      "color_secundario": "#fef08a",
+      "descripcion": "Vuelo rasante sobre el plano de los anillos planetarios donde millones de fragmentos de hielo reflejan el resplandor dorado del Sol."
+    },
+    {
+      "id": "tormenta_plasma",
+      "nombre": "Tormenta de Plasma y Radiación",
+      "subtitulo": "Arcos Voltaicos y Pulso Electromagnético",
+      "color_primario": "#60a5fa",
+      "color_secundario": "#a855f7",
+      "descripcion": "Cruce de una magnetosfera extrema con filamentos de descarga eléctrica, relámpagos de alta energía y partículas relativistas."
+    },
+    {
+      "id": "vortice_acrecion",
+      "nombre": "Disco de Acreción y Vórtice Gravitatorio",
+      "subtitulo": "Singularidad · Jets Relativistas y Espiral Cuántica",
+      "color_primario": "#fb923c",
+      "color_secundario": "#00f0ff",
+      "descripcion": "Observación de larga distancia de un vórtice gravitatorio rodeado por un disco de plasma incandescente y chorros polares."
+    }
+  ]
+}

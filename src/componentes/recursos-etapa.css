@@ -1,0 +1,8 @@
+.recursos .etapa-chip { flex: none; display: flex; align-items: center; gap: 8px; border-color: #5cc8ff88; background: #0d2536; }
+.recursos .etapa-chip .etapa-num { font: 700 12px 'JetBrains Mono', monospace; color: #5cc8ff; white-space: nowrap; }
+.recursos .etapa-chip .nombre { color: #e8f6fb; font-weight: 700; white-space: nowrap; }
+.recursos .etapa-barra { display: inline-flex; gap: 3px; }
+.recursos .etapa-barra i { width: 10px; height: 6px; border-radius: 2px; background: #2a4152; }
+.recursos .etapa-barra i.hecha { background: #3fbf8a; }
+.recursos .etapa-barra i.actual { background: #5cc8ff; box-shadow: 0 0 6px #5cc8ff; }
+@media (max-width: 700px) { .recursos .etapa-barra { display: none; } .recursos .etapa-chip .nombre { max-width: 34vw; overflow: hidden; text-overflow: ellipsis; } }

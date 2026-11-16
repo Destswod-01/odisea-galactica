@@ -1,0 +1,31 @@
+.ts-fondo{position:fixed;inset:0;z-index:2000;display:flex;align-items:center;justify-content:center;padding:12px;background:rgba(2,8,16,.82);backdrop-filter:blur(4px)}
+.ts-modal{width:min(880px,100%);max-height:100%;overflow-y:auto;overflow-x:hidden;box-sizing:border-box;padding:14px 16px;border:1px solid #6dcfc9aa;border-radius:14px;background:linear-gradient(160deg,#15384b,#0a1a2a);color:#def8f2;display:flex;flex-direction:column;gap:12px}
+.ts-modal header{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.ts-modal header span{font:10px monospace;letter-spacing:.1em;color:#93d8d0}.ts-modal h2{margin:4px 0 0;font-size:19px}
+.ts-x{min-width:44px;min-height:44px;font-size:24px;background:#0b1c2d;border:1px solid #4f798e;color:#cbe9ee;border-radius:8px;cursor:pointer}
+.ts-cuerpo{display:grid;grid-template-columns:1.2fr 1fr;gap:14px;min-width:0}
+.ts-escena{position:relative;min-width:0;border:1px solid var(--c);border-radius:10px;background:radial-gradient(circle at 50% 60%,#16344a,#06101b);overflow:hidden}
+.ts-visor{width:100%;height:clamp(200px,38vh,340px)}.ts-visor canvas{display:block;width:100%;height:100%}
+.ts-fallo{padding:30px 14px;text-align:center;font-size:13px;color:#b8cfda}
+.ts-flecha{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;font-size:28px;line-height:1;border-radius:50%;border:1px solid #6dcfc9aa;background:#0b1c2dcc;color:#def8f2;cursor:pointer}.ts-ant{left:8px}.ts-sig{right:8px}
+.ts-pos{position:absolute;bottom:8px;right:12px;font:11px monospace;color:#93d8d0}
+.ts-info{min-width:0}.ts-info h3{margin:0 0 6px;font-size:16px}.ts-info h3 b{color:var(--c);font-family:monospace}.ts-info p{margin:0 0 8px;font-size:13px;line-height:1.55;color:#c4d9e2}
+.ts-info dl{margin:0;display:grid;gap:6px}.ts-info dt{font:10px monospace;letter-spacing:.08em;color:#93d8d0}.ts-info dd{margin:0;font-size:13px}
+.ts-bahia{display:flex;flex-direction:column;gap:8px}.ts-bahia strong{font-size:13px}
+.ts-bahia ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:nowrap;gap:8px}.ts-bahia li{flex:1;min-width:0}
+.ts-bahia li button{width:100%;min-height:62px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;padding:6px 4px;border-radius:10px;border:1px solid var(--c);background:color-mix(in srgb,var(--c) 14%,#0b1c2d);color:#e6f6f4;cursor:pointer;overflow:hidden}
+.ts-bahia li button small{font-size:10px;color:#93d8d0}.ts-bahia li button b{font:13px monospace;color:var(--c)}.ts-bahia li button span{font-size:11px;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ts-bahia li button[aria-pressed=true]{box-shadow:0 0 0 2px var(--c) inset}
+.ts-modal footer{display:flex;justify-content:flex-end}.ts-listo{min-height:44px;padding:8px 22px;border-radius:10px;border:1px solid #caffed;background:#96e8d1;color:#092d36;font-weight:700;cursor:pointer}
+@media (max-width:700px){.ts-cuerpo{grid-template-columns:1fr}.ts-visor{height:clamp(170px,30vh,260px)}.ts-modal{padding:12px}.ts-listo{width:100%}}
+
+/* Catálogo arrastrable: todas las sondas en una fila; se arrastran a las casillas de la bahía. */
+.ts-catalogo{display:flex;gap:6px;overflow-x:auto;padding:2px 0 6px;scrollbar-width:thin;touch-action:pan-x}
+.ts-ficha{flex:none;display:flex;flex-direction:column;align-items:center;gap:1px;min-width:66px;padding:6px 8px;border-radius:10px;border:1px dashed var(--c);background:#0b1a28;color:#e6f6fb;cursor:grab;touch-action:pan-x;user-select:none}
+.ts-ficha b{font:700 13px monospace;color:var(--c)}.ts-ficha span{font-size:10px;white-space:nowrap}
+.ts-ficha.vista{border-style:solid;box-shadow:0 0 0 2px var(--c) inset}
+.ts-bahia li button.soltar{outline:2px dashed #ffd390;outline-offset:2px;animation:ts-latido 1s ease-in-out infinite}
+@keyframes ts-latido{50%{outline-color:#5cc8ff}}
+.ts-fantasma{position:fixed;z-index:200;pointer-events:none;transform:translate(-50%,-60%);padding:8px 12px;border-radius:12px;background:#0d2536;border:2px solid var(--c);box-shadow:0 10px 30px #000a}
+.ts-fantasma b{font:700 15px monospace;color:var(--c)}
+@media(prefers-reduced-motion:reduce){.ts-bahia li button.soltar{animation:none}}

@@ -1,0 +1,310 @@
+{
+  "id": "juno",
+  "nombre": "Juno",
+  "destino": {
+    "nombre": "Jupiter",
+    "distancia_ua": 5.2,
+    "dosis_base_orbita": 9
+  },
+  "presupuesto_musd": 1250,
+  "operaciones_musd": 260,
+  "dv_requerida_ms": 2000,
+  "dv_insercion_ms": 540,
+  "ventana_insercion_ms": 40,
+  "orbitas_meta": 12,
+  "orbitas_por_bloque": 3,
+  "isp_nave_s": 317,
+  "degradacion_paneles": 0.8,
+  "bateria_wh": 3600,
+  "objetivos": [
+    {
+      "id": "interior",
+      "nombre": "Jupiter's interior and origin",
+      "peso": 0.5,
+      "requerido": 8,
+      "necesitas": "You need to \"see\" beneath the clouds and measure gravity: microwave radiometer, gravity science, magnetometer.",
+      "corto": "Interior"
+    },
+    {
+      "id": "atmosfera",
+      "nombre": "Deep atmosphere",
+      "peso": 0.25,
+      "requerido": 6,
+      "necesitas": "Cameras and instruments that measure heat and composition: infrared, radiometer, ultraviolet.",
+      "corto": "Atmosphere"
+    },
+    {
+      "id": "magnetosfera",
+      "nombre": "Magnetosphere and auroras",
+      "peso": 0.25,
+      "requerido": 8,
+      "necesitas": "Particle and field detectors: magnetometer, particles, plasma waves.",
+      "corto": "Magnetosphere"
+    }
+  ],
+  "bus": {
+    "masa_kg": 750,
+    "costo_musd": 300,
+    "consumo_w": 150
+  },
+  "calefactores": {
+    "desde_ua": 2,
+    "w_por_ua": 25
+  },
+  "real": {
+    "piezas": [
+      "panel_gigante",
+      "antena_ka",
+      "boveda_titanio",
+      "tanque_grande",
+      "mwr",
+      "gravedad",
+      "mag",
+      "jiram",
+      "particulas",
+      "uvs_waves",
+      "junocam"
+    ],
+    "cohete": "atlas_v_551",
+    "resumen": {
+      "masa_kg": 3625,
+      "masa_seca_kg": 1593,
+      "energia_jupiter_w": 400,
+      "costo_musd": 1130
+    },
+    "por_que": {
+      "energia": "At Jupiter, sunlight is 25 times weaker. Juno compensated with 3 solar arrays totaling ~60 m²: 14 kW at Earth drops to about 400 W out there.",
+      "antena": "Ka-band is not for faster data: it enables ultra-precise gravity measurements, the key to discovering whether Jupiter has a solid core.",
+      "blindaje": "The titanium radiation vault (~200 kg, ~1 cm thick per side) shields electronics from the harshest radiation in the solar system.",
+      "propulsion": "About 2,000 kg of propellant: more than half the spacecraft's mass. The orbital insertion burn lasted 35 minutes.",
+      "cohete": "Atlas V 551, the most powerful version of the Atlas V, with 5 solid boosters.",
+      "orbita": "In 2016, two helium valves malfunctioned. NASA decided not to risk the engine burn and remained in the 53-day orbit.",
+      "final": "At mission end, Juno will plunge into Jupiter to avoid contaminating Europa, which could harbor life."
+    }
+  },
+  "briefing": [
+    "Welcome back to Mission Control.",
+    "Mission question: How did Jupiter form, and does it have a solid core?",
+    "You will primarily investigate the planet's INTERIOR: choose sensors that peer beneath the clouds and measure gravity.",
+    "You have 1,250 million dollars, a destination 5.2 AU away, and the most brutal radiation in the solar system waiting for you."
+  ],
+  "eventos": [
+    {
+      "id": "despliegue",
+      "titulo": "Solar Array Deployment",
+      "distancia_ua": 1.0,
+      "texto": "The spacecraft separated from the rocket. It is tumbling uncontrollably and the battery is draining. Deploy the solar arrays now?",
+      "opciones": [
+        {
+          "texto": "Deploy immediately",
+          "efectos": {
+            "bateria_wh": -200
+          },
+          "resultado": "Successful deployment. The solar cells have started charging."
+        },
+        {
+          "texto": "Stabilize first, then deploy",
+          "efectos": {
+            "bateria_wh": -900,
+            "salud": 0
+          },
+          "resultado": "Safer, but the battery level dropped significantly while waiting."
+        }
+      ]
+    },
+    {
+      "id": "dsm",
+      "titulo": "Deep Space Maneuver (DSM)",
+      "distancia_ua": 2.5,
+      "tipo": "deslizador",
+      "texto": "We need to fire the engine to steer back toward Earth for a gravity assist slingshot. How much delta-v do we apply?",
+      "objetivo_ms": 340,
+      "tolerancia_ms": 40,
+      "resultado_ok": "Perfect trajectory back toward Earth.",
+      "resultado_mal": "We will have to correct later: extra propellant wasted."
+    },
+    {
+      "id": "flyby",
+      "titulo": "Earth Gravity Assist Flyby",
+      "distancia_ua": 1.0,
+      "tipo": "cabina",
+      "minijuego": "reinicio",
+      "texto": "We flew within 560 km of Earth and gained free speed! But the spacecraft tripped into safe mode (just like the real Juno did). Reboot the systems in sequence.",
+      "exito": {
+        "efectos": {
+          "dv_ms": 0
+        },
+        "resultado": "Systems recovered. Earth's gravity assist boosted our speed without spending any fuel."
+      },
+      "fallo": {
+        "efectos": {
+          "salud": -8,
+          "modo_seguro": 1
+        },
+        "resultado": "Recovery took days and the electronics suffered damage."
+      }
+    },
+    {
+      "id": "tormenta",
+      "titulo": "Solar Storm",
+      "distancia_ua": 3.5,
+      "tipo": "cabina",
+      "minijuego": "tormenta",
+      "texto": "A coronal mass ejection is heading right for us. Shut down sensitive instruments before it strikes.",
+      "exito": {
+        "efectos": {
+          "salud": -2
+        },
+        "resultado": "Instruments protected."
+      },
+      "fallo": {
+        "efectos": {
+          "salud": -15
+        },
+        "resultado": "Radiation damaged several circuits."
+      }
+    },
+    {
+      "id": "antena",
+      "titulo": "Signal Lost",
+      "distancia_ua": 4.5,
+      "tipo": "cabina",
+      "minijuego": "antena",
+      "texto": "An attitude maneuver misaligned the antenna: Earth can no longer hear us. From the cockpit, point the antenna until you reacquire the signal.",
+      "exito": {
+        "efectos": {},
+        "resultado": "Signal reacquired. Ground control breathes a sigh of relief: each message takes about 40 minutes to arrive, even at light speed."
+      },
+      "fallo": {
+        "efectos": {
+          "bateria_wh": -800,
+          "modo_seguro": 1
+        },
+        "resultado": "Without contact, the spacecraft autonomously entered safe mode until mission control re-established contact."
+      }
+    },
+    {
+      "id": "poca_luz",
+      "titulo": "Approaching 5 AU",
+      "distancia_ua": 5.2,
+      "tipo": "energia",
+      "texto": "Sunlight is 25 times weaker out here. Check the console: if the power balance is negative, shut down anything you don't need until arrival."
+    },
+    {
+      "id": "valvula",
+      "titulo": "Sluggish Helium Valves",
+      "distancia_ua": 5.2,
+      "tipo": "decision_final",
+      "texto": "Already in the 53-day orbit, two helium check valves take minutes to open instead of seconds. The original plan was to fire the engine to trim down to a 14-day orbit.",
+      "opciones": [
+        {
+          "texto": "Risk the engine burn (more orbits, more science)",
+          "efectos": {
+            "riesgo": 0.35,
+            "orbitas_extra": 3
+          },
+          "resultado_ok": "It worked! Shorter orbits and more perijove science passes.",
+          "resultado_mal": "The engine cut off mid-burn: entered safe mode and suffered subsystem damage."
+        },
+        {
+          "texto": "Stay in the 53-day orbit",
+          "efectos": {},
+          "resultado": "Fewer perijove passes, but the spacecraft is safe. That is what NASA decided in 2017.",
+          "real": true
+        }
+      ]
+    }
+  ],
+  "numero": 2,
+  "nombre_real": "Juno",
+  "recompensa": {
+    "Bronce": 250,
+    "Plata": 400,
+    "Oro": 550,
+    "Nivel JPL": 700
+  },
+  "pregunta": "How did Jupiter form, and does it have a solid core?",
+  "crucero_texto": "The cruise lasts 5 years. We will wake you whenever a situation requires your decision.",
+  "llegada_texto": "We are arriving at over 200,000 km/h. The real Juno fired its engine for 35 minutes to brake.",
+  "pistas": {
+    "cohete": "Juno is heavy: the rocket must lift all that mass toward Jupiter… without breaking the budget.",
+    "propulsion": "You need 2,000 m/s of delta-v. Watch the gauge as you hover over components.",
+    "energia": "Jupiter is 5 times farther from the Sun than Earth: sunlight is 25 times weaker.",
+    "antena": "The signal weakens with distance. Does any instrument require a special antenna?",
+    "blindaje": "Jupiter harbors the most intense radiation belts in the solar system.",
+    "instrumentos": "Cover all 3 objectives (the interior is worth half). Be careful not to generate more data than you can transmit."
+  },
+  "final_boton": "Finish: Deorbit into Jupiter",
+  "final_texto": "You deorbited the spacecraft into Jupiter to protect Europa: just like NASA's plan.",
+  "lanzamiento": {
+    "viento": 12,
+    "tolerancia": 4
+  },
+  "pasadas": [
+    {
+      "tipo": "profundo",
+      "objetivo": "interior",
+      "icono": "🧲",
+      "nombre": "Deep interior sounding"
+    },
+    {
+      "tipo": "tormenta",
+      "objetivo": "atmosfera",
+      "icono": "🌀",
+      "nombre": "Atmospheric storm"
+    },
+    {
+      "tipo": "aurora",
+      "objetivo": "magnetosfera",
+      "icono": "🌌",
+      "nombre": "Polar aurora"
+    }
+  ],
+  "orbitas": [
+    {
+      "id": "polar_53d",
+      "real": true,
+      "nombre": "53-day polar orbit",
+      "altitud": "Perijove at ~4,000 km · 53-day loop",
+      "descripcion": "A very stretched polar orbit: Juno swings close to Jupiter once every 53 days.",
+      "por_que": "This has been Juno's real orbit since 2016, after a problem with its helium valves. There are fewer close passes, but the radiation dose is spread out and the probe lasts longer.",
+      "efectos": {
+        "ciencia": 1,
+        "enlace": 1,
+        "dv_extra_ms": 0,
+        "vida_anos": 5,
+        "radiacion": 1
+      }
+    },
+    {
+      "id": "polar_14d",
+      "real": false,
+      "nombre": "14-day polar orbit",
+      "altitud": "Perijove at ~4,000 km · 14-day loop",
+      "descripcion": "The polar orbit planned at the start: one close pass every 14 days.",
+      "por_que": "It makes about 4 times more close passes, so more science, but each year it soaks up much more radiation and it needs an extra burn that uses delta-v.",
+      "efectos": {
+        "ciencia": 1.3,
+        "enlace": 1,
+        "dv_extra_ms": 250,
+        "vida_anos": 4,
+        "radiacion": 1.3
+      }
+    },
+    {
+      "id": "ecuatorial",
+      "real": false,
+      "nombre": "Equatorial orbit",
+      "altitud": "Around Jupiter's equator",
+      "descripcion": "An orbit above the planet's equator, never crossing the poles.",
+      "por_que": "It avoids the worst of the radiation belts, so the probe lasts longer, but it barely sees the auroras and the poles, which are the most interesting part of Juno.",
+      "efectos": {
+        "ciencia": 0.6,
+        "enlace": 1.05,
+        "dv_extra_ms": -50,
+        "vida_anos": 6,
+        "radiacion": 0.6
+      }
+    }
+  ]
+}

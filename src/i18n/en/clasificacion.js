@@ -1,0 +1,20 @@
+// Local leaderboard and design sharing (B8). English.
+export default {
+  'clasificacion.titulo': 'Leaderboard',
+  'clasificacion.subtitulo': 'Top 10 mission scores',
+  'clasificacion.col.posicion': 'Rank',
+  'clasificacion.col.nombre': 'Pilot',
+  'clasificacion.col.puntaje': 'Score',
+  'clasificacion.col.fecha': 'Date',
+  'clasificacion.tuPuntaje': 'Your score: {n}',
+  'clasificacion.nombrePlaceholder': 'Your name (max 18)',
+  'clasificacion.guardar': 'Save my score',
+  'clasificacion.guardado': 'Score saved ✓',
+  'clasificacion.sinRegistros': 'No scores saved yet for this mission.',
+  'clasificacion.copiarEnlace': 'Copy design link',
+  'clasificacion.enlaceCopiado': 'Link copied! ✓',
+  'clasificacion.errorCopiar': 'Could not copy link',
+  'clasificacion.actual': 'Current',
+  'clasificacion.anonimo': 'Commander',
+  'clasificacion.borrar': 'Clear leaderboard',
+};

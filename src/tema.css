@@ -1,0 +1,219 @@
+/* =====================================================================
+   TEMA «Parche de misión»: verde azulado profundo, cobre y crema.
+   Capa encima de index.css: redefine colores, tipografía y componentes.
+   ===================================================================== */
+:root {
+  --fondo: #03100f;
+  --panel: rgba(7, 26, 28, .78);
+  --panel-2: rgba(14, 44, 46, .82);
+  --borde: rgba(111, 211, 214, .16);
+  --borde-cobre: rgba(240, 164, 107, .45);
+  --texto: #f1e6d6;
+  --tenue: #9db4ae;
+  --acento: #f0a46b;
+  --acento-fuerte: #d9773d;
+  --cobre: #b8642f;
+  --ok: #4fe0a8;
+  --aviso: #ffc861;
+  --mal: #ff6b6b;
+  --azul: #6fd3d6;
+  --teal: #0f4c4c;
+  --radio: 12px;
+  --f-titulo: 'Saira Condensed', 'Arial Narrow', sans-serif;
+  --f-texto: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  --f-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --sombra: 0 18px 50px rgba(0, 0, 0, .45);
+  font-family: var(--f-texto);
+  color: var(--texto);
+  background: #03100f url('./img/fondo-menu.webp') center / cover fixed;
+}
+
+body { font-size: 15px; -webkit-font-smoothing: antialiased; }
+::selection { background: var(--acento); color: #2a1205; }
+
+/* ---------- Tipografía ---------- */
+h1, h2, .titulo-juego, .cuenta, .cuenta-3d, .banner-3d {
+  font-family: var(--f-titulo); font-weight: 800; text-transform: uppercase; letter-spacing: .04em;
+}
+h1 { font-size: 40px; line-height: 1; }
+h2 { font-size: 26px; line-height: 1.1; letter-spacing: .05em; }
+h3 { font-family: var(--f-titulo); font-weight: 700; font-size: 13px; letter-spacing: .18em; color: var(--acento); }
+.tenue { color: var(--tenue); }
+strong { color: #fff6ea; }
+kbd, .tecla, .telemetria, .monitor-3d { font-family: var(--f-mono); }
+
+/* ---------- Paneles tipo HUD (esquinas de cobre) ---------- */
+.panel {
+  position: relative;
+  background: linear-gradient(160deg, rgba(16, 52, 54, .82), rgba(5, 20, 22, .86));
+  border: 1px solid var(--borde);
+  border-radius: 16px;
+  box-shadow: var(--sombra), inset 0 1px 0 rgba(255, 255, 255, .05);
+  backdrop-filter: blur(12px) saturate(120%);
+  padding: 20px;
+}
+.panel::before, .panel::after {
+  content: ''; position: absolute; width: 22px; height: 22px; pointer-events: none; z-index: 2;
+  border: 2px solid var(--acento); opacity: .8;
+}
+.panel::before { top: -1px; left: -1px; border-right: 0; border-bottom: 0; border-top-left-radius: 16px; }
+.panel::after { bottom: -1px; right: -1px; border-left: 0; border-top: 0; border-bottom-right-radius: 16px; }
+
+/* ---------- Botones ---------- */
+button {
+  font-family: var(--f-texto); font-weight: 600; color: var(--texto);
+  background: linear-gradient(180deg, rgba(255, 255, 255, .08), rgba(255, 255, 255, .02));
+  border: 1px solid rgba(241, 230, 214, .18);
+  border-radius: 10px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .08), 0 4px 14px rgba(0, 0, 0, .25);
+  transition: transform .12s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease, filter .2s;
+  position: relative; overflow: hidden;
+}
+button:hover:not(:disabled) {
+  border-color: var(--borde-cobre);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .12), 0 6px 22px rgba(240, 164, 107, .18);
+  transform: translateY(-1px);
+}
+button:active:not(:disabled) { transform: translateY(1px) scale(.98); }
+button:focus-visible { outline: 2px solid var(--azul); outline-offset: 2px; }
+button:disabled { opacity: .4; filter: grayscale(.6); }
+
+button.primario {
+  font-family: var(--f-titulo); font-weight: 800; font-size: 17px; letter-spacing: .08em; text-transform: uppercase;
+  color: #2a1205; border: 1px solid #ffd0a8;
+  background: linear-gradient(180deg, #ffc99c 0%, #f0a46b 38%, #d9773d 75%, #b8642f 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .6), inset 0 -3px 0 rgba(0, 0, 0, .22), 0 8px 26px rgba(232, 137, 75, .35);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, .35);
+  padding: 12px 22px;
+}
+button.primario:hover:not(:disabled) { filter: brightness(1.08); box-shadow: inset 0 1px 0 rgba(255,255,255,.7), inset 0 -3px 0 rgba(0,0,0,.2), 0 10px 34px rgba(240, 164, 107, .55); }
+/* Destello que cruza el botón */
+button.primario::after {
+  content: ''; position: absolute; top: 0; left: -60%; width: 40%; height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, .55), transparent);
+  transform: skewX(-20deg); pointer-events: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  button.primario:not(:disabled)::after { animation: destello 3.2s ease-in-out infinite; }
+  @keyframes destello { 0%, 60% { left: -60%; } 100% { left: 130%; } }
+  button.primario:not(:disabled) { animation: none; }
+}
+button.grande {
+  font-size: 20px; padding: 16px 34px;
+  clip-path: polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px);
+  border-radius: 0;
+}
+button.elegido, .tarjeta.elegido {
+  border-color: var(--acento);
+  background: linear-gradient(160deg, rgba(240, 164, 107, .2), rgba(184, 100, 47, .08));
+  box-shadow: 0 0 0 1px rgba(240, 164, 107, .5), 0 0 24px rgba(240, 164, 107, .25);
+}
+button.enlace { box-shadow: none; background: none; border: none; }
+
+/* ---------- Pestañas del hangar ---------- */
+.pestanas { border-bottom: none; background: rgba(0, 0, 0, .25); border-radius: 12px; padding: 4px; gap: 4px; }
+.pestanas button {
+  font-family: var(--f-titulo); font-weight: 700; font-size: 14px; letter-spacing: .06em; text-transform: uppercase;
+  border-radius: 9px; border: 1px solid transparent; box-shadow: none; background: none; color: var(--tenue); padding: 9px 12px;
+}
+.pestanas button.activa {
+  color: #2a1205; border-color: #ffd0a8;
+  background: linear-gradient(180deg, #ffc99c, #e8894b);
+  box-shadow: 0 4px 16px rgba(240, 164, 107, .35);
+}
+
+/* ---------- Tarjetas de piezas ---------- */
+.tarjeta {
+  background: linear-gradient(160deg, rgba(20, 62, 64, .75), rgba(8, 28, 30, .85));
+  border: 1px solid var(--borde); border-radius: 14px; padding: 14px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, .3);
+}
+.tarjeta strong { font-family: var(--f-titulo); font-weight: 700; font-size: 17px; letter-spacing: .03em; }
+.tarjeta:hover { border-color: var(--borde-cobre); }
+.tarjeta.bloqueada { background: repeating-linear-gradient(135deg, rgba(255,255,255,.02) 0 10px, rgba(0,0,0,.08) 10px 20px), rgba(6, 22, 24, .85); }
+.fichas span { background: rgba(0, 0, 0, .35); border-color: rgba(241, 230, 214, .12); color: #cfdcd7; font-size: 11.5px; }
+.etiqueta-obj { color: var(--azul) !important; border-color: rgba(111, 211, 214, .45) !important; background: rgba(111, 211, 214, .08) !important; }
+
+/* ---------- Barras y medidores ---------- */
+.barra .riel, .medidor, .riel-chico {
+  background: rgba(0, 0, 0, .45); border: 1px solid rgba(255, 255, 255, .06);
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, .5);
+}
+.barra .riel { height: 12px; border-radius: 8px; }
+.barra .relleno, .medidor .relleno { box-shadow: inset 0 1px 0 rgba(255, 255, 255, .35); }
+.medidor { height: 22px; border-radius: 11px; }
+.barra .etiqueta { font-size: 13px; }
+
+/* ---------- Barra de recursos (HUD) ---------- */
+.recursos {
+  background: linear-gradient(180deg, rgba(5, 22, 24, .92), rgba(5, 22, 24, .75));
+  border: 1px solid var(--borde); border-radius: 16px; padding: 8px 10px; gap: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .4);
+}
+.recurso {
+  background: linear-gradient(180deg, rgba(255, 255, 255, .07), rgba(255, 255, 255, .02));
+  border: 1px solid rgba(241, 230, 214, .14); padding: 5px 12px 5px 6px; gap: 8px;
+}
+.recurso img { width: 22px; height: 22px; object-fit: contain; filter: drop-shadow(0 0 6px rgba(240, 164, 107, .35)); }
+.recurso strong { font-family: var(--f-mono); font-size: 13px; }
+.recurso .nombre { font-size: 11px; text-transform: uppercase; letter-spacing: .06em; }
+
+/* ---------- Cabecera ---------- */
+.cabecera { padding: 4px 2px; }
+.cabecera .logo-mini { height: 26px; cursor: pointer; filter: drop-shadow(0 2px 6px rgba(0,0,0,.5)); }
+.boton-sonido { padding: 6px 10px; font-size: 16px; }
+
+/* ---------- Guía, conceptos, avisos ---------- */
+.guia { border-radius: 12px; border: 1px solid var(--borde); border-left: 3px solid var(--azul); background: rgba(111, 211, 214, .07); }
+.concepto { background: linear-gradient(160deg, rgba(111, 211, 214, .12), rgba(111, 211, 214, .04)); border-color: rgba(111, 211, 214, .5); }
+.directora { border-left-color: var(--acento); font-size: 17px; }
+.problemas { color: #ffb3b3; }
+.aviso-vuelo { font-weight: 600; }
+
+/* ---------- Portada ---------- */
+.portada { display: grid; grid-template-columns: 1.2fr 1fr; gap: 24px; align-items: center; min-height: calc(100vh - 140px); padding: 10px 0; }
+.portada-logo { width: min(620px, 100%); filter: drop-shadow(0 6px 30px rgba(0, 0, 0, .6)); }
+.portada-lema { font-size: 18px; color: #d8e6e1; max-width: 560px; line-height: 1.5; margin: 14px 0 22px; }
+.portada-jugar { font-size: 26px !important; padding: 20px 46px !important; }
+.portada-stats { display: flex; gap: 10px; flex-wrap: wrap; margin: 22px 0 6px; }
+.campana { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; margin-top: 10px; }
+.mision-carta {
+  position: relative; text-align: left; padding: 14px; min-height: 150px; display: flex; flex-direction: column; justify-content: space-between;
+  border-radius: 16px; overflow: hidden;
+}
+.mision-carta .num { font-family: var(--f-titulo); font-size: 40px; font-weight: 800; color: rgba(241, 230, 214, .16); position: absolute; right: 10px; top: 0; }
+.mision-carta .planeta { width: 46px; height: 46px; border-radius: 50%; box-shadow: inset -8px -6px 14px rgba(0, 0, 0, .55), 0 0 18px rgba(255, 255, 255, .12); }
+.mision-carta .nombre-m { font-family: var(--f-titulo); font-weight: 800; font-size: 20px; text-transform: uppercase; letter-spacing: .04em; }
+.mision-carta .medalla-mini { position: absolute; right: 8px; bottom: 8px; width: 44px; }
+.mision-carta.cerrada { filter: grayscale(.8); opacity: .55; }
+.mision-carta.cerrada::after { content: '🔒'; position: absolute; right: 12px; bottom: 10px; font-size: 22px; }
+.mision-carta.disponible { border-color: var(--borde-cobre); box-shadow: 0 0 0 1px rgba(240,164,107,.3), 0 10px 30px rgba(240, 164, 107, .2); }
+@media (max-width: 860px) { .portada { grid-template-columns: 1fr; } .portada-planeta { order: -1; } }
+
+/* ---------- Directora de vuelo ---------- */
+.briefing { display: grid; grid-template-columns: 260px 1fr; gap: 22px; align-items: start; }
+.directora-retrato { position: relative; }
+.directora-retrato img { width: 100%; border-radius: 16px; background: radial-gradient(circle at 50% 35%, #1d6b6b, #071c1e 70%); border: 1px solid var(--borde-cobre); box-shadow: var(--sombra); }
+.directora-placa { position: absolute; left: 10px; right: 10px; bottom: 10px; background: rgba(4, 16, 17, .85); border: 1px solid var(--borde-cobre); border-radius: 10px; padding: 6px 10px; text-align: center; }
+.directora-placa strong { font-family: var(--f-titulo); font-size: 16px; letter-spacing: .04em; display: block; }
+.directora-placa span { font-size: 11px; color: var(--acento); letter-spacing: .14em; text-transform: uppercase; }
+.burbuja { position: relative; background: rgba(241, 230, 214, .07); border: 1px solid rgba(241, 230, 214, .2); border-radius: 16px; padding: 18px 20px; font-size: 18px; line-height: 1.6; }
+.burbuja::before { content: ''; position: absolute; left: -9px; top: 28px; width: 16px; height: 16px; background: inherit; border-left: inherit; border-bottom: inherit; transform: rotate(45deg); backdrop-filter: blur(8px); }
+@media (max-width: 760px) { .briefing { grid-template-columns: 1fr; } .directora-retrato { max-width: 220px; } .burbuja::before { display: none; } }
+
+/* ---------- Informe ---------- */
+.medalla-grande { width: 170px; filter: drop-shadow(0 10px 30px rgba(0, 0, 0, .6)); }
+@media (prefers-reduced-motion: no-preference) {
+  .medalla-grande { animation: medalla 1s cubic-bezier(.2, .8, .2, 1.3) .3s both, brillo-medalla 3s ease-in-out 1.4s infinite; }
+  @keyframes brillo-medalla { 0%, 100% { filter: drop-shadow(0 10px 30px rgba(0,0,0,.6)); } 50% { filter: drop-shadow(0 0 28px rgba(255, 210, 140, .55)); } }
+}
+.confeti { position: fixed; inset: 0; pointer-events: none; z-index: 50; }
+table { border-radius: 12px; overflow: hidden; }
+th { font-family: var(--f-titulo); letter-spacing: .08em; text-transform: uppercase; color: var(--acento); font-size: 13px; }
+td, th { border-bottom-color: rgba(241, 230, 214, .08); }
+
+/* ---------- Telemetría y 3D ---------- */
+.telemetria { background: rgba(3, 16, 15, .7); border: 1px solid var(--borde); }
+.cuenta-3d { color: #fff3e6; text-shadow: 0 0 40px rgba(240, 164, 107, .9); }
+.lienzo-marco { border-color: var(--borde); }
+input[type=text] { background: rgba(0, 0, 0, .35); border-color: rgba(241, 230, 214, .18); color: var(--texto); }

@@ -1,0 +1,303 @@
+{
+  "id": "lro",
+  "numero": 1,
+  "nombre": "LRO",
+  "nombre_real": "LRO",
+  "tutorial": true,
+  "nombre_largo": "Lunar Reconnaissance Orbiter",
+  "destino": {
+    "id": "luna",
+    "nombre": "la Luna",
+    "distancia_ua": 1,
+    "dosis_base_orbita": 1.5
+  },
+  "presupuesto_musd": 650,
+  "operaciones_musd": 60,
+  "dv_requerida_ms": 1300,
+  "dv_insercion_ms": 700,
+  "ventana_insercion_ms": 70,
+  "orbitas_meta": 9,
+  "orbitas_por_bloque": 3,
+  "isp_nave_s": 300,
+  "degradacion_paneles": 0.8,
+  "bateria_wh": 2000,
+  "plazo_meses": 54,
+  "capacidad_mult": 1.7,
+  "recompensa": {
+    "Bronce": 260,
+    "Plata": 300,
+    "Oro": 340,
+    "Nivel JPL": 360
+  },
+  "pregunta": "¿Dónde podremos aterrizar y vivir en la Luna, y hay agua para los astronautas?",
+  "objetivos": [
+    {
+      "id": "superficie",
+      "nombre": "Mapa detallado de la superficie",
+      "peso": 0.4,
+      "requerido": 5,
+      "necesitas": "Una cámara de alta resolución y un instrumento que mida alturas (láser).",
+      "corto": "Superficie"
+    },
+    {
+      "id": "agua",
+      "nombre": "Buscar hielo de agua en los polos",
+      "peso": 0.4,
+      "requerido": 5,
+      "necesitas": "Sensores que detecten hidrógeno, frío extremo o hielo: neutrones, temperatura, ultravioleta, radar.",
+      "corto": "Hielo de agua"
+    },
+    {
+      "id": "radiacion",
+      "nombre": "Medir la radiación para futuros astronautas",
+      "peso": 0.2,
+      "requerido": 3,
+      "necesitas": "Un detector de radiación.",
+      "corto": "Radiación"
+    }
+  ],
+  "bus": {
+    "masa_kg": 550,
+    "costo_musd": 180,
+    "consumo_w": 300
+  },
+  "calefactores": {
+    "desde_ua": 2,
+    "w_por_ua": 25
+  },
+  "crucero_texto": "El viaje a la Luna dura unos 4 días. Te avisaremos cuando algo requiera tu decisión.",
+  "llegada_texto": "Llegamos a la Luna. Hay que frenar para que su gravedad nos atrape.",
+  "pistas": {
+    "cohete": "La Luna está cerca: un cohete mediano basta. Elige el más barato que pueda levantar tu nave.",
+    "propulsion": "Necesitas 1 300 m/s de Δv para llegar y frenar. Mira la barra: ¿de verdad necesitas el tanque más grande?",
+    "energia": "Cerca de la Tierra hay mucha luz solar: unos paneles pequeños bastan y son más baratos.",
+    "antena": "La cámara LROC genera muchísimos datos. ¿Tu antena alcanza a enviarlos?",
+    "blindaje": "Cerca de la Luna hay poca radiación. ¿Vale la pena pagar por blindaje?",
+    "instrumentos": "Mira las etiquetas de cada instrumento: dicen a qué objetivo ayudan."
+  },
+  "conceptos": {
+    "cohete": {
+      "titulo": "¿Qué hace el cohete?",
+      "texto": "Saca tu nave de la Tierra. Cada cohete puede cargar una masa máxima: si tu nave pesa más, no despega. Los más potentes cuestan más dinero."
+    },
+    "propulsion": {
+      "titulo": "Δv: el «combustible» de las maniobras",
+      "texto": "Δv (delta-v) es cuánto puede cambiar su velocidad la nave con su propio motor, en metros por segundo. Para llegar y frenar en la Luna necesitas cierta cantidad. Más propelente da más Δv… pero también más peso."
+    },
+    "energia": {
+      "titulo": "Energía solar",
+      "texto": "Los paneles convierten la luz del Sol en electricidad para la computadora, los calefactores y los instrumentos. Cerca de la Tierra hay mucha luz; lejos del Sol, como en Júpiter, llega muy poca."
+    },
+    "antena": {
+      "titulo": "Comunicaciones",
+      "texto": "Toda la ciencia hay que enviarla a la Tierra por radio. Una antena más grande envía más datos por día. Si tus instrumentos generan más datos de los que puedes enviar, esa ciencia se pierde."
+    },
+    "blindaje": {
+      "titulo": "Radiación",
+      "texto": "En el espacio viajan partículas de alta energía que dañan la electrónica. Cerca de la Luna hay poca; cerca de Júpiter, muchísima. El blindaje protege, pero pesa."
+    },
+    "instrumentos": {
+      "titulo": "Instrumentos científicos",
+      "texto": "Son los ojos de la misión. Cada uno ayuda a uno o más objetivos (mira sus etiquetas). Pesan, cuestan y consumen energía: elige los que respondan la pregunta de la misión."
+    },
+    "crucero": {
+      "titulo": "El viaje",
+      "texto": "Durante el viaje pasan cosas: decide con calma. La consola de energía muestra si te sobra o te falta electricidad; si la batería se agota, la nave entra en «modo seguro»."
+    },
+    "llegada": {
+      "titulo": "Inserción orbital",
+      "texto": "Para quedarte en órbita debes frenar con tu motor justo al llegar. Si frenas poco, pasas de largo; si frenas de más, quedas en una órbita demasiado baja."
+    },
+    "operacion": {
+      "titulo": "Hacer ciencia",
+      "texto": "Cada vuelta alrededor de la Luna suma datos. Tú decides cuándo terminar la misión y cómo hacerlo."
+    }
+  },
+  "real": {
+    "piezas": [
+      "panel_chico",
+      "antena_alta",
+      "blindaje_ninguno",
+      "tanque_chico",
+      "lroc",
+      "lend",
+      "lola",
+      "diviner",
+      "lamp",
+      "crater",
+      "minirf"
+    ],
+    "cohete": "atlas_v_401",
+    "resumen": {
+      "masa_kg": 1846,
+      "energia_jupiter_w": 1850,
+      "costo_musd": 504
+    },
+    "por_que": {
+      "energia": "Cerca de la Tierra sobra luz: LRO usó un solo panel solar, mucho más pequeño que las alas de Juno.",
+      "antena": "LRO envía tantos datos (sobre todo fotos) que necesita una antena de alta ganancia de alta velocidad.",
+      "blindaje": "La radiación cerca de la Luna es baja: no hace falta una bóveda pesada como la de Juno.",
+      "propulsion": "La Luna está cerca: necesitó mucho menos propelente que una misión a Júpiter.",
+      "cohete": "Un Atlas V 401, sin propulsores sólidos: suficiente para la Luna. Compartió el viaje con otra misión (LCROSS).",
+      "orbita": "LRO mapeó desde unos 50 km de altura y después pasó a una órbita elíptica para ahorrar combustible.",
+      "final": "LRO sigue funcionando más de 15 años después y es clave para elegir dónde aterrizarán los astronautas de Artemis."
+    }
+  },
+  "briefing": [
+    "¡Bienvenido al Control de Misión! Esta es tu misión de entrenamiento.",
+    "Pregunta de la misión: ¿dónde podremos aterrizar y vivir en la Luna, y hay agua para los astronautas?",
+    "Vas a investigar la SUPERFICIE y el HIELO DE AGUA en los polos: pon atención a las cámaras y a los sensores de hielo.",
+    "Tienes 650 millones de dólares. Te iré explicando cada concepto la primera vez que aparezca."
+  ],
+  "eventos": [
+    {
+      "id": "despliegue",
+      "titulo": "Despliegue del panel solar",
+      "distancia_ua": 1.0,
+      "texto": "La nave se separó del cohete y gira sin control: la batería se gasta. ¿Desplegamos el panel ya?",
+      "opciones": [
+        {
+          "texto": "Desplegar de inmediato",
+          "efectos": {
+            "bateria_wh": -100
+          },
+          "resultado": "Despliegue correcto. El panel empieza a cargar la batería."
+        },
+        {
+          "texto": "Estabilizar primero y luego desplegar",
+          "efectos": {
+            "bateria_wh": -600
+          },
+          "resultado": "Más seguro, pero la batería bajó bastante esperando."
+        }
+      ]
+    },
+    {
+      "id": "correccion",
+      "titulo": "Corrección de trayectoria",
+      "distancia_ua": 1.0,
+      "tipo": "deslizador",
+      "texto": "Vamos un poco desviados. Un encendido corto del motor nos pone de nuevo en rumbo a la Luna. ¿Cuánto empuje aplicamos?",
+      "objetivo_ms": 120,
+      "tolerancia_ms": 50,
+      "resultado_ok": "Rumbo corregido: vamos directo a la Luna.",
+      "resultado_mal": "Habrá que corregir otra vez: gastamos propelente extra."
+    },
+    {
+      "id": "sensor",
+      "titulo": "Falla de un sensor de orientación",
+      "distancia_ua": 1.0,
+      "tipo": "cabina",
+      "minijuego": "reinicio",
+      "texto": "Un sensor que dice hacia dónde apunta la nave falló y la nave entró en modo seguro. Reinicia los sistemas desde la cabina.",
+      "exito": {
+        "efectos": {},
+        "resultado": "Sistemas recuperados. La nave sabe otra vez hacia dónde apunta."
+      },
+      "fallo": {
+        "efectos": {
+          "salud": -5,
+          "modo_seguro": 1
+        },
+        "resultado": "La recuperación tardó horas y perdimos tiempo de misión."
+      }
+    },
+    {
+      "id": "orbita",
+      "titulo": "Órbita de mapeo",
+      "distancia_ua": 1.0,
+      "tipo": "decision_final",
+      "texto": "Ya en órbita lunar. Desde más cerca se ve más detalle, pero mantener una órbita baja gasta combustible.",
+      "opciones": [
+        {
+          "texto": "Quedarse siempre en órbita baja (más fotos, riesgo de agotar el combustible)",
+          "efectos": {
+            "riesgo": 0.3,
+            "orbitas_extra": 3
+          },
+          "resultado_ok": "¡Funcionó! Más pasadas a baja altura y más ciencia.",
+          "resultado_mal": "El combustible se agotó antes de lo previsto: modo seguro y daños."
+        },
+        {
+          "texto": "Mapear en órbita baja y luego pasar a una órbita elíptica que ahorra combustible",
+          "efectos": {},
+          "real": true,
+          "resultado": "Más pasadas en total con menos combustible. Es lo que hizo la LRO real."
+        }
+      ]
+    }
+  ],
+  "final_boton": "Terminar la misión principal",
+  "final_texto": "Terminaste la misión principal. La LRO real sigue en órbita más de 15 años después y ayuda a elegir dónde aterrizarán los astronautas.",
+  "lanzamiento": {
+    "viento": 6,
+    "tolerancia": 7
+  },
+  "pasadas": [
+    {
+      "tipo": "crater",
+      "objetivo": "superficie",
+      "icono": "🌑",
+      "nombre": "Cráter o sitio de aterrizaje"
+    },
+    {
+      "tipo": "hielo",
+      "objetivo": "agua",
+      "icono": "❄️",
+      "nombre": "Cráter polar en sombra"
+    },
+    {
+      "tipo": "radiacion",
+      "objetivo": "radiacion",
+      "icono": "☢️",
+      "nombre": "Lluvia de radiación"
+    }
+  ],
+  "orbitas": [
+    {
+      "id": "polar_50",
+      "real": false,
+      "nombre": "Polar circular de 50 km",
+      "altitud": "50 km",
+      "descripcion": "Una órbita casi circular que pasa por los dos polos, muy cerca de la superficie.",
+      "por_que": "Fue la órbita científica de LRO de 2009 a 2011: da las imágenes más nítidas, pero los mascones (zonas de gravedad irregular) la desestabilizan y obligan a corregirla seguido, así que gasta más combustible y dura menos.",
+      "efectos": {
+        "ciencia": 1.2,
+        "enlace": 1.1,
+        "dv_extra_ms": 150,
+        "vida_anos": 4,
+        "radiacion": 1
+      }
+    },
+    {
+      "id": "eliptica_30x180",
+      "real": true,
+      "nombre": "Polar elíptica de 30 × 180 km",
+      "altitud": "30 × 180 km",
+      "descripcion": "Una órbita alargada que pasa por los polos: baja a 30 km sobre el polo sur y sube a 180 km sobre el norte.",
+      "por_que": "Es la órbita que LRO usa desde diciembre de 2011 para ahorrar combustible. Aguanta muchos años, aunque la cobertura es algo menos uniforme.",
+      "efectos": {
+        "ciencia": 1,
+        "enlace": 1,
+        "dv_extra_ms": 0,
+        "vida_anos": 6,
+        "radiacion": 1
+      }
+    },
+    {
+      "id": "polar_200",
+      "real": false,
+      "nombre": "Polar alta de 200 km",
+      "altitud": "200 km",
+      "descripcion": "Una órbita circular y alta que pasa por los polos, lejos de los mascones.",
+      "por_que": "Es estable y casi no pide correcciones, así que ahorra combustible y dura más. A cambio ves menos detalle desde tan lejos y la ciencia baja.",
+      "efectos": {
+        "ciencia": 0.7,
+        "enlace": 0.95,
+        "dv_extra_ms": -100,
+        "vida_anos": 7,
+        "radiacion": 1
+      }
+    }
+  ]
+}

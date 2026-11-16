@@ -1,0 +1,109 @@
+/* Menú principal (rediseño según el boceto): columna izquierda con nombre y misiones,
+   operador 3D al centro con su globo de texto y los botones debajo. */
+.mp { --mp-lateral: 330px; --mp-abajo: 214px; position: relative; isolation: isolate; flex: 1; min-height: 0; overflow: hidden; background: #091522; color: #eef6fc; }
+.mp-escena { position: absolute; top: 0; right: 0; bottom: var(--mp-abajo); left: var(--mp-lateral); z-index: -2; }
+.mp-atmosfera { position: absolute; inset: 0 0 0 var(--mp-lateral); z-index: -1; pointer-events: none;
+  background: linear-gradient(180deg, #08131bcc 0%, #08131b00 22%, #08131b00 calc(100% - var(--mp-abajo) - 60px), #08131b calc(100% - var(--mp-abajo) + 4px)); }
+
+/* Columna izquierda: nombre arriba y misiones en columna (como en el boceto). */
+.mp-lateral { position: absolute; top: 0; bottom: 0; left: 0; width: var(--mp-lateral); display: flex; flex-direction: column; gap: 16px; padding: 24px 22px 18px 28px; background: linear-gradient(90deg, #08131b 0%, #0a1824f2 100%); border-right: 1px solid #22394a; overflow: hidden; }
+.mp-nombre h1 { font-size: clamp(36px, 3.5vw, 54px); line-height: .95; letter-spacing: -.03em; margin: 10px 0 8px; }
+.mp-nombre h1 > span { font-size: 13px; letter-spacing: .02em; font-weight: 500; border: 1px solid #5a7a8e; padding: 5px 7px; margin-top: 4px; }
+.mp-lema { margin: 0 0 10px; color: #a9c2d0; font-size: 13px; line-height: 1.45; }
+.mp-cuenta { display: flex; flex-wrap: wrap; gap: 12px; margin: 0; font: 11px var(--f-mono, monospace); color: #a4bacb; letter-spacing: .06em; }
+.mp-libre-activo { color: #ffd166; }
+.mp-misiones { display: flex; flex-direction: column; gap: 10px; min-height: 0; flex: 1; }
+.mp-misiones ul, .mp-lateral { scrollbar-width: none; }
+.mp-misiones ul::-webkit-scrollbar, .mp-lateral::-webkit-scrollbar { display: none; }
+.mp-misiones-titulo { display: flex; justify-content: space-between; font-size: 9px; letter-spacing: .16em; color: #9fbbc9; }
+.mp-misiones ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; min-height: 0; }
+.mp-misiones li { flex: 0 1 auto; min-height: 0; }
+.mp-mision { width: 100%; min-height: 58px; display: flex; align-items: center; gap: 12px; padding: 10px 12px; text-align: left; background: #0d1c2bd9; border: 1px solid #688a9f4d; border-radius: 8px; color: inherit; }
+.mp-mision:hover:not(:disabled) { border-color: #7bdce9; background: #10283a; }
+.mp-mision.seleccionada { border-color: #b4f6ee; background: linear-gradient(110deg, #123a4a, #0d2230); box-shadow: inset 3px 0 0 #7bdce9; }
+.mp-mision.cerrada { opacity: .62; }
+.mp-mision .menu-orbe { width: 34px; height: 34px; flex: 0 0 34px; border-radius: 50%; }
+.mp-mision-texto { display: grid; gap: 2px; min-width: 0; flex: 1; }
+.mp-mision-texto strong { font-size: 14px; }
+.mp-mision-texto small { font-size: 11px; color: #9fbbc9; }
+.mp-mision-estado { font: 9px var(--f-mono, monospace); letter-spacing: .12em; color: #9fbbc9; }
+
+/* Globo de texto del operador, arriba del personaje. */
+.mp-globo { position: absolute; top: 22px; left: calc(var(--mp-lateral) + (100% - var(--mp-lateral)) / 2); transform: translateX(-78%); width: min(440px, calc(100% - var(--mp-lateral) - 48px)); padding: 14px 18px 16px; background: #eef8fbf2; color: #0b2230; border-radius: 16px; box-shadow: 0 12px 40px #0009; }
+.mp-globo::after { content: ''; position: absolute; left: 78%; bottom: -12px; transform: translateX(-50%) skewX(-24deg); border: 12px solid transparent; border-bottom: 0; border-top-color: #eef8fbf2; }
+.mp-globo-quien { display: block; font: 600 10px var(--f-mono, monospace); letter-spacing: .14em; color: #2b6a7c; text-transform: uppercase; }
+.mp-globo h2 { margin: 6px 0 4px; font-size: 22px; letter-spacing: -.02em; }
+.mp-globo h2 > span { font-size: 14px; color: #4a6b7b; font-weight: 500; }
+.mp-globo p { margin: 0; font-size: 14px; line-height: 1.45; }
+
+/* Botones debajo del personaje: «Iniciar» grande y tres secundarios. */
+.mp-acciones { position: absolute; bottom: 18px; left: calc(var(--mp-lateral) + (100% - var(--mp-lateral)) / 2); transform: translateX(-50%); width: min(380px, calc(100% - var(--mp-lateral) - 48px)); display: grid; gap: 8px; }
+.mp-jugar { width: 100%; min-height: 56px; display: flex; align-items: center; justify-content: space-between; padding: 0 20px; border: 1px solid #e5faff; background: linear-gradient(110deg, #b4f6ee, #7bdce9); color: #0a2531; font-size: 16px; font-weight: 700; border-radius: 6px; }
+.mp-jugar:disabled { opacity: .55; }
+.mp-continuar { width: 100%; min-height: 46px; padding: 8px 16px; text-align: left; background: #0d2230; color: #b4f6ee; border: 1px solid #7bdce9; border-radius: 6px; font-weight: 600; }
+.mp-secundarios { display: grid; gap: 8px; }
+.mp-equipo { width: 100%; min-height: 46px; padding: 8px 16px; background: #123548; border: 1px solid #7bdce9; color: #d0fffa; border-radius: 6px; font-size: 14px; font-weight: 700; }
+.mp-equipo:hover { background: #17465e; }
+.mp-secundarios button { min-height: 42px; padding: 8px 14px; background: #0d1c2be6; border: 1px solid #4e7488; color: #d6ecf5; border-radius: 6px; font-size: 13px; font-weight: 600; }
+.mp-secundarios button:hover { border-color: #7bdce9; background: #10283a; }
+
+/* Cómo jugar. */
+.mp-pasos { margin: 0 0 12px; padding-left: 22px; display: grid; gap: 10px; font-size: 13px; line-height: 1.5; color: #c6dbe6; }
+.mp-pasos strong { display: block; color: #eef6fc; }
+
+/* Pantallas bajas de escritorio: secundarios en una fila para dejar ver al operador. */
+@media (max-height: 820px) and (min-width: 701px) {
+  .mp { --mp-abajo: 128px; }
+  .mp-lema { display: none; }
+  .mp-mision { min-height: 50px; padding: 7px 12px; }
+  .mp-mision .menu-orbe { width: 28px; height: 28px; flex-basis: 28px; }
+  .mp-secundarios { grid-template-columns: repeat(3, 1fr); }
+  .mp-secundarios button { min-height: 40px; padding: 6px 8px; font-size: 12px; }
+  .mp-acciones { width: min(520px, calc(100% - var(--mp-lateral) - 48px)); }
+}
+@media (max-width: 1000px) and (min-width: 701px) { .mp { --mp-lateral: 270px; } .mp-lateral { padding: 20px 16px; } }
+
+/* Celular: todo en columna (nombre, misiones en fila deslizable, operador con su globo y botones). */
+@media (max-width: 700px) {
+  .mp { --mp-lateral: 0px; display: flex; flex-direction: column; overflow-y: auto; }
+  .mp-lateral { order: 1; } .mp-globo { order: 2; } .mp-escena { order: 3; } .mp-acciones { order: 4; }
+  .mp-lateral { position: static; width: auto; background: none; border: 0; padding: 12px 14px 0; gap: 10px; overflow: visible; }
+  .mp-nombre h1 { font-size: 30px; margin: 4px 0 4px; }
+  .mp-nombre h1 br { display: none; }
+  .mp-nombre .menu-kicker, .mp-lema { display: none; }
+  .mp-misiones ul { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px; overflow: visible; }
+  .mp-mision { min-height: 64px; padding: 8px 4px; flex-direction: column; justify-content: center; gap: 4px; text-align: center; }
+  .mp-mision .menu-orbe { width: 26px; height: 26px; flex-basis: 26px; }
+  .mp-mision-texto strong { font-size: 11px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .mp-mision-texto small, .mp-mision-estado { display: none; }
+  .mp-mision-texto { width: 100%; }
+  .mp-globo { position: relative; top: auto; left: auto; transform: none; width: auto; margin: 12px 14px 0; padding: 10px 14px 12px; }
+  .mp-globo h2 { font-size: 18px; }
+  .mp-globo p { font-size: 13px; }
+  .mp-escena { position: relative; inset: auto; left: auto; height: clamp(190px, 32dvh, 320px); flex: 0 0 auto; z-index: 0; }
+  .mp-atmosfera { display: none; }
+  .mp-acciones { position: static; transform: none; width: auto; margin: 0 14px 14px; }
+  .mp-secundarios { grid-template-columns: repeat(3, 1fr); }
+  .mp-secundarios button { min-height: 44px; padding: 6px 4px; font-size: 12px; }
+}
+
+/* U3: identidad y elección de equipo antes del briefing. */
+.mp-tu-nombre { display:grid; gap:5px; margin:12px 0; font-size:14px; color:#b9d1de; }
+.mp-tu-nombre input { width:100%; min-height:42px; padding:8px 12px; color:#eaf6fb; background:#0d2230; border:1px solid #5f8398; border-radius:8px; font-size:16px; }
+.mp-modos { display:grid; grid-template-columns:1fr 1fr; gap:6px; }
+.mp-modos button { min-width:0; min-height:48px; padding:6px; font-size:14px; line-height:1.2; border:1px solid #4e7488; border-radius:8px; background:#0d2230; color:#d6ecf5; }
+.mp-modos button[aria-pressed=true] { border-color:#b4f6ee; background:#17424d; color:#b4f6ee; }
+.mp-equipo-resumen { margin-top:8px !important; font-weight:600; }
+.mp-pendiente { font-size:14px; color:#f4d495; text-align:center; }
+.mp .sr-dif { flex-wrap:wrap; }
+.mp .sr-dif button { min-width:85px; }
+.mp :focus-visible { outline:3px solid #83e5ef; outline-offset:3px; }
+@media (min-width:701px) and (max-height:820px) { .mp { --mp-abajo:200px; } .mp-lateral { gap:10px; padding-top:16px; } .mp-nombre h1 { font-size:40px; } }
+@media (max-width:700px) { .mp-tu-nombre { margin:8px 0; } .mp-modos button { min-height:54px; } }
+
+/* Reinicio accesible desde el menú, con confirmación independiente. */
+.mp-secundarios { grid-template-columns:repeat(2,minmax(0,1fr)); }
+.mp-secundarios .mp-reiniciar { border-color:#bb8181; color:#ffcece; }
+.menu-dialogo .mp-confirmar-reinicio { background:#713d48; border:1px solid #efabb5; color:#fff; margin:8px; }
+
+.mp-tierra { min-height:48px; border:1px solid #b4d59a; background:#203b31; color:#e4ffd0; border-radius:8px; font-size:16px; font-weight:700; }

@@ -1,0 +1,142 @@
+{
+  "panel_chico": {
+    "nombre": "Small solar panels",
+    "dato": "At 5.2 AU, only 3.7% of the sunlight we receive on Earth reaches the spacecraft."
+  },
+  "panel_mediano": {
+    "nombre": "Medium solar panels",
+    "dato": "Enough for Mars, insufficient for Jupiter."
+  },
+  "panel_gigante": {
+    "nombre": "Giant solar wings",
+    "dato": "Juno was the first spacecraft to reach Jupiter powered by solar energy, using 3 massive wings."
+  },
+  "rtg": {
+    "nombre": "Radioisotope thermoelectric generators (RTG)",
+    "dato": "They do not rely on the Sun and their waste heat warms the spacecraft, but plutonium-238 is expensive and scarce."
+  },
+  "antena_media": {
+    "nombre": "Medium-gain antenna (0.8 m)",
+    "dato": "The signal weakens with the square of the distance."
+  },
+  "antena_alta": {
+    "nombre": "High-gain antenna (2.5 m)",
+    "dato": "Larger diameter = more focused beam = more data."
+  },
+  "antena_ka": {
+    "nombre": "High-gain antenna + Ka-band",
+    "dato": "Ka-band enables measuring Jupiter's gravity using the Doppler effect."
+  },
+  "blindaje_ninguno": {
+    "nombre": "No shielding",
+    "dato": "Jupiter has the most intense radiation belts in the solar system."
+  },
+  "blindaje_aluminio": {
+    "nombre": "Aluminum shielding",
+    "dato": "Lightweight and inexpensive, but only stops half of the radiation."
+  },
+  "boveda_titanio": {
+    "nombre": "Titanium radiation vault",
+    "dato": "Juno protects its electronics inside a titanium radiation vault."
+  },
+  "tanque_chico": {
+    "nombre": "Small tank (1,200 kg of propellant)",
+    "dato": "Every kilogram of propellant must also be launched."
+  },
+  "tanque_mediano": {
+    "nombre": "Medium tank (1,600 kg of propellant)",
+    "dato": "Just enough margin to arrive and brake."
+  },
+  "tanque_grande": {
+    "nombre": "Large tank (2,000 kg of propellant)",
+    "dato": "More than half of Juno's liftoff mass was propellant."
+  },
+  "mwr": {
+    "nombre": "Microwave radiometer (MWR)",
+    "dato": "Peers hundreds of kilometers beneath the clouds to measure water and ammonia."
+  },
+  "gravedad": {
+    "nombre": "Gravity science",
+    "dato": "Measuring how Jupiter pulls on the spacecraft reveals whether it has a solid core."
+  },
+  "mag": {
+    "nombre": "Magnetometer (MAG)",
+    "dato": "The magnetic field reveals the \"dynamo\" inside the planet."
+  },
+  "jiram": {
+    "nombre": "Infrared camera (JIRAM)",
+    "dato": "Sees the heat escaping from deep layers and the auroras."
+  },
+  "particulas": {
+    "nombre": "Particle detectors (JADE + JEDI)",
+    "dato": "Measure the particles that create the most powerful auroras in the solar system."
+  },
+  "uvs_waves": {
+    "nombre": "UV spectrograph + plasma waves",
+    "dato": "Listens to radio waves and photographs auroras in ultraviolet."
+  },
+  "junocam": {
+    "nombre": "Public camera (JunoCam)",
+    "dato": "Its photos are processed by the public: citizen science."
+  },
+  "camara_hd": {
+    "nombre": "High-resolution camera",
+    "dato": "Spectacular photos... if you manage to downlink them."
+  },
+  "sonda_atmosferica": {
+    "nombre": "Atmospheric descent probe",
+    "dato": "The Galileo mission dropped a probe in 1995; it survived less than an hour."
+  },
+  "lroc": {
+    "nombre": "LROC camera",
+    "dato": "Its photos are so detailed that tracks and landing modules from the Apollo missions are visible."
+  },
+  "lend": {
+    "nombre": "LEND neutron detector",
+    "dato": "Neutrons bouncing off the surface reveal hydrogen: a clue for water ice."
+  },
+  "lola": {
+    "nombre": "LOLA laser altimeter",
+    "dato": "Fires laser pulses and measures how long they take to return, building an elevation map."
+  },
+  "diviner": {
+    "nombre": "Diviner thermal radiometer",
+    "dato": "Measures ground temperature: permanently shadowed polar craters are cold enough for ice to survive billions of years."
+  },
+  "lamp": {
+    "nombre": "LAMP UV spectrograph",
+    "dato": "Sees in the dark using the faint ultraviolet glow of starlight."
+  },
+  "crater": {
+    "nombre": "CRaTER radiation detector",
+    "dato": "Measures how much radiation an astronaut would receive: key for returning to the Moon."
+  },
+  "minirf": {
+    "nombre": "Mini-RF radar",
+    "dato": "Radar penetrates shadow and dust to search for ice inside craters."
+  },
+  "bateria_basica": {
+    "nombre": "Li-ion batteries (2,000 Wh)",
+    "dato": "Batteries store the solar panels' energy to ride through eclipses, when the Sun is blocked and nothing is generated."
+  },
+  "bateria_avanzada": {
+    "nombre": "High-density Li-ion batteries (3,200 Wh)",
+    "dato": "More cells in the same space last through longer eclipses, but they take longer to test and qualify."
+  },
+  "computadora_estandar": {
+    "nombre": "Standard flight computer (32 Gbit)",
+    "dato": "The spacecraft's brain: it runs commands and holds data until the antenna can send it."
+  },
+  "computadora_rad_hard": {
+    "nombre": "Radiation-hardened computer (128 Gbit)",
+    "dato": "\"Rad-hard\" chips survive radiation and their large memory holds data when the link falls short. They cost more and take longer to qualify."
+  },
+  "orientacion_basica": {
+    "nombre": "Reaction wheels + sun sensors (60 arcseconds)",
+    "dato": "Reaction wheels spin to point the spacecraft without using fuel; sun sensors tell it where it is facing."
+  },
+  "orientacion_precision": {
+    "nombre": "Reaction wheels + star tracker (6 arcseconds)",
+    "dato": "A star tracker recognizes the sky like a map and points with great precision, which improves photos and the link."
+  }
+}

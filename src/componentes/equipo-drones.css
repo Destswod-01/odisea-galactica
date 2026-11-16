@@ -1,0 +1,9 @@
+.equipo-drones{margin:18px 0;padding:16px;border:1px solid #6dcfc966;border-radius:12px;background:linear-gradient(135deg,#15384b,#0d2133);color:#def8f2}.equipo-drones>span{font:9px monospace;color:#93d8d0;letter-spacing:.1em}.equipo-drones h3{font-size:17px;margin:10px 0}.equipo-drones p{font-size:12px;line-height:1.6;color:#b8cfda}.equipo-drones>div{display:flex;gap:8px;margin:14px 0}.equipo-drones button{flex:1;min-height:42px;padding:8px;background:#0b1c2d;border:1px solid #4f798e;color:#cbe9ee}.equipo-drones button[aria-pressed=true]{background:#96e8d1;color:#092d36;border-color:#caffed}.equipo-drones strong{font-size:12px}.equipo-drones small{display:block;font-size:10px;line-height:1.5;color:#89a6b7;margin-top:9px}
+
+.equipo-drones-chips{list-style:none;display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px;padding:0}.equipo-drones-chips li{font-size:11px;padding:4px 9px;border-radius:999px;border:1px solid var(--c);background:color-mix(in srgb,var(--c) 16%,#0b1c2d);color:#e6f6f4}.equipo-drones .equipo-drones-taller{display:block;width:100%;flex:none;margin:0 0 12px;min-height:44px;border-color:#96e8d1}.equipo-drones-chips b{color:var(--c);font:11px monospace}
+
+/* Avisos de los pasos de la bahía de drones. */
+.equipo-drones-aviso{margin:6px 0;padding:7px 10px;border-radius:10px;font-weight:700;font-size:13px}
+.equipo-drones-aviso.paso1{background:#3a2a12;color:#ffd28a;border:1px solid #e0a040}
+.equipo-drones-aviso.paso2{background:#0f2f3d;color:#9fe3ff;border:1px solid #5cc8ff}
+.equipo-drones-taller{font-weight:700;border:1px solid #5cc8ff;box-shadow:0 0 12px #5cc8ff55}
