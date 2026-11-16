@@ -43,9 +43,9 @@ They negotiate conflicts and vote on the design before launch, and they get a co
 
 ## Link to Final Project
 
-https://mision.ja-war.com/orbita-2/?lang=en
+https://mision.ja-war.com/orbita-2/
 
-(Source code: https://github.com/Destswod-01/ORBITA)
+(Source code: https://github.com/Destswod-01/odisea-galactica)
 
 ## Detailed Project Description
 
@@ -80,7 +80,7 @@ Odisea Galáctica turns the systems-engineering process NASA uses for science mi
    - a part-by-part comparison with the real spacecraft;
    - a table to compare attempts.
 
-**How it works.** All the physics and rules live in pure, unit-tested engines (509 automated tests): rocket equation for delta-v, solar power falling with distance, RTG decay, link capacity, radiation dose and orbit effects. The real NASA designs of LRO and Juno must remain viable, and every trap must fail for its real reason.
+**How it works.** All the physics and rules live in pure, unit-tested engines (512 automated tests): rocket equation for delta-v, solar power falling with distance, RTG decay, link capacity, radiation dose and orbit effects. The real NASA designs of LRO and Juno must remain viable, and every trap must fail for its real reason.
 
 **Benefits.** Students experience the whole mission as one connected system instead of isolated topics: every decision has a consequence elsewhere, and there is rarely a single right answer. Because the report explains *why*, failing is a way to learn. The game runs in any browser, on phones too, and works in two languages.
 
